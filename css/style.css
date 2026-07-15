@@ -1509,7 +1509,7 @@ h4 { font-size: 1.125rem; }
 /* --- WhatsApp Customer Service Button --- */
 .whatsapp-btn {
   position: fixed;
-  bottom: 2rem;
+  bottom: 14rem;
   right: 2rem;
   z-index: 999;
   display: flex;
@@ -1674,7 +1674,7 @@ h4 { font-size: 1.125rem; }
 .wa-popup-footer a:hover { background: #1da851; }
 
 @media (max-width: 480px) {
-  .whatsapp-btn { bottom: 1.25rem; right: 1.25rem; }
+  .whatsapp-btn { bottom: 13.25rem; right: 1.25rem; }
   .whatsapp-popup { right: 1rem; width: calc(100vw - 2rem); bottom: 5.5rem; }
 }
 
@@ -2142,7 +2142,7 @@ h4 { font-size: 1.125rem; }
 /* iOS safe area support */
 .header { padding-top: env(safe-area-inset-top); }
 .footer { padding-bottom: env(safe-area-inset-bottom); }
-.whatsapp-btn { bottom: calc(1.5rem + env(safe-area-inset-bottom)); }
+.whatsapp-btn { bottom: calc(13.5rem + env(safe-area-inset-bottom)); }
 
 /* Mobile menu close button */
 .mobile-menu-btn { transition: transform 0.2s; }
