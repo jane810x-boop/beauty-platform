@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Brands — F&amp;J K-Beauty &amp; Asian Beauty</title>
+<meta name="description" content="Explore our curated collection of K-beauty and Asian beauty brands. From iconic Korean skincare to Japanese essentials — discover your next favorite.">
+<link rel="canonical" href="https://fjbeauty.com/brands.html">
+<meta property="og:title" content="Brands — F&amp;J K-Beauty">
+<meta property="og:description" content="Explore Korea's most iconic beauty brands — Laneige, COSRX, Sulwhasoo, Innisfree and more.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=3">
+  <script src="js/layout.js?v=2"></script>
+<script src="js/i18n.js"></script>
+</head>
+<body>
+
+<div id="header-mount" data-nav="brands"></div>
+
+<section class="page-header">
+  <div class="container">
+    <h1 data-i18n="brands.title" data-i18n-en="Our Brands">全部品牌</h1>
+    <p data-i18n="brands.subtitle" data-i18n-en="Discover beauty brands from across Asia">精選韓妝明星品牌與日妝必備。正品，嚴選，全球直送。</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="brand-grid" id="brand-grid"></div>
+  </div>
+</section>
+
+<div id="footer-mount"></div>
+
+<script src="js/site-config.js"></script>
+<script src="js/products.js"></script>
+<script src="js/api.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+<script src="js/wishlist.js"></script>
+<script src="js/analytics.js"></script>
+<script src="js/whatsapp.js"></script>
+<script src="js/age-verify.js"></script>
+<script src="js/lgpd-cookie.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  // 優先從 API 加載產品數據
+  if (typeof ProductAPI !== 'undefined') {
+    allProducts = await ProductAPI.getAllProducts();
+  } else {
+    allProducts = PRODUCTS;
+  }
+
+  const grid = document.getElementById('brand-grid');
+  const dataSource = allProducts || PRODUCTS;
+  BRANDS.forEach(b => {
+    const count = dataSource.filter(p => p.brand === b.id).length;
+    const isKorean = b.origin === 'South Korea';
+    const card = document.createElement('a');
+    card.className = 'brand-card' + (isKorean ? ' brand-card-kr' : '');
+    card.href = 'shop.html?brand=' + b.id;
+    card.innerHTML = `
+      <div class="brand-logo-placeholder">${b.emoji}</div>
+      ${isKorean ? '<span class="kr-badge">🇰🇷 ' + t('brands.kr_badge') + '</span>' : ''}
+      <div class="brand-name">${b.name}</div>
+      <div class="brand-origin">${b.origin}</div>
+      <div class="brand-count">${count} <span data-i18n="brands.products_count" data-i18n-en="Products">件商品</span></div>
+    `;
+    grid.appendChild(card);
+  });
+});
+</script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

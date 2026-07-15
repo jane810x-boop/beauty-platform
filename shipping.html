@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Shipping Information — F&amp;J</title>
+<meta name="description" content="Shipping information for F&J — delivery times, costs, and policies worldwide.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=3">
+<script src="js/layout.js?v=2"></script>
+<script src="js/i18n.js"></script>
+<style>
+  .legal-content { max-width: 800px; margin: 0 auto; padding: 2rem 0 4rem; }
+  .legal-content h2 { font-size: 1.5rem; margin: 2.5rem 0 1rem; color: var(--dark); }
+  .legal-content p, .legal-content li { color: var(--text-light); line-height: 1.8; margin-bottom: 1rem; font-size: 0.95rem; }
+  .legal-content ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+  .legal-content ul li { list-style: disc; margin-bottom: 0.5rem; }
+  .legal-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+  .legal-content th, .legal-content td { padding: 0.75rem 1rem; border: 1px solid var(--border); text-align: left; font-size: 0.9rem; }
+  .legal-content th { background: var(--border-light); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div id="header-mount" data-nav=""></div>
+
+<div class="container">
+  <div class="breadcrumb">
+    <a href="index.html" data-i18n="nav.home" data-i18n-en="Home">首頁</a> <span>/</span> <span data-i18n="shipping.breadcrumb" data-i18n-en="Shipping">配送資訊</span>
+  </div>
+  <div class="legal-content">
+    <h1 data-i18n="shipping.title" data-i18n-en="Shipping Information">配送資訊</h1>
+
+    <h2 data-i18n="shipping.brazil_title" data-i18n-en="🇧🇷 Brazil Deliveries">🇧🇷 巴西配送</h2>
+    <p data-i18n="shipping.brazil_desc" data-i18n-en="All products are shipped directly from Asia to Brazil via Correios or DHL/FedEx.">所有產品從亞洲直接發往巴西，通過 Correios 或 DHL/FedEx 配送。</p>
+
+    <table>
+      <tr><th data-i18n="shipping.table_method" data-i18n-en="Method">配送方式</th><th data-i18n="shipping.table_time" data-i18n-en="Estimated Time">預計時效</th><th data-i18n="shipping.table_cost" data-i18n-en="Cost">費用</th></tr>
+      <tr><td data-i18n="shipping.pac" data-i18n-en="PAC (Economy)">PAC（經濟）</td><td data-i18n="shipping.pac_time" data-i18n-en="20-30 business days">20-30 個工作日</td><td data-i18n="shipping.pac_cost" data-i18n-en="Free for orders over R$ 250">滿 R$250 免運費</td></tr>
+      <tr><td data-i18n="shipping.ems" data-i18n-en="EMS (Express)">EMS（快遞）</td><td data-i18n="shipping.ems_time" data-i18n-en="10-15 business days">10-15 個工作日</td><td data-i18n="shipping.ems_cost" data-i18n-en="R$ 49.90 (free over R$ 500)">R$49,90（滿 R$500 免費）</td></tr>
+      <tr><td data-i18n="shipping.dhl" data-i18n-en="DHL/FedEx">DHL/FedEx</td><td data-i18n="shipping.dhl_time" data-i18n-en="5-8 business days">5-8 個工作日</td><td data-i18n="shipping.dhl_cost" data-i18n-en="On request">咨询客服</td></tr>
+    </table>
+
+    <h2 data-i18n="shipping.customs_title" data-i18n-en="Customs Clearance">海關清關</h2>
+    <p data-i18n="shipping.customs_p1" data-i18n-en="All products are imported and subject to inspection. Import taxes are collected at checkout.">所有產品均為進口商品，需經巴西聯邦稅務局和 ANVISA 檢查。進口稅費在購買時計算並代收。</p>
+    <p data-i18n="shipping.customs_p2" data-i18n-en="Customs release may take 2-15 days. F&J is not responsible for delays.">海關放行時間可能為 2-15 天，取決於 Correios 的包裹量。F&J 不對 Correios 罷工、海關扣留或不可抗力造成的延誤負責。</p>
+
+    <h2 data-i18n="shipping.tracking_title" data-i18n-en="Tracking">物流追蹤</h2>
+    <p data-i18n="shipping.tracking_desc" data-i18n-en="All orders include tracking. You will receive it by email.">所有訂單均含追蹤號碼。訂單發貨後，你將通過郵件收到追蹤號碼。可在 Correios 官網查询。</p>
+
+    <h2 data-i18n="shipping.us_eu_title" data-i18n-en="🇺🇸 United States & Europe">🇺🇸 美國與歐洲</h2>
+    <table>
+      <tr><th data-i18n="shipping.us_eu_table_region" data-i18n-en="Region">地區</th><th data-i18n="shipping.us_eu_table_standard" data-i18n-en="Standard">標准</th><th data-i18n="shipping.us_eu_table_express" data-i18n-en="Express">快遞</th></tr>
+      <tr><td data-i18n="shipping.us_eu_us" data-i18n-en="United States">美國</td><td data-i18n="shipping.standard_us">5-10 business days</td><td data-i18n="shipping.express_us">2-4 business days</td></tr>
+      <tr><td data-i18n="shipping.us_eu_uk" data-i18n-en="United Kingdom">英國</td><td data-i18n="shipping.standard_eu">7-12 business days</td><td data-i18n="shipping.express_eu">3-5 business days</td></tr>
+      <tr><td data-i18n="shipping.us_eu_eu" data-i18n-en="EU (DE/FR/IT/ES/NL)">歐盟（德/法/意/西/荷）</td><td data-i18n="shipping.standard_row">7-14 business days</td><td data-i18n="shipping.express_row">3-6 business days</td></tr>
+    </table>
+    <p data-i18n="shipping.us_eu_free" data-i18n-en="Free standard shipping on orders over $50 (US) / €50 (EU).">滿 $50（美國）/ €50（歐盟）免標准運費。</p>
+
+    <h2 data-i18n="shipping.other_title" data-i18n-en="Other Countries">其他國家</h2>
+    <p data-i18n="shipping.other_desc" data-i18n-en="We ship to 40+ countries. Check at checkout.">我們向 40+ 個國家配送。請在結賬頁輸入地址後查看具體時效和費用。</p>
+  </div>
+</div>
+
+<div id="footer-mount"></div>
+
+<script src="js/site-config.js"></script>
+<script src="js/products.js"></script>
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+<script src="js/wishlist.js"></script>
+<script src="js/analytics.js"></script>
+<script src="js/whatsapp.js"></script>
+<script src="js/age-verify.js"></script>
+<script src="js/lgpd-cookie.js"></script>
+</body>
+</html>

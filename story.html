@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>The Story of F&J — A Love Letter to Skin</title>
+<meta name="description" content="Two letters. One love. Your skin. The story of F&J — a platform built with love, for good skin everywhere.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=3">
+<style>
+  :root{
+    --rose:#8B3A4A;
+    --rose-deep:#6E2D3B;
+    --espresso:#1A1212;
+    --cream:#FAF7F4;
+    --cream-2:#F3ECE4;
+    --gold:#C4A35A;
+    --gold-soft:#D9C28A;
+    --mauve:#9B7B84;
+    --ink:#2B2320;
+    --text:#4A4039;
+    --text-light:#8A7E74;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--text);
+    background:var(--cream);
+    line-height:1.75;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:1.4rem 2.5rem;
+    background:rgba(250,247,244,.72);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(196,163,90,.18);
+    transition:padding .4s ease,box-shadow .4s ease;
+  }
+  .topbar.scrolled{padding:.9rem 2.5rem;box-shadow:0 6px 30px rgba(26,18,18,.06)}
+  .topbar a.back{
+    font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--text-light);transition:color .3s;
+  }
+  .topbar a.back:hover{color:var(--rose)}
+  .topbar .mono{
+    font-family:'Playfair Display',serif;font-size:1.35rem;color:var(--espresso);
+    letter-spacing:.02em;
+  }
+  .topbar .mono span{color:var(--rose);font-style:italic;font-weight:500}
+  .topbar a.shop{
+    font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--espresso);border-bottom:1px solid var(--gold);padding-bottom:2px;
+    transition:color .3s,border-color .3s;
+  }
+  .topbar a.shop:hover{color:var(--rose);border-color:var(--rose)}
+  .topbar-right{display:flex;align-items:center;gap:1.2rem}
+
+  /* ---------- lang switcher ---------- */
+  .lang-switcher{
+    display:flex;align-items:center;gap:.1rem;
+    padding:.25rem .5rem;border-radius:50px;
+    background:rgba(196,163,90,.1);
+  }
+  .lang-switcher .lang-label{
+    font-size:.68rem;font-weight:600;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--text-light);
+    margin-right:.2rem;white-space:nowrap;
+  }
+  .lang-flag-btn{
+    font-size:1.1rem;width:26px;height:26px;
+    display:flex;align-items:center;justify-content:center;
+    border:none;background:none;border-radius:50%;
+    cursor:pointer;transition:all .25s ease;
+    opacity:.4;filter:grayscale(.5);padding:0;line-height:1;
+  }
+  .lang-flag-btn:hover{opacity:1;filter:none;transform:scale(1.2)}
+  .lang-flag-btn.active{opacity:1;filter:none;box-shadow:0 0 0 2px var(--gold)}
+  @media(max-width:768px){
+    .lang-switcher .lang-label{display:none}
+    .lang-flag-btn{width:22px;height:22px;font-size:1rem}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;min-height:100vh;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;
+    padding:8rem 2rem 5rem;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 40%, rgba(196,163,90,.10), transparent 70%),
+      linear-gradient(180deg, var(--cream) 0%, var(--cream-2) 100%);
+    overflow:hidden;
+  }
+  .hero .grain{
+    position:absolute;inset:0;opacity:.5;pointer-events:none;
+    background-image:radial-gradient(rgba(139,58,74,.05) 1px, transparent 1px);
+    background-size:26px 26px;
+  }
+  .hero .crest{
+    font-family:'Playfair Display',serif;font-style:italic;font-weight:400;
+    font-size:clamp(7rem,22vw,16rem);line-height:.9;
+    color:var(--espresso);position:relative;z-index:2;
+    letter-spacing:-.04em;
+  }
+  .hero .crest .amp{color:var(--rose);font-weight:500}
+  .hero .kicker{
+    position:relative;z-index:2;margin-top:1.8rem;
+    font-size:.7rem;letter-spacing:.5em;text-transform:uppercase;
+    color:var(--gold);font-weight:500;
+  }
+  .hero .kicker::before,.hero .kicker::after{
+    content:"";display:inline-block;width:38px;height:1px;
+    background:var(--gold-soft);vertical-align:middle;margin:0 1.2rem;
+  }
+  .hero h1{
+    position:relative;z-index:2;margin-top:1.6rem;
+    font-family:'Playfair Display',serif;font-weight:400;
+    font-size:clamp(1.8rem,4.4vw,3rem);line-height:1.3;color:var(--espresso);
+    max-width:760px;
+  }
+  .hero h1 em{color:var(--rose);font-style:italic}
+  .hero .sub{
+    position:relative;z-index:2;margin-top:1.6rem;max-width:440px;
+    font-size:.98rem;color:var(--text-light);font-weight:300;
+  }
+  .scroll-cue{
+    position:absolute;bottom:2.4rem;left:50%;transform:translateX(-50%);z-index:2;
+    font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;color:var(--text-light);
+    display:flex;flex-direction:column;align-items:center;gap:.7rem;
+  }
+  .scroll-cue .line{width:1px;height:46px;background:linear-gradient(var(--gold),transparent);
+    animation:drop 2.2s ease-in-out infinite}
+  @keyframes drop{0%,100%{transform:scaleY(.4);transform-origin:top;opacity:.4}50%{transform:scaleY(1);opacity:1}}
+
+  /* ---------- story sections ---------- */
+  .story{max-width:680px;margin:0 auto;padding:6rem 1.6rem}
+  .lede{
+    font-family:'Playfair Display',serif;font-style:italic;font-weight:400;
+    font-size:clamp(1.4rem,3vw,1.9rem);line-height:1.6;color:var(--espresso);
+    text-align:center;max-width:620px;margin:0 auto 3rem;
+  }
+  .lede .hl{color:var(--rose)}
+  .para{
+    font-size:1.06rem;color:var(--text);line-height:1.95;margin-bottom:1.7rem;
+    font-weight:300;
+  }
+  .para strong{font-weight:500;color:var(--espresso)}
+  .para .amp{color:var(--rose);font-family:'Playfair Display',serif;font-style:italic;font-weight:500}
+
+  /* pull quote */
+  .pull{
+    margin:3.5rem auto;max-width:560px;text-align:center;position:relative;
+    padding:2.4rem 1rem;
+  }
+  .pull::before,.pull::after{
+    content:"";position:absolute;left:50%;transform:translateX(-50%);
+    width:60px;height:1px;background:var(--gold-soft);
+  }
+  .pull::before{top:0}.pull::after{bottom:0}
+  .pull p{
+    font-family:'Playfair Display',serif;font-style:italic;font-weight:400;
+    font-size:clamp(1.5rem,3.4vw,2.1rem);line-height:1.5;color:var(--rose-deep);
+  }
+  .pull .mark{
+    display:block;margin-top:1rem;font-family:'Playfair Display',serif;
+    font-size:2.2rem;color:var(--gold);line-height:1;
+  }
+
+  /* divider with monogram */
+  .divmono{text-align:center;padding:2rem 0}
+  .divmono .dm{
+    display:inline-block;font-family:'Playfair Display',serif;font-style:italic;
+    color:var(--gold);font-size:1.1rem;position:relative;padding:0 2.2rem;
+  }
+  .divmono .dm::before,.divmono .dm::after{
+    content:"";position:absolute;top:50%;width:80px;height:1px;background:var(--gold-soft);
+  }
+  .divmono .dm::before{right:100%}.divmono .dm::after{left:100%}
+
+  /* turn section — the consumer pivot, rose background */
+  .turn{
+    background:linear-gradient(180deg,var(--rose) 0%,var(--rose-deep) 100%);
+    color:var(--cream);padding:6.5rem 1.6rem;text-align:center;position:relative;
+    overflow:hidden;
+  }
+  .turn .glow{
+    position:absolute;width:60vw;height:60vw;border-radius:50%;
+    background:radial-gradient(circle,rgba(196,163,90,.22),transparent 65%);
+    top:-15vw;left:50%;transform:translateX(-50%);pointer-events:none;
+  }
+  .turn .tk{
+    position:relative;z-index:2;font-size:.68rem;letter-spacing:.5em;text-transform:uppercase;
+    color:var(--gold-soft);margin-bottom:1.8rem;
+  }
+  .turn h2{
+    position:relative;z-index:2;font-family:'Playfair Display',serif;font-weight:400;
+    font-size:clamp(2rem,5vw,3.3rem);line-height:1.3;max-width:720px;margin:0 auto 1.6rem;
+  }
+  .turn h2 em{font-style:italic;color:#F0D9B5}
+  .turn p{
+    position:relative;z-index:2;max-width:520px;margin:0 auto;font-weight:300;
+    color:rgba(250,247,244,.82);font-size:1.04rem;
+  }
+
+  /* closing */
+  .closing{text-align:center;padding:7rem 1.6rem 4rem;background:var(--cream)}
+  .closing .lines{
+    font-family:'Playfair Display',serif;font-weight:400;
+    font-size:clamp(1.5rem,3.6vw,2.3rem);line-height:1.6;color:var(--espresso);
+    max-width:640px;margin:0 auto 2.6rem;
+  }
+  .closing .lines em{color:var(--rose);font-style:italic}
+  .closing .slogan{
+    font-family:'Playfair Display',serif;font-style:italic;font-size:1.25rem;
+    color:var(--gold);letter-spacing:.04em;
+  }
+  .closing .btn{
+    display:inline-block;margin-top:2.6rem;padding:1rem 2.6rem;
+    background:var(--espresso);color:var(--cream);
+    font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;font-weight:500;
+    transition:background .35s,transform .35s;cursor:pointer;border:none;
+  }
+  .closing .btn:hover{background:var(--rose);transform:translateY(-2px)}
+
+  /* footer */
+  .foot{
+    text-align:center;padding:2.6rem 1rem;background:var(--espresso);color:rgba(250,247,244,.55);
+    font-size:.72rem;letter-spacing:.18em;
+  }
+  .foot .fm{font-family:'Playfair Display',serif;font-style:italic;color:var(--gold);font-size:1rem;letter-spacing:.02em;margin-bottom:.4rem}
+
+  /* reveal animation */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity 1s ease,transform 1s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:640px){
+    .topbar{padding:1rem 1.2rem}
+    .topbar .mono{font-size:1.1rem}
+    .hero{padding:7rem 1.2rem 4rem}
+    .story{padding:4.5rem 1.2rem}
+    .turn{padding:5rem 1.2rem}
+    .closing{padding:5rem 1.2rem 3rem}
+  }
+</style>
+</head>
+<body data-i18n-title="story.page_title" data-i18n-desc="story.page_desc">
+
+<!-- header -->
+<header class="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">F<span>&amp;</span>J</a>
+    <nav class="nav">
+      <a href="index.html" data-i18n="nav.home" data-i18n-en="Home">首頁</a>
+      <a href="shop.html" data-i18n="nav.shop" data-i18n-en="Shop">全部商品</a>
+      <a href="brands.html" data-i18n="nav.brands" data-i18n-en="Brands">品牌</a>
+      <div class="nav-dropdown">
+        <span class="nav-dropdown-toggle" data-i18n="nav.learn" data-i18n-en="Learn">美妝學堂</span>
+        <div class="nav-dropdown-menu">
+          <a href="blog.html?cat=reviews" data-i18n="nav.reviews" data-i18n-en="Reviews">產品測評</a>
+          <a href="blog.html?cat=ingredients" data-i18n="nav.ingredients" data-i18n-en="Ingredients 101">成分科普</a>
+          <a href="blog.html?cat=routines" data-i18n="nav.routines" data-i18n-en="Routines & Tips">護膚步驟</a>
+        </div>
+      </div>
+      <a href="story.html" class="active" data-i18n="nav.story" data-i18n-en="Brand Story">品牌故事</a>
+      <a href="about.html" data-i18n="nav.about" data-i18n-en="About">關於我們</a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-switcher">
+        <span class="lang-label" data-i18n="nav.language" data-i18n-en="Language">語言</span>
+        <button class="lang-flag-btn active" onclick="setLang('ko')" title="한국어">🇰🇷</button>
+        <button class="lang-flag-btn" onclick="setLang('en')" title="English">🇺🇸</button>
+        <button class="lang-flag-btn" onclick="setLang('pt-BR')" title="Português (BR)">🇧🇷</button>
+        <button class="lang-flag-btn" onclick="setLang('es')" title="Español">🇲🇽</button>
+        <button class="lang-flag-btn" onclick="setLang('zhHK')" title="粵語">🇭🇰</button>
+      </div>
+      <a href="login.html" class="user-menu-link" id="header-login-btn" data-i18n="nav.signin">👤 Sign In</a>
+      <a href="account.html" class="user-menu-link" id="header-user-menu" style="display:none;">👤 <span id="header-user-name"></span></a>
+      <a href="cart.html" class="icon-btn">
+        🛒
+        <span class="cart-count" style="display:none">0</span>
+      </a>
+      <button class="mobile-menu-btn icon-btn">☰</button>
+    </div>
+  </div>
+</header>
+<nav class="mobile-nav">
+  <a href="index.html" data-i18n="nav.home" data-i18n-en="Home">首頁</a>
+  <a href="shop.html" data-i18n="nav.shop" data-i18n-en="Shop">全部商品</a>
+  <a href="brands.html" data-i18n="nav.brands" data-i18n-en="Brands">品牌</a>
+  <div class="mobile-nav-dropdown">
+    <span class="mobile-nav-dropdown-toggle" data-i18n="nav.learn" data-i18n-en="Learn">美妝學堂</span>
+    <div class="mobile-nav-dropdown-menu">
+      <a href="blog.html?cat=reviews" data-i18n="nav.reviews" data-i18n-en="Reviews">產品測評</a>
+      <a href="blog.html?cat=ingredients" data-i18n="nav.ingredients" data-i18n-en="Ingredients 101">成分科普</a>
+      <a href="blog.html?cat=routines" data-i18n="nav.routines" data-i18n-en="Routines & Tips">護膚步驟</a>
+    </div>
+  </div>
+  <a href="story.html" data-i18n="nav.story" data-i18n-en="Brand Story">品牌故事</a>
+  <a href="about.html" data-i18n="nav.about" data-i18n-en="About">關於我們</a>
+  <a href="login.html" data-i18n="nav.login" data-i18n-en="Sign In">登入</a>
+</nav>
+
+<!-- hero -->
+<section class="hero">
+  <div class="grain"></div>
+  <div class="crest reveal">F<span class="amp">&amp;</span>J</div>
+  <div class="kicker reveal" data-i18n="story.kicker">The Story</div>
+  <h1 class="reveal" data-i18n-html="story.h1">Two letters. One love.<br><em>Your skin.</em></h1>
+  <p class="sub reveal" data-i18n="story.sub">A platform, not a product. A love letter, not a counter.</p>
+  <div class="scroll-cue">
+    <span data-i18n="story.scroll">Read on</span>
+    <span class="line"></span>
+  </div>
+</section>
+
+<!-- the story -->
+<main class="story">
+  <p class="lede reveal" data-i18n-html="story.lede">
+    F and J are two names. Two founders. One conviction too simple to overlook:
+    <span class="hl">beauty, at its truest, is an act of love</span> — and good skin is its most honest signature.
+  </p>
+
+  <p class="para reveal" data-i18n-html="story.p1">
+    They began not with a product, but with a question. Why does the beauty we see feel so distant from the skin we actually live in? In Seoul's glow labs, in Tokyo's quiet apothecaries, in the places where Eastern ritual meets modern science, they found an answer the West had only half-heard:
+  </p>
+  <p class="para reveal" data-i18n-html="story.p2">
+    <strong>Skin is not a surface to be corrected. It is a living thing to be tended.</strong> And good skin, like all worthwhile things, is built — patiently, daily, with care.
+  </p>
+  <p class="para reveal" data-i18n-html="story.p3">
+    Korea taught them the grammar: the layering, the luminosity, the discipline of a ritual repeated until it becomes result. The wider East gave it context — a centuries-long belief that beauty is not decoration, but devotion.
+  </p>
+
+  <div class="pull reveal">
+    <p data-i18n-html="story.pull">They did not want to make another product.<br>They wanted to make a promise.</p>
+    <span class="mark">&amp;</span>
+  </div>
+
+  <p class="para reveal" data-i18n-html="story.p4">
+    So <span class="amp">F&amp;J</span> was born — not a brand on a shelf, but a platform that chooses the way love chooses: carefully, with standards, and always for someone in particular. Every brand we carry is selected the way a gift is selected. Every formula is welcomed the way you'd welcome someone into your home.
+  </p>
+  <p class="para reveal" data-i18n-html="story.p5">
+    We call it <strong>Curated Asian Beauty.</strong>
+  </p>
+
+  <div class="divmono reveal"><span class="dm">F &amp; J</span></div>
+</main>
+
+<!-- the turn: the consumer -->
+<section class="turn">
+  <div class="glow"></div>
+  <div class="tk reveal" data-i18n="story.turn_tk">And here is where the story becomes yours</div>
+  <h2 class="reveal" data-i18n-html="story.turn_h2">
+    The platform was founded by two. But it belongs to anyone who has ever looked in the mirror and wanted to feel — <em>not transformed, but tended to.</em>
+  </h2>
+  <p class="reveal" data-i18n-html="story.turn_p">
+    F&amp;J is our name. The good skin is yours. The love that runs between them — from our choosing, to your wearing — is the whole point.
+  </p>
+</section>
+
+<!-- closing -->
+<section class="closing">
+  <p class="lines reveal" data-i18n-html="story.closing">
+    This is not a beauty counter.<br>
+    It is a letter, written in formulas, <em>addressed to your skin.</em>
+  </p>
+  <div class="slogan reveal" data-i18n="story.slogan">Curated Asian Beauty</div>
+  <a href="shop.html" class="btn reveal" data-i18n="story.btn">Begin your ritual</a>
+</section>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="logo" style="margin-bottom:1rem;">F<span>&amp;</span>J</div>
+      <p class="footer-desc" data-i18n="footer.tagline" data-i18n-en="Bringing the best of K-beauty and Asian beauty to the world.">將最好的韓妝和亞洲美妝帶給世界。</p>
+    </div>
+    <div><h4 data-i18n="footer.shop" data-i18n-en="Shop">購物</h4><a href="shop.html" data-i18n="nav.shop" data-i18n-en="Shop All">全部產品</a><a href="brands.html" data-i18n="nav.brands" data-i18n-en="Brands">品牌</a><a href="shop.html?cat=serums" data-i18n="footer.serums" data-i18n-en="Serums">精華液</a><a href="shop.html?cat=moisturizers" data-i18n="footer.moisturizers" data-i18n-en="Moisturizers">面霜</a><a href="shop.html?cat=sunscreen" data-i18n="footer.sunscreen" data-i18n-en="Sunscreen">防曬</a><a href="shop.html?cat=makeup" data-i18n="footer.makeup" data-i18n-en="Makeup">彩妝</a></div>
+    <div><h4 data-i18n="footer.help" data-i18n-en="Help">幫助</h4><a href="shipping.html" data-i18n="footer.shipping" data-i18n-en="Shipping">配送資訊</a><a href="returns.html" data-i18n="footer.returns" data-i18n-en="Returns">退換政策</a><a href="faq.html" data-i18n="footer.faq" data-i18n-en="FAQ">常見問題</a><a href="about.html" data-i18n="footer.contact" data-i18n-en="Contact">聯繫我們</a></div>
+    <div><h4 data-i18n="footer.legal" data-i18n-en="Legal">法律</h4><a href="privacy.html" data-i18n="footer.privacy" data-i18n-en="Privacy">隱私政策</a><a href="terms.html" data-i18n="footer.terms" data-i18n-en="Terms">服務條款</a><a href="returns.html" data-i18n="footer.auth" data-i18n-en="Authenticity Guarantee">正品保證</a></div>
+  </div>
+  <div class="footer-bottom"><p data-i18n="footer.copyright" data-i18n-en="&copy; 2026 F&amp;J. All rights reserved.">&copy; 2026 F&amp;J. 保留所有權利。</p></div>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/site-config.js"></script>
+<script src="js/products.js"></script>
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+<script src="js/wishlist.js"></script>
+<script src="js/analytics.js"></script>
+<script src="js/whatsapp.js"></script>
+<script src="js/age-verify.js"></script>
+<script src="js/lgpd-cookie.js"></script>
+<script>
+  // scroll reveal
+  const io=new IntersectionObserver((es)=>{
+    es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+  },{threshold:.18,rootMargin:"0px 0px -40px 0px"});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

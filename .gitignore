@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+
+# Environment files
+.env
+.env.local
+.env.production
+.env.*.local
+
+# Database
+*.db
+*.db-wal
+*.db-shm
+*.db-journal
+
+# Uploads (user-generated content)
+uploads/products/*
+!uploads/products/.gitkeep
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Build output
+dist/
+build/
+
+# Cloud / Deployment
+.serverless/

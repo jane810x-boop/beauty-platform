@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Register — F&J</title>
+  <meta name="description" content="Create your F&J account and start shopping for authentic K-beauty products.">
+  <meta name="robots" content="noindex, follow">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=3">
+  <script src="js/layout.js?v=2"></script>
+<script src="js/i18n.js"></script>
+  <style>
+    .auth-page { min-height: 80vh; display: flex; align-items: center; justify-content: center; padding: 3rem 1rem; }
+    .auth-card { background: #fff; border-radius: 12px; box-shadow: 0 2px 20px rgba(0,0,0,0.06); padding: 3rem 2.5rem; width: 100%; max-width: 440px; }
+    .auth-card h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 0.25rem; text-align: center; }
+    .auth-card p.sub { text-align: center; color: #999; margin-bottom: 2rem; font-size: 0.9rem; }
+    .auth-card .form-group { margin-bottom: 1.25rem; }
+    .auth-card label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: #333; }
+    .auth-card input, .auth-card select { width: 100%; padding: 0.75rem 1rem; border: 1.5px solid #e0e0e0; border-radius: 8px; font-size: 0.95rem; font-family: inherit; transition: border-color 0.2s; box-sizing: border-box; }
+    .auth-card input:focus, .auth-card select:focus { outline: none; border-color: #E5342B; }
+    .auth-card .btn-full { width: 100%; padding: 0.85rem; font-size: 1rem; margin-top: 0.5rem; }
+    .auth-card .error-msg { color: #E5342B; font-size: 0.85rem; margin-top: 0.75rem; text-align: center; display: none; }
+    .auth-card .switch-link { text-align: center; margin-top: 1.5rem; font-size: 0.9rem; color: #777; }
+    .auth-card .switch-link a { color: #E5342B; text-decoration: none; font-weight: 600; }
+    .auth-card .switch-link a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div id="header-mount" data-nav=""></div>
+
+  <main class="auth-page">
+    <div class="auth-card">
+      <h1 data-i18n="auth.register.title">Create Account</h1>
+      <p class="sub" data-i18n="auth.register.subtitle">Join F&J and discover authentic K-beauty</p>
+      <form id="register-form">
+        <div class="form-group">
+          <label data-i18n="auth.register.name">Full Name</label>
+          <input type="text" id="reg-name" required>
+        </div>
+        <div class="form-group">
+          <label data-i18n="auth.register.email">Email</label>
+          <input type="email" id="reg-email" placeholder="you@example.com" required>
+        </div>
+        <div class="form-group">
+          <label data-i18n="auth.register.password">Password</label>
+          <input type="password" id="reg-password" required minlength="6">
+        </div>
+        <div class="form-group">
+          <label data-i18n="auth.register.country">Country</label>
+          <select id="reg-country">
+            <option value="US">United States</option>
+            <option value="BR">Brazil</option>
+            <option value="MX">Mexico</option>
+            <option value="CA">Canada</option>
+            <option value="GB">United Kingdom</option>
+            <option value="DE">Germany</option>
+            <option value="FR">France</option>
+            <option value="ES">Spain</option>
+            <option value="AU">Australia</option>
+            <option value="JP">Japan</option>
+            <option value="KR">South Korea</option>
+            <option value="SG">Singapore</option>
+            <option value="MY">Malaysia</option>
+            <option value="AE">UAE</option>
+            <option value="SA">Saudi Arabia</option>
+          </select>
+        </div>
+        <div class="error-msg" id="reg-error"></div>
+        <button type="submit" class="btn btn-primary btn-full" data-i18n="auth.register.btn">Create Account</button>
+      </form>
+      <p class="switch-link"><span data-i18n="auth.register.switch">Already have an account?</span> <a href="login.html" data-i18n="auth.register.switch_link">Sign in</a></p>
+    </div>
+  </main>
+
+  <div id="footer-mount"></div>
+
+  <script src="js/site-config.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+<script src="js/wishlist.js"></script>
+<script src="js/analytics.js"></script>
+<script src="js/whatsapp.js"></script>
+  <script>
+    document.getElementById('register-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = document.getElementById('reg-name').value.trim();
+      const email = document.getElementById('reg-email').value.trim();
+      const password = document.getElementById('reg-password').value;
+      const country = document.getElementById('reg-country').value;
+      const errorEl = document.getElementById('reg-error');
+
+      try {
+        errorEl.style.display = 'none';
+        await Auth.register(email, password, name, country);
+        window.location.href = 'account.html';
+      } catch (err) {
+        errorEl.textContent = err.message;
+        errorEl.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>

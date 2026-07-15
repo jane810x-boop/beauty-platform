@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>F&amp;J — Beauty &amp; Tips</title>
+<meta name="description" content="Korean skincare guides, ingredient deep dives, and daily routines.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="F&amp;J">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://fjbeauty.com/article.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=3">
+<link rel="stylesheet" href="css/blog.css?v=3">
+<script src="js/layout.js?v=2"></script>
+<script src="js/i18n.js"></script>
+<script src="js/blog-data.js"></script>
+<script src="js/products.js"></script>
+<script src="js/api.js"></script>
+<script type="application/ld+json" id="article-ld"></script>
+</head>
+<body>
+
+<div class="reading-progress" id="reading-progress" aria-hidden="true"><div class="reading-progress-bar" id="reading-progress-bar"></div></div>
+
+<div id="header-mount" data-nav=""></div>
+
+<section class="article-hero" id="article-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">F&J</a> <span>/</span>
+      <a href="blog.html" data-i18n="article.breadcrumb" data-i18n-en="Learn">美妝學堂</a>
+      <span>/</span>
+      <span id="breadcrumb-title">-</span>
+    </div>
+    <span class="article-cat" id="article-cover-cat"></span>
+    <h1 id="article-title"></h1>
+    <div class="article-meta" id="article-meta"></div>
+  </div>
+</section>
+
+<div class="article-body-wrap">
+  <div class="article-body" id="article-body"></div>
+</div>
+
+<div class="article-share" id="article-share">
+  <span class="share-label" data-i18n="article.share" data-i18n-en="Share">分享</span>
+  <button class="share-btn" onclick="shareArticle('facebook')" aria-label="Facebook" title="Facebook">f</button>
+  <button class="share-btn" onclick="shareArticle('twitter')" aria-label="X" title="X">𝕏</button>
+  <button class="share-btn" onclick="shareArticle('pinterest')" aria-label="Pinterest" title="Pinterest">P</button>
+  <button class="share-btn" onclick="shareArticle('copy')" aria-label="Copy link" title="Copy link">🔗</button>
+</div>
+
+<div class="article-footer-meta" id="article-tags-section">
+  <div class="tag-list" id="tag-list"></div>
+</div>
+
+<div class="author-box" id="author-box">
+  <div class="author-avatar">F<span>J</span></div>
+  <div class="author-info">
+    <span class="author-label" data-i18n="article.about_author" data-i18n-en="About the author">關於作者</span>
+    <strong id="author-name"></strong>
+    <p id="author-bio"></p>
+  </div>
+</div>
+
+<div class="article-products" id="article-products-section" style="display:none;">
+  <h3 data-i18n="article.related_products" data-i18n-en="Products mentioned in this article">文章中提到的產品</h3>
+  <div class="product-cards-row" id="product-cards-row"></div>
+</div>
+
+<div class="faq-section" id="faq-section" style="display:none;">
+  <h3 data-i18n="article.faq_title" data-i18n-en="Frequently Asked Questions">常見問題</h3>
+  <div id="faq-list"></div>
+</div>
+
+<div class="related-articles" id="related-articles-section" style="display:none;">
+  <div class="container">
+    <h3 data-i18n="article.related_articles" data-i18n-en="You might also like">你可能會喜歡</h3>
+    <div class="blog-grid" id="related-grid"></div>
+  </div>
+</div>
+
+<section class="blog-newsletter">
+  <div class="container">
+    <span class="newsletter-eyebrow">F&J · NEWSLETTER</span>
+    <h2 data-i18n="blog.newsletter_title" data-i18n-en="Subscribe to the F&J Beauty Letter">訂閱 F&J 美妝通訊</h2>
+    <p data-i18n="blog.newsletter_desc" data-i18n-en="Skincare tips, new arrivals, and exclusive offers — every week, in your inbox.">每周護膚技巧、新品速遞與獨家優惠，直接送達你的郵箱。</p>
+    <form class="newsletter-form" id="article-newsletter-form" onsubmit="return subscribeNewsletter(event,'article-newsletter-email','article-newsletter-msg')">
+      <input type="email" id="article-newsletter-email" data-i18n-placeholder="blog.newsletter_email" placeholder="輸入你的郵箱" required>
+      <button type="submit" class="btn btn-primary" data-i18n="blog.subscribe" data-i18n-en="Subscribe">訂閱</button>
+    </form>
+    <p class="newsletter-msg" id="article-newsletter-msg" role="status"></p>
+  </div>
+</section>
+
+<div style="text-align:center;padding:3rem 0;">
+  <a href="blog.html" class="btn btn-outline" data-i18n="article.back" data-i18n-en="← Back to Learn">← 返回美妝學堂</a>
+</div>
+
+<div id="footer-mount"></div>
+
+<script>
+function getLang() { return window.currentLang || localStorage.getItem('fj-lang') || 'en'; }
+function tKey(key, lang) {
+  const d = window.i18nData;
+  if (d && d[lang] && d[lang][key]) return d[lang][key];
+  return key;
+}
+function reI18n() {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    const v = tKey(k, getLang());
+    if (v && v !== k) el.textContent = v;
+  });
+}
+
+function renderArticle() {
+  const slug = new URLSearchParams(location.search).get('slug');
+  const lang = getLang();
+  if (!slug || typeof blogArticles === 'undefined') {
+    document.getElementById('article-title').textContent = t('blog.article_not_found');
+    return;
+  }
+  const a = blogArticles.find(a => a.slug === slug);
+  if (!a) {
+    document.getElementById('article-title').textContent = t('blog.article_not_found');
+    document.getElementById('article-body').innerHTML = '<p>' + t('blog.article_not_found') + '. <a href="blog.html">' + t('blog.back_to_blog') + '</a>.</p>';
+    return;
+  }
+
+  const c = a.content[lang] || a.content['en'] || a.content['pt-BR'] || a.content['zhHK'];
+  const catInfo = BLOG_CATEGORIES[a.category];
+  const catName = catInfo ? (catInfo[lang] || catInfo['pt-BR'] || catInfo['en']).name : a.category;
+  const authorName = a.author[lang] || a.author['en'] || a.author['pt-BR'] || a.author['zhHK'];
+  window.__currentArticle = { slug: a.slug, title: c.title };
+
+  document.title = 'F&J — ' + c.title;
+  document.querySelector('meta[name="description"]').content = c.excerpt;
+  document.querySelector('meta[property="og:title"]').content = c.title;
+  document.querySelector('meta[property="og:description"]').content = c.excerpt;
+  document.querySelector('meta[property="og:url"]').content = 'https://fjbeauty.com/article.html?slug=' + a.slug;
+  document.querySelector('link[rel="canonical"]').href = 'https://fjbeauty.com/article.html?slug=' + a.slug;
+
+  document.getElementById('breadcrumb-title').textContent = c.title;
+  document.getElementById('article-cover-cat').textContent = catName;
+  document.getElementById('article-title').textContent = c.title;
+
+  const dateStr = new Date(a.date).toLocaleDateString(lang === 'zhHK' ? 'zh-HK' : lang === 'pt-BR' ? 'pt-BR' : 'en-US', {year:'numeric',month:'long',day:'numeric'});
+  document.getElementById('article-meta').innerHTML = `
+    <span>${tKey('article.by', lang)} ${authorName}</span>
+    <span>${new Date(a.date).toLocaleDateString(lang === 'zhHK' ? 'zh-HK' : lang === 'pt-BR' ? 'pt-BR' : 'en-US', {year:'numeric',month:'long',day:'numeric'})}</span>
+    <span>${t('blog.min_read').replace('{min}', a.readTime)}</span>
+  `;
+
+  document.getElementById('author-name').textContent = authorName;
+  document.getElementById('author-bio').textContent = tKey('article.author_bio', lang);
+
+  document.getElementById('article-body').innerHTML = c.body;
+
+  // Tags
+  const tags = a.tags[lang] || a.tags['en'] || a.tags['pt-BR'] || a.tags['zhHK'] || [];
+  document.getElementById('tag-list').innerHTML = tags.map(t => `<a href="blog.html?cat=${a.category}">#${t}</a>`).join('');
+
+  // FAQ
+  const faq = a.faq && (a.faq[lang] || a.faq['pt-BR'] || a.faq['en']);
+  if (faq && faq.length) {
+    document.getElementById('faq-section').style.display = '';
+    document.getElementById('faq-list').innerHTML = faq.map((item, i) =>
+      `<div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">${item.q}</div>
+        <div class="faq-a">${item.a}</div>
+      </div>`).join('');
+  }
+
+  // Related products
+  const dataSource = allProducts || PRODUCTS;
+  if (a.relatedProducts && a.relatedProducts.length && typeof dataSource !== 'undefined' && dataSource.length > 0) {
+    document.getElementById('article-products-section').style.display = '';
+    document.getElementById('product-cards-row').innerHTML = a.relatedProducts.map(slug => {
+      const p = dataSource.find(p => p.id === slug);
+      if (!p) return '';
+      return `<a href="product.html?id=${p.id}" class="product-mini-card">
+        <img src="${p.image || 'images/placeholder.svg'}" alt="${p.name}" loading="lazy" onerror="this.src='images/placeholder.svg'">
+        <div class="name">${p.name}</div>
+        <div class="brand">${getBrand(p.brand) ? getBrand(p.brand).name : p.brand}</div>
+      </a>`;
+    }).join('');
+  }
+
+  // Related articles
+  const related = blogArticles.filter(ra => ra.slug !== slug && ra.category === a.category).slice(0, 3);
+  if (related.length) {
+    document.getElementById('related-articles-section').style.display = '';
+    document.getElementById('related-grid').innerHTML = related.map(ra => {
+      const rc = ra.content[lang] || ra.content['pt-BR'] || ra.content['en'];
+      return `<article class="article-card" onclick="location.href='article.html?slug=${ra.slug}'">
+        <div class="article-card-cover" style="background:${ra.coverGradient}"><span class="cover-icon">${catInfo?.coverIcon || 'K'}</span></div>
+        <div class="article-card-body">
+          <span class="article-card-cat">${catName}</span>
+          <h3 class="article-card-title">${rc.title}</h3>
+          <p class="article-card-excerpt">${rc.excerpt}</p>
+          <div class="article-card-meta"><span>${t('blog.min_read').replace('{min}', ra.readTime)}</span></div>
+        </div>
+      </article>`;
+    }).join('');
+  }
+
+  // JSON-LD Structured Data
+  const ld = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: c.title,
+    description: c.excerpt,
+    datePublished: a.date,
+    author: { '@type': 'Organization', name: 'Equipe F&J' },
+    publisher: { '@type': 'Organization', name: 'F&J', logo: { '@type': 'ImageObject', url: 'https://fjbeauty.com/images/logo.png' } },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://fjbeauty.com/article.html?slug=' + a.slug }
+  };
+
+  // FAQ schema
+  if (faq && faq.length) {
+    ld['@graph'] = [ld, {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } }))
+    }];
+  }
+
+  document.getElementById('article-ld').textContent = JSON.stringify(ld, null, 2);
+
+  reI18n();
+}
+
+/* ===== Share / Progress / Newsletter ===== */
+function shareArticle(network) {
+  const lang = getLang();
+  const url = location.href;
+  const title = (window.__currentArticle && window.__currentArticle.title) || document.title;
+  if (network === 'copy') {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(() => toast(tKey('article.link_copied', lang)));
+    } else {
+      const ta = document.createElement('textarea'); ta.value = url; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); toast(tKey('article.link_copied', lang));
+    }
+    return;
+  }
+  let shareUrl = '';
+  if (network === 'facebook') shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+  else if (network === 'twitter') shareUrl = 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(title);
+  else if (network === 'pinterest') shareUrl = 'https://pinterest.com/pin/create/button/?url=' + encodeURIComponent(url) + '&description=' + encodeURIComponent(title);
+  if (shareUrl) window.open(shareUrl, '_blank', 'width=600,height=500');
+}
+
+function toast(msg) {
+  let t = document.getElementById('fj-toast');
+  if (!t) { t = document.createElement('div'); t.id = 'fj-toast'; t.className = 'fj-toast'; document.body.appendChild(t); }
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(window.__toastTimer);
+  window.__toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+function updateReadingProgress() {
+  const bar = document.getElementById('reading-progress-bar');
+  const body = document.getElementById('article-body');
+  if (!bar || !body) return;
+  const start = body.getBoundingClientRect().top + window.scrollY;
+  const total = body.offsetHeight;
+  const scrolled = window.scrollY - start;
+  const pct = Math.max(0, Math.min(100, (scrolled / total) * 100));
+  bar.style.width = pct + '%';
+}
+
+function subscribeNewsletter(e, inputId, msgId) {
+  e.preventDefault();
+  const lang = getLang();
+  const input = document.getElementById(inputId);
+  const msg = document.getElementById(msgId);
+  const val = (input.value || '').trim();
+  const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+  if (!ok) { msg.textContent = tKey('blog.newsletter_error', lang); msg.className = 'newsletter-msg error'; return false; }
+  msg.textContent = tKey('blog.newsletter_success', lang); msg.className = 'newsletter-msg success';
+  input.value = '';
+  return false;
+}
+
+document.addEventListener('DOMContentLoaded', async function() {
+  // 異步初始化產品數據（確保後台新增產品在關聯產品中可顯示）
+  if (typeof ProductAPI !== 'undefined') {
+    allProducts = await ProductAPI.getAllProducts();
+  } else {
+    allProducts = PRODUCTS;
+  }
+  if (typeof blogArticles !== 'undefined') renderArticle();
+  window.addEventListener('scroll', updateReadingProgress);
+  updateReadingProgress();
+  setTimeout(updateReadingProgress, 300);
+  updateCartCount();
+});
+
+function updateCartCount() {
+  try {
+    const cart = JSON.parse(localStorage.getItem('fj_cart') || '[]');
+    document.getElementById('cart-count').textContent = cart.reduce((s,i) => s + i.qty, 0);
+  } catch(e) {}
+}
+
+try {
+  const token = localStorage.getItem('fj_token');
+  if (token) {
+    document.getElementById('header-user-menu').style.display = '';
+    document.getElementById('header-login-btn').style.display = 'none';
+  }
+} catch(e) {}
+</script>
+<script src="js/site-config.js"></script>
+<script src="js/main.js"></script>
+<script src="js/wishlist.js"></script>
+<script src="js/analytics.js"></script>
+  <script src="js/auth.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/whatsapp.js"></script>
+</body>
+</html>

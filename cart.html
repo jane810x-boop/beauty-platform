@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Shopping Cart — F&amp;J</title>
+<meta name="description" content="Review your cart and proceed to checkout">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=3">
+  <script src="js/layout.js?v=2"></script>
+<script src="js/i18n.js"></script>
+</head>
+<body>
+
+<div id="header-mount" data-nav=""></div>
+
+<div class="container">
+  <div class="breadcrumb">
+    <a href="index.html" data-i18n="nav.home" data-i18n-en="Home">首頁</a> <span>/</span> <span data-i18n="cart.title" data-i18n-en="Shopping Cart">購物車</span>
+  </div>
+</div>
+
+<section class="section" style="padding-top:1rem">
+  <div class="container">
+    <h1 style="margin-bottom:2rem;" data-i18n="cart.title" data-i18n-en="Shopping Cart">購物車</h1>
+
+    <div id="cart-content"></div>
+  </div>
+</section>
+
+<div id="footer-mount"></div>
+
+<script src="js/products.js"></script>
+<script src="js/api.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+<script src="js/wishlist.js"></script>
+<script src="js/analytics.js"></script>
+<script src="js/site-config.js"></script>
+<script src="js/whatsapp.js"></script>
+<script src="js/age-verify.js"></script>
+<script src="js/lgpd-cookie.js"></script>
+<script>
+function renderCart() {
+  const cart = getCart();
+  const container = document.getElementById('cart-content');
+
+  if (cart.length === 0) {
+    container.innerHTML = `
+      <div class="cart-empty">
+        <div class="cart-empty-icon">🛒</div>
+        <h2 data-i18n="cart.empty" data-i18n-en="Your cart is empty">Your cart is empty</h2>
+        <p data-i18n="cart.empty_desc" data-i18n-en="Looks like you haven't added anything yet. Start exploring our collection!">Looks like you haven't added anything yet. Start exploring our collection!</p>
+        <a href="shop.html" class="btn btn-primary" data-i18n="cart.continue" data-i18n-en="Continue Shopping">Continue Shopping</a>
+      </div>
+    `;
+    applyTranslations();
+    return;
+  }
+
+  const subtotal = cartTotal();
+  const freeShippingThreshold = getFreeShippingThreshold();
+  const baseShippingCost = getBaseShippingCost();
+  const shipping = subtotal >= freeShippingThreshold ? 0 : baseShippingCost;
+  const total = subtotal + shipping;
+
+  let itemsHTML = cart.map((item, index) => {
+    const product = getProduct(item.productId);
+    if (!product) return '';
+    const brand = getBrand(product.brand);
+    const itemTotal = product.price * item.qty;
+    return `
+      <div class="cart-item">
+        <div class="cart-item-img">${product.image ? `<img src="${product.image}" alt="${product.name}" style="width:100%;height:100%;object-fit:cover;border-radius:6px" onerror="this.style.display='none';this.parentElement.textContent='${brand.emoji}'">` : brand.emoji}</div>
+        <div class="cart-item-info">
+          <h4>${product.name}</h4>
+          <div class="variant">${brand.name} · ${item.size || product.sizes[0]}</div>
+          <div class="cart-item-qty qty-controls" style="display:inline-flex;">
+            <button class="qty-btn" onclick="updateQty(${index}, ${item.qty - 1})">−</button>
+            <span class="qty-input" style="display:flex;align-items:center;justify-content:center;font-weight:600;">${item.qty}</span>
+            <button class="qty-btn" onclick="updateQty(${index}, ${item.qty + 1})">+</button>
+          </div>
+        </div>
+        <div class="cart-item-price">
+          <div class="price">${formatPrice(itemTotal)}</div>
+          <div class="cart-item-remove" onclick="removeFromCart(${index})" data-i18n="cart.remove" data-i18n-en="Remove">Remove</div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  const shippingClass = shipping === 0 ? 'free' : '';
+  const shippingHTML = shipping === 0
+    ? '<span data-i18n="cart.shipping_free" data-i18n-en="FREE">FREE</span>'
+    : formatPrice(shipping);
+
+  const shippingNoteHTML = shipping > 0
+    ? `<div class="summary-row" style="font-size:0.8rem;color:var(--primary);"><span data-i18n="cart.shipping_remaining" data-i18n-en="Add">Add</span> ${formatPrice(freeShippingThreshold - subtotal)} <span data-i18n="cart.shipping_free_at" data-i18n-en="more for free shipping">more for free shipping</span></div>`
+    : '';
+
+  container.innerHTML = `
+    <div class="cart-layout">
+      <div class="cart-items">${itemsHTML}</div>
+      <div class="cart-summary" id="cart-summary">
+        <h3 data-i18n="checkout.review" data-i18n-en="Order Summary">Order Summary</h3>
+        <div class="summary-row">
+          <span data-i18n="cart.subtotal" data-i18n-en="Subtotal">Subtotal</span>
+          <span>${formatPrice(subtotal)}</span>
+        </div>
+        <div class="summary-row">
+          <span data-i18n="cart.shipping" data-i18n-en="Shipping">Shipping</span>
+          <span class="${shippingClass}">${shippingHTML}</span>
+        </div>
+        ${shippingNoteHTML}
+        <div class="coupon-row" style="margin:1rem 0;">
+          <div class="cart-coupon">
+            <input type="text" id="coupon-input" data-i18n-placeholder="cart.coupon_placeholder" placeholder="Coupon code">
+            <button class="btn btn-outline btn-sm" onclick="applyCoupon()" data-i18n="cart.apply" data-i18n-en="Apply">Apply</button>
+          </div>
+        </div>
+        <div class="summary-row total">
+          <span data-i18n="cart.total" data-i18n-en="Total">Total</span>
+          <span>${formatPrice(total)}</span>
+        </div>
+        <a href="checkout.html" class="btn btn-primary btn-block" style="margin-top:1.25rem;padding:0.875rem;"><span data-i18n="cart.checkout" data-i18n-en="Proceed to Checkout">Proceed to Checkout</span> →</a>
+        <a href="shop.html" class="btn btn-outline btn-block" style="margin-top:0.75rem;" data-i18n="cart.continue" data-i18n-en="Continue Shopping">Continue Shopping</a>
+        <div style="text-align:center;margin-top:1rem;font-size:0.8rem;color:var(--text-muted);">
+          ' + t('cart.secure_checkout') + '
+        </div>
+      </div>
+    </div>
+  `;
+  applyTranslations();
+}
+
+function applyCoupon() {
+  const code = document.getElementById('coupon-input').value.trim().toUpperCase();
+  if (code === 'FJFIRST') {
+    const msg = t('cart.coupon_success') || 'Coupon applied! Free sheet mask added to your order 🎁';
+    showToast(msg);
+  } else {
+    const msg = t('cart.coupon_invalid') || 'Invalid coupon code';
+    showToast(msg);
+  }
+}
+
+// Render cart on page load — 異步等待 allProducts 初始化（確保後台新增產品也能顯示）
+document.addEventListener('DOMContentLoaded', async () => {
+  // 優先從API加載產品數據，確保新增產品在購物車中可找到
+  if (typeof ProductAPI !== 'undefined') {
+    allProducts = await ProductAPI.getAllProducts();
+  } else {
+    allProducts = PRODUCTS;
+  }
+  renderCart();
+});
+</script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

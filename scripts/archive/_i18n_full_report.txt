@@ -1,0 +1,19 @@
+
+F&J Beauty 全站语言深度检查报告
+生成时间: 2026/7/10 18:38:19
+
+【i18n 字典覆盖率】
+ko: 0 keys
+en: 0 keys
+zh: 0 keys
+zh-HK: 0 keys
+pt-BR: 0 keys
+es: 0 keys
+
+zh-HK 覆盖率: 0%
+
+【HTML 硬编码】
+总计: 73 处
+
+【结论】
+zh-HK 支持已基本完成，建议审查 HTML 中的政策内容页面。

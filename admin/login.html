@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-al="Sign In">管理員登录 — F&J</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="login-page">
+  <div class="login-card">
+    <h1>F<span>&amp;</span>J <span data-al="Admin">管理員</span></h1>
+    <p class="sub" data-al="Sign in to manage your store">登录以管理您的店铺</p>
+    <form id="login-form">
+      <div class="form-field">
+        <label data-al="Email">郵箱</label>
+        <input type="email" id="email" placeholder="admin@fjbeauty.com" required>
+      </div>
+      <div class="form-field">
+        <label data-al="Password">密码</label>
+        <input type="password" id="password" data-al-placeholder="Enter password" placeholder="輸入密码" required>
+      </div>
+      <div class="login-error" id="login-error"></div>
+      <button type="submit" class="btn-sm primary" style="width:100%;padding:0.75rem;font-size:0.95rem;" data-al="Sign In">登录</button>
+    </form>
+    <p style="text-align:center;margin-top:1rem;font-size:0.8rem;color:#888;">
+      <span data-al="Default:">默認账號：</span> admin@fjbeauty.com / FJAdmin2026!
+    </p>
+    <div style="text-align:center;margin-top:1rem;">
+      <button class="lang-toggle" id="lang-toggle" onclick="AdminLang.toggle()" style="display:inline-flex;width:auto;">
+        <span class="lang-icon">🌐</span> <span>EN</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script src="js/admin-lang.js"></script>
+<script src="js/admin.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  AdminLang.init();
+});
+
+document.getElementById('login-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const errorEl = document.getElementById('login-error');
+  errorEl.style.display = 'none';
+
+  try {
+    await Admin.login(
+      document.getElementById('email').value.trim(),
+      document.getElementById('password').value
+    );
+    window.location.href = 'index.html';
+  } catch (err) {
+    errorEl.textContent = err.message;
+    errorEl.style.display = 'block';
+  }
+});
+</script>
+</body>
+</html>

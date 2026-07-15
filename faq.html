@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title data-i18n="faq.title" data-i18n-en="FAQ — F&amp;J">常見問題 — F&amp;J</title>
+<meta name="description" content="Perguntas frequentes sobre pedidos, envio, devoluções e produtos da F&amp;J.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=3">
+<script src="js/layout.js?v=2"></script>
+<script src="js/i18n.js"></script>
+<style>
+  .faq-content { max-width: 800px; margin: 0 auto; padding: 2rem 0 4rem; }
+  .faq-content h1 { font-family: var(--heading-font, 'Playfair Display', serif); font-size: 2rem; margin-bottom: 2rem; }
+  .faq-section { margin-bottom: 2.5rem; }
+  .faq-section h2 { font-size: 1.3rem; margin-bottom: 1.25rem; color: var(--dark); padding-bottom: 0.5rem; border-bottom: 2px solid var(--primary); }
+  .faq-item { background: var(--white); border: 1px solid var(--border-light); border-radius: var(--radius); margin-bottom: 0.75rem; overflow: hidden; }
+  .faq-q { padding: 1rem 1.25rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+  .faq-q:hover { color: var(--primary); }
+  .faq-q::after { content: '+'; font-size: 1.3rem; font-weight: 300; transition: transform 0.3s; }
+  .faq-item.open .faq-q::after { content: '−'; transform: rotate(180deg); }
+  .faq-a { padding: 0 1.25rem; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
+  .faq-item.open .faq-a { max-height: 300px; padding-bottom: 1.25rem; }
+  .faq-a p { color: var(--text-light); font-size: 0.95rem; line-height: 1.7; }
+  .faq-a a { color: var(--primary); text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<div id="header-mount" data-nav=""></div>
+
+<div class="container">
+  <div class="breadcrumb">
+    <a href="index.html" data-i18n="nav.home">Home</a> <span>/</span> <span data-i18n="faq.title" data-i18n-en="FAQ">常見問題</span>
+  </div>
+
+  <div class="faq-content">
+    <h1 data-i18n="faq.heading" data-i18n-en="Frequently Asked Questions">常見問題</h1>
+
+    <div class="faq-section">
+      <h2 data-i18n="faq.orders" data-i18n-en="Orders & Payments">訂單與支付</h2>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q" data-i18n="faq.q1" data-i18n-en="How do I place an order?">如何下單？</div>
+        <div class="faq-a"><p data-i18n="faq.a1" data-i18n-en="Browse products, add to cart, then proceed to checkout. Fill in your shipping details and choose a payment method. You'll receive a confirmation email right after.">瀏覽商品並加入購物車，填寫配送資訊並選擇支付方式即可。下單後您會立即收到確認郵件。</p></div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q" data-i18n="faq.q2" data-i18n-en="What payment methods are accepted?">支持哪些支付方式？</div>
+        <div class="faq-a"><p data-i18n="faq.a2" data-i18n-en="We accept credit/debit cards (Visa, Mastercard), PayPal, and PIX (Brazil). All payments are processed securely via Stripe.">支持信用卡/借記卡（Visa、Mastercard）、PayPal 和 PIX（巴西）。所有支付均通過 Stripe 安全處理。</p></div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q" data-i18n="faq.q3" data-i18n-en="Can I cancel or modify my order?">可以取消或修改訂單嗎？</div>
+        <div class="faq-a"><p data-i18n="faq.a3" data-i18n-en="You can cancel or modify within 2 hours of placing your order. Contact us via WhatsApp or email: brands@fjbeauty.com with your order number.">下單後 2 小時內可聯繫客服取消或修改。請通過 WhatsApp 或郵件 brands@fjbeauty.com 聯繫我們並提供訂單號。</p></div>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <h2 data-i18n="faq.shipping" data-i18n-en="Shipping & Delivery">配送與物流</h2>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q" data-i18n="faq.q4" data-i18n-en="Where do you ship to?">配送到哪些國家？</div>
+        <div class="faq-a"><p data-i18n="faq.a4" data-i18n-en="Currently shipping to USA, Canada, UK, EU countries, and Brazil. More regions coming soon. See our Shipping page for details.">目前配送到美國、加拿大、英國、歐盟國家和巴西。更多地區即將開放。詳見配送資訊頁面。</p></div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q" data-i18n="faq.q5" data-i18n-en="How long does shipping take?">配送需要多長時間？</div>
+        <div class="faq-a"><p data-i18n="faq.a5" data-i18n-en="Standard international shipping takes 7-14 business days. Express shipping takes 3-5 business days. Processing takes 1-2 business days before dispatch.">標准國際配送 7-14 個工作日，快遞 3-5 個工作日。訂單處理需要 1-2 個工作日。</p></div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q" data-i18n="faq.q6" data-i18n-en="Are there customs fees?">有關稅嗎？</div>
+        <div class="faq-a"><p data-i18n="faq.a6" data-i18n-en="Import duties may apply depending on your country's regulations. These are the buyer's responsibility. We declare the full value on commercial invoices as required by law.">根據您所在國家/地區的規定，可能產生進口關稅，由買家承擔。我們依法在商業發票上申報完整價值。</p></div>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <h2 data-i18n="faq.returns" data-i18n-en="Returns & Refunds">退換與退款</h2>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q" data-i18n="faq.q7" data-i18n-en="What is your return policy?">退換政策是什麼？</div>
+        <div class="faq-a"><p data-i18n="faq.a7" data-i18n-en="You have 7 calendar days (Brazil CDC right of withdrawal) to cancel and receive a full refund. We also offer 30-day returns for defective or damaged items. See our full Returns Policy page.">您有 7 個日歷日的反悔權（巴西 CDC 法），可無條件取消並獲得全額退款。我們也對缺陷或損壞產品提供 30 天退換。詳見退換政策頁面。</p></div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q" data-i18n="faq.q8" data-i18n-en="How do I start a return?">如何申請退貨？</div>
+        <div class="faq-a"><p data-i18n="faq.a8" data-i18n-en="Contact us within 30 days at returns@fjbeauty.com with your order number and reason. We'll provide a return authorization and shipping instructions within 48 hours.">請在 30 天內聯繫我們 returns@fjbeauty.com，提供訂單號和退換原因。我們會在 48 小時內發送退貨授權和配送說明。</p></div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q" data-i18n="faq.q9" data-i18n-en="How long do refunds take?">退款需要多久？</div>
+        <div class="faq-a"><p data-i18n="faq.a9" data-i18n-en="Refunds are processed within 10 business days after we receive and inspect the returned item. PIX: up to 5 days. Credit card: up to 2 billing cycles.">收到退貨並檢查無誤後，退款 10 個工作日內處理。PIX：5 天內。信用卡：最多 2 個賬單周期。</p></div>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <h2 data-i18n="faq.products" data-i18n-en="Products & Authenticity">產品與正品</h2>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q" data-i18n="faq.q10" data-i18n-en="Are all products authentic?">產品都是正品嗎？</div>
+        <div class="faq-a"><p data-i18n="faq.a10" data-i18n-en="Yes. All products are 100% authentic, sourced directly from official brand distributors in Asia. We stand behind every product we sell.">是的，所有產品 100% 正品，直接來自亞洲品牌官方經銷商。我們為每一件售出的產品負責。</p></div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q" data-i18n="faq.q11" data-i18n-en="How do I choose the right products for my skin type?">如何選擇適合我膚質的產品？</div>
+        <div class="faq-a"><p data-i18n="faq.a11" data-i18n-en="Check our Learn section for in-depth ingredient guides and routines for every skin type. You can also contact us for personalised recommendations.">請查看我們的美妝學堂，了解各膚質的成分指南和護膚方案。也可以聯繫客服獲取個性化推薦。</p></div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q" data-i18n="faq.q12" data-i18n-en="Do you offer sample sizes or testers?">提供小樣或試用裝嗎？</div>
+        <div class="faq-a"><p data-i18n="faq.a12" data-i18n-en="We periodically include complimentary samples with orders (subject to availability). Check individual product pages for travel/mini size options.">我們會不定期随訂單附贈免費小樣（數量有限）。部分商品頁面提供旅行裝/迷你款選項。</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="footer-mount"></div>
+
+<script src="js/site-config.js"></script>
+<script src="js/products.js"></script>
+<script src="js/main.js"></script>
+<script src="js/wishlist.js"></script>
+<script src="js/analytics.js"></script>
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/whatsapp.js"></script>
+<script src="js/age-verify.js"></script>
+<script src="js/lgpd-cookie.js"></script>
+<script>
+// FAQ accordion toggle
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.addEventListener('click', function() {
+    this.classList.toggle('open');
+  });
+});
+</script>
+</body>
+</html>

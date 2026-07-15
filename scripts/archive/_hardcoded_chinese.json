@@ -1,0 +1,608 @@
+[
+  {
+    "file": "cart.html",
+    "line": 57,
+    "text": "粵語",
+    "snippet": "<button class=\"lang-flag-btn\" onclick=\"setLang('zh-HK')\" title=\"粵語 (HK)\">🇭🇰</button>"
+  },
+  {
+    "file": "cart.html",
+    "line": 77,
+    "text": "粵語",
+    "snippet": "<button class=\"lang-flag-btn\" onclick=\"setLang('zh-HK')\" title=\"粵語 (HK)\">🇭🇰</button>"
+  },
+  {
+    "file": "checkout.html",
+    "line": 106,
+    "text": "粵語",
+    "snippet": "<button class=\"lang-flag-btn\" onclick=\"setLang('zh-HK')\" title=\"粵語 (HK)\">🇭🇰</button>"
+  },
+  {
+    "file": "checkout.html",
+    "line": 137,
+    "text": "粵語",
+    "snippet": "<button class=\"lang-flag-btn\" onclick=\"setLang('zh-HK')\" title=\"粵語 (HK)\">🇭🇰</button>"
+  },
+  {
+    "file": "product.html",
+    "line": 110,
+    "text": "粵語",
+    "snippet": "<button class=\"lang-flag-btn\" onclick=\"setLang('zh-HK')\" title=\"粵語 (HK)\">🇭🇰</button>"
+  },
+  {
+    "file": "product.html",
+    "line": 130,
+    "text": "粵語",
+    "snippet": "<button class=\"lang-flag-btn\" onclick=\"setLang('zh-HK')\" title=\"粵語 (HK)\">🇭🇰</button>"
+  },
+  {
+    "file": "index.html",
+    "line": 248,
+    "text": "粵語",
+    "snippet": "<button class=\"lang-flag-btn\" onclick=\"setLang('zh-HK')\" title=\"粵語 (HK)\">🇭🇰</button>"
+  },
+  {
+    "file": "index.html",
+    "line": 283,
+    "text": "粵語",
+    "snippet": "<button class=\"lang-flag-btn\" onclick=\"setLang('zh-HK')\" title=\"粵語 (HK)\">🇭🇰</button>"
+  },
+  {
+    "file": "index.html",
+    "line": 431,
+    "text": "输入邮箱地址",
+    "snippet": "<input type=\"email\" placeholder=\"输入邮箱地址\" data-i18n-placeholder=\"newsletter.placeholder\" required>"
+  },
+  {
+    "file": "shop.html",
+    "line": 58,
+    "text": "粵語",
+    "snippet": "<button class=\"lang-flag-btn\" onclick=\"setLang('zh-HK')\" title=\"粵語 (HK)\">🇭🇰</button>"
+  },
+  {
+    "file": "shop.html",
+    "line": 91,
+    "text": "粵語",
+    "snippet": "<button class=\"lang-flag-btn\" onclick=\"setLang('zh-HK')\" title=\"粵語 (HK)\">🇭🇰</button>"
+  },
+  {
+    "file": "shop.html",
+    "line": 276,
+    "text": "全部商品",
+    "snippet": "const catName = CATEGORIES.find(c => c.id === p.cat)?.name || '全部商品';"
+  },
+  {
+    "file": "shop.html",
+    "line": 282,
+    "text": "全部商品",
+    "snippet": "const brandName = BRANDS.find(c => c.id === p.brand)?.name || '全部商品';"
+  },
+  {
+    "file": "about.html",
+    "line": 50,
+    "text": "粵語",
+    "snippet": "<button class=\"lang-flag-btn\" onclick=\"setLang('zh-HK')\" title=\"粵語 (HK)\">🇭🇰</button>"
+  },
+  {
+    "file": "about.html",
+    "line": 70,
+    "text": "粵語",
+    "snippet": "<button class=\"lang-flag-btn\" onclick=\"setLang('zh-HK')\" title=\"粵語 (HK)\">🇭🇰</button>"
+  },
+  {
+    "file": "about.html",
+    "line": 127,
+    "text": "从世界的另一端在线订购美妆产品 有时会让人感到不安 这就是为什么我们为你经手的每一件产品保驾护航",
+    "snippet": "从世界的另一端在线订购美妆产品，有时会让人感到不安。这就是为什么我们为你经手的每一件产品保驾护航："
+  },
+  {
+    "file": "shipping.html",
+    "line": 55,
+    "text": "粵語",
+    "snippet": "<button class=\"lang-flag-btn\" onclick=\"setLang('zh-HK')\" title=\"粵語 (HK)\">🇭🇰</button>"
+  },
+  {
+    "file": "shipping.html",
+    "line": 86,
+    "text": "粵語",
+    "snippet": "<button class=\"lang-flag-btn\" onclick=\"setLang('zh-HK')\" title=\"粵語 (HK)\">🇭🇰</button>"
+  },
+  {
+    "file": "returns.html",
+    "line": 59,
+    "text": "粵語",
+    "snippet": "<button class=\"lang-flag-btn\" onclick=\"setLang('zh-HK')\" title=\"粵語 (HK)\">🇭🇰</button>"
+  },
+  {
+    "file": "returns.html",
+    "line": 88,
+    "text": "粵語",
+    "snippet": "<button class=\"lang-flag-btn\" onclick=\"setLang('zh-HK')\" title=\"粵語 (HK)\">🇭🇰</button>"
+  },
+  {
+    "file": "returns.html",
+    "line": 99,
+    "text": "退换货政策",
+    "snippet": "<p style=\"color:var(--text-muted);font-size:0.9rem;\">Returns & Refund Policy · 退换货政策</p>"
+  },
+  {
+    "file": "returns.html",
+    "line": 104,
+    "text": "中文",
+    "snippet": "<button class=\"lang-tab\" onclick=\"switchLegalLang('zh')\">中文</button>"
+  },
+  {
+    "file": "returns.html",
+    "line": 183,
+    "text": "我们希望您对购买满意 如有问题 我们随时为您提供帮助 本政策遵循巴西 消费者保护法 第 号法律",
+    "snippet": "<p>我们希望您对购买满意。如有问题，我们随时为您提供帮助。本政策遵循巴西《消费者保护法》（第 8,078/1990 号法律）。</p>"
+  },
+  {
+    "file": "returns.html",
+    "line": 185,
+    "text": "反悔权 第 条",
+    "snippet": "<h2>反悔权（CDC 第 49 条）</h2>"
+  },
+  {
+    "file": "returns.html",
+    "line": 186,
+    "text": "您有权在收到产品后 个日历日内 取消购买 获得全额退款 含运费 无需说明理由",
+    "snippet": "<p>您有权在收到产品后 <strong>7 个日历日内</strong>取消购买，获得全额退款（含运费），无需说明理由。</p>"
+  },
+  {
+    "file": "returns.html",
+    "line": 188,
+    "text": "标准退换政策",
+    "snippet": "<h2>标准退换政策</h2>"
+  },
+  {
+    "file": "returns.html",
+    "line": 189,
+    "text": "除法定反悔权外 我们为制造缺陷或运输损坏的产品提供 天 退换期",
+    "snippet": "<p>除法定反悔权外，我们为制造缺陷或运输损坏的产品提供 <strong>30 天</strong>退换期。</p>"
+  },
+  {
+    "file": "returns.html",
+    "line": 191,
+    "text": "退换条件",
+    "snippet": "<h2>退换条件</h2>"
+  },
+  {
+    "file": "returns.html",
+    "line": 193,
+    "text": "产品必须保持原包装 未使用",
+    "snippet": "<li>产品必须保持原包装，未使用；</li>"
+  },
+  {
+    "file": "returns.html",
+    "line": 194,
+    "text": "安全封条必须完好 美容和卫生用品",
+    "snippet": "<li>安全封条必须完好（美容和卫生用品）；</li>"
+  },
+  {
+    "file": "returns.html",
+    "line": 195,
+    "text": "所有配件 手册和赠品需一并退回",
+    "snippet": "<li>所有配件、手册和赠品需一并退回；</li>"
+  },
+  {
+    "file": "returns.html",
+    "line": 196,
+    "text": "已开封的个人使用物品 面膜 海绵 刷具 出于卫生安全考虑不接受退换",
+    "snippet": "<li>已开封的个人使用物品（面膜、海绵、刷具）出于卫生安全考虑不接受退换。</li>"
+  },
+  {
+    "file": "returns.html",
+    "line": 199,
+    "text": "退换流程",
+    "snippet": "<h2>退换流程</h2>"
+  },
+  {
+    "file": "returns.html",
+    "line": 200,
+    "text": "联系 或邮件 提供订单号和原因 小时内收到退换授权码和寄回说明 妥善包装寄回 收到并检查后 个工作日内退款至原支付方式",
+    "snippet": "<p>联系 WhatsApp 或邮件，提供订单号和原因 → 48 小时内收到退换授权码和寄回说明 → 妥善包装寄回 → 收到并检查后 10 个工作日内退款至原支付方式。</p>"
+  },
+  {
+    "file": "returns.html",
+    "line": 202,
+    "text": "退款",
+    "snippet": "<h2>退款</h2>"
+  },
+  {
+    "file": "returns.html",
+    "line": 203,
+    "text": "个工作日内 信用卡 最多 个账单周期 个工作日内",
+    "snippet": "<p>PIX：5 个工作日内。信用卡：最多 2 个账单周期。PayPal：5 个工作日内。</p>"
+  },
+  {
+    "file": "returns.html",
+    "line": 205,
+    "text": "最后更新 年 月 日",
+    "snippet": "<p class=\"last-updated\">最后更新：2026年7月1日</p>"
+  },
+  {
+    "file": "faq.html",
+    "line": 56,
+    "text": "粵語",
+    "snippet": "<button class=\"lang-flag-btn\" onclick=\"setLang('zh-HK')\" title=\"粵語 (HK)\">🇭🇰</button>"
+  },
+  {
+    "file": "faq.html",
+    "line": 85,
+    "text": "粵語",
+    "snippet": "<button class=\"lang-flag-btn\" onclick=\"setLang('zh-HK')\" title=\"粵語 (HK)\">🇭🇰</button>"
+  },
+  {
+    "file": "privacy.html",
+    "line": 57,
+    "text": "粵語",
+    "snippet": "<button class=\"lang-flag-btn\" onclick=\"setLang('zh-HK')\" title=\"粵語 (HK)\">🇭🇰</button>"
+  },
+  {
+    "file": "privacy.html",
+    "line": 86,
+    "text": "粵語",
+    "snippet": "<button class=\"lang-flag-btn\" onclick=\"setLang('zh-HK')\" title=\"粵語 (HK)\">🇭🇰</button>"
+  },
+  {
+    "file": "privacy.html",
+    "line": 97,
+    "text": "隐私政策",
+    "snippet": "<p style=\"color:var(--text-muted);font-size:0.9rem;\">Privacy Policy · 隐私政策</p>"
+  },
+  {
+    "file": "privacy.html",
+    "line": 102,
+    "text": "中文",
+    "snippet": "<button class=\"lang-tab\" onclick=\"switchLegalLang('zh')\">中文</button>"
+  },
+  {
+    "file": "privacy.html",
+    "line": 235,
+    "text": "我们 致力于保护您的个人数据 严格遵守巴西 通用数据保护法 第 号法律 欧盟 及其他适用的数据保护法规",
+    "snippet": "<p>F&amp;J（\"我们\"）致力于保护您的个人数据，严格遵守巴西《通用数据保护法》（LGPD — 第 13.709/2018 号法律）、欧盟 GDPR 及其他适用的数据保护法规。</p>"
+  },
+  {
+    "file": "privacy.html",
+    "line": 237,
+    "text": "我们收集的数据",
+    "snippet": "<h2>1. 我们收集的数据</h2>"
+  },
+  {
+    "file": "privacy.html",
+    "line": 239,
+    "text": "账户数据 姓名 巴西税务用途 邮箱 电话",
+    "snippet": "<li><strong>账户数据：</strong>姓名、CPF/CNPJ（巴西税务用途）、邮箱、电话。</li>"
+  },
+  {
+    "file": "privacy.html",
+    "line": 240,
+    "text": "配送数据 完整地址 邮编 城市 州 省 国家",
+    "snippet": "<li><strong>配送数据：</strong>完整地址、邮编、城市、州/省、国家。</li>"
+  },
+  {
+    "file": "privacy.html",
+    "line": 241,
+    "text": "支付数据 信用卡信息 仅由 认证的支付网关处理 我们不存储完整卡号",
+    "snippet": "<li><strong>支付数据：</strong>信用卡信息（仅由 PCI-DSS 认证的支付网关处理；我们不存储完整卡号）。</li>"
+  },
+  {
+    "file": "privacy.html",
+    "line": 242,
+    "text": "浏览数据 地址 浏览器类型 访问页面 会话时长 通过 等技术",
+    "snippet": "<li><strong>浏览数据：</strong>IP 地址、浏览器类型、访问页面、会话时长（通过 Cookie 等技术）。</li>"
+  },
+  {
+    "file": "privacy.html",
+    "line": 243,
+    "text": "通讯数据 通过 邮件或在线客服发送的消息",
+    "snippet": "<li><strong>通讯数据：</strong>通过 WhatsApp、邮件或在线客服发送的消息。</li>"
+  },
+  {
+    "file": "privacy.html",
+    "line": 246,
+    "text": "数据处理目的",
+    "snippet": "<h2>2. 数据处理目的</h2>"
+  },
+  {
+    "file": "privacy.html",
+    "line": 247,
+    "text": "我们使用您的数据来 处理并配送订单 开具巴西联邦税务局要求的税务文件和进口申报单 沟通订单状态和客户支持 发送营销通讯 仅经您明确同意 防止欺诈和保障交易安全 遵守法律法规 改善网站浏览体验",
+    "snippet": "<p>我们使用您的数据来：处理并配送订单；开具巴西联邦税务局要求的税务文件和进口申报单；沟通订单状态和客户支持；发送营销通讯（仅经您明确同意）；防止欺诈和保障交易安全；遵守法律法规；改善网站浏览体验。"
+  },
+  {
+    "file": "privacy.html",
+    "line": 249,
+    "text": "数据共享",
+    "snippet": "<h2>3. 数据共享</h2>"
+  },
+  {
+    "file": "privacy.html",
+    "line": 250,
+    "text": "您的数据可能与物流运营商 支付网关 税务和海关机构 巴西联邦税务局 等 及服务提供商共享 我们不会未经您同意将个人数据出售或出租给第三方用于商业目的",
+    "snippet": "<p>您的数据可能与物流运营商、支付网关、税务和海关机构（巴西联邦税务局、ANVISA 等）及服务提供商共享。我们不会未经您同意将个人数据出售或出租给第三方用于商业目的。</p>"
+  },
+  {
+    "file": "privacy.html",
+    "line": 252,
+    "text": "国际数据传输",
+    "snippet": "<h2>4. 国际数据传输</h2>"
+  },
+  {
+    "file": "privacy.html",
+    "line": 253,
+    "text": "由于我们全球运营 您的数据可能传输至巴西境外服务器 我们确保此类传输符合 要求 包括标准合同条款和充分保护措施",
+    "snippet": "<p>由于我们全球运营，您的数据可能传输至巴西境外服务器。我们确保此类传输符合 LGPD 要求，包括标准合同条款和充分保护措施。</p>"
+  },
+  {
+    "file": "privacy.html",
+    "line": 256,
+    "text": "我们使用必要的 保障网站运行 以及分析 改善服务 营销和追踪 仅在您明确同意后激活 符合 规定 您可随时通过同意横幅或浏览器设置管理 偏好",
+    "snippet": "<p>我们使用必要的 Cookie 保障网站运行，以及分析 Cookie 改善服务。营销和追踪 Cookie 仅在您明确同意后激活，符合 LGPD 规定。您可随时通过同意横幅或浏览器设置管理 Cook"
+  },
+  {
+    "file": "privacy.html",
+    "line": 258,
+    "text": "您的权利",
+    "snippet": "<h2>6. 您的权利（LGPD）</h2>"
+  },
+  {
+    "file": "privacy.html",
+    "line": 259,
+    "text": "您有权 访问 更正 删除 导出您的数据 随时撤销同意 反对营销处理 请求审核自动化决策 联系邮箱",
+    "snippet": "<p>您有权：访问、更正、删除、导出您的数据；随时撤销同意；反对营销处理；请求审核自动化决策。联系邮箱：<a href=\"mailto:privacy@fjbeauty.com\">privacy@fj"
+  },
+  {
+    "file": "privacy.html",
+    "line": 261,
+    "text": "数据保护官",
+    "snippet": "<h2>7. 数据保护官（DPO）</h2>"
+  },
+  {
+    "file": "privacy.html",
+    "line": 262,
+    "text": "邮箱",
+    "snippet": "<p>邮箱：<a href=\"mailto:dpo@fjbeauty.com\">dpo@fjbeauty.com</a></p>"
+  },
+  {
+    "file": "privacy.html",
+    "line": 264,
+    "text": "数据保留",
+    "snippet": "<h2>8. 数据保留</h2>"
+  },
+  {
+    "file": "privacy.html",
+    "line": 265,
+    "text": "我们仅在必要时间内保留您的数据 遵守巴西法定文件保留期限 税务记录至少 年",
+    "snippet": "<p>我们仅在必要时间内保留您的数据，遵守巴西法定文件保留期限（税务记录至少 5 年）。</p>"
+  },
+  {
+    "file": "privacy.html",
+    "line": 267,
+    "text": "安全性",
+    "snippet": "<h2>9. 安全性</h2>"
+  },
+  {
+    "file": "privacy.html",
+    "line": 268,
+    "text": "我们采用 加密 访问控制 持续监控和团队培训来保护您的数据",
+    "snippet": "<p>我们采用 SSL/TLS 加密、访问控制、持续监控和团队培训来保护您的数据。</p>"
+  },
+  {
+    "file": "privacy.html",
+    "line": 270,
+    "text": "最后更新 年 月 日",
+    "snippet": "<p class=\"last-updated\">最后更新：2026年7月1日</p>"
+  },
+  {
+    "file": "terms.html",
+    "line": 56,
+    "text": "粵語",
+    "snippet": "<button class=\"lang-flag-btn\" onclick=\"setLang('zh-HK')\" title=\"粵語 (HK)\">🇭🇰</button>"
+  },
+  {
+    "file": "terms.html",
+    "line": 85,
+    "text": "粵語",
+    "snippet": "<button class=\"lang-flag-btn\" onclick=\"setLang('zh-HK')\" title=\"粵語 (HK)\">🇭🇰</button>"
+  },
+  {
+    "file": "terms.html",
+    "line": 96,
+    "text": "服务条款",
+    "snippet": "<p style=\"color:var(--text-muted);font-size:0.9rem;\">Terms of Service · 服务条款</p>"
+  },
+  {
+    "file": "terms.html",
+    "line": 101,
+    "text": "中文",
+    "snippet": "<button class=\"lang-tab\" onclick=\"switchLegalLang('zh')\">中文</button>"
+  },
+  {
+    "file": "terms.html",
+    "line": 210,
+    "text": "欢迎使用 访问和使用我们的平台即表示您同意本服务条款 请仔细阅读",
+    "snippet": "<p>欢迎使用 F&amp;J。访问和使用我们的平台即表示您同意本服务条款。请仔细阅读。</p>"
+  },
+  {
+    "file": "terms.html",
+    "line": 212,
+    "text": "接受条款",
+    "snippet": "<h2>1. 接受条款</h2>"
+  },
+  {
+    "file": "terms.html",
+    "line": 213,
+    "text": "使用 网站即表示您已阅读 理解并同意本条款及我们的 隐私政策",
+    "snippet": "<p>使用 F&amp;J 网站即表示您已阅读、理解并同意本条款及我们的<a href=\"privacy.html\">隐私政策</a>。</p>"
+  },
+  {
+    "file": "terms.html",
+    "line": 215,
+    "text": "资格",
+    "snippet": "<h2>2. 资格</h2>"
+  },
+  {
+    "file": "terms.html",
+    "line": 216,
+    "text": "您必须年满 岁 具有法律行为能力 提供真实准确的信息 并持有有效 巴西 或等效身份证件",
+    "snippet": "<p>您必须年满 18 岁、具有法律行为能力、提供真实准确的信息，并持有有效 CPF（巴西）或等效身份证件。</p>"
+  },
+  {
+    "file": "terms.html",
+    "line": 218,
+    "text": "账户",
+    "snippet": "<h2>3. 账户</h2>"
+  },
+  {
+    "file": "terms.html",
+    "line": 219,
+    "text": "您有责任保管登录凭据 我们保留暂停或取消违规账户的权利",
+    "snippet": "<p>您有责任保管登录凭据。我们保留暂停或取消违规账户的权利。</p>"
+  },
+  {
+    "file": "terms.html",
+    "line": 221,
+    "text": "产品和定价",
+    "snippet": "<h2>4. 产品和定价</h2>"
+  },
+  {
+    "file": "terms.html",
+    "line": 222,
+    "text": "所有产品均从亚洲进口 价格以所选区域的货币显示 巴西配送的最终价格包含进口税 和清关手续费 价格可能变动 以订单确认时为准",
+    "snippet": "<p>所有产品均从亚洲进口。价格以所选区域的货币显示（USD/EUR/BRL）。巴西配送的最终价格包含进口税（II）、ICMS、PIS/COFINS 和清关手续费。价格可能变动，以订单确认时为准。</"
+  },
+  {
+    "file": "terms.html",
+    "line": 224,
+    "text": "进口和税务 巴西",
+    "snippet": "<h2>5. 进口和税务（巴西）</h2>"
+  },
+  {
+    "file": "terms.html",
+    "line": 225,
+    "text": "买家为法定进口商 负责缴纳相关税费 在结账时计算并代收预估税费 但巴西联邦税务局或 可能额外收费",
+    "snippet": "<p>买家为法定进口商，负责缴纳相关税费。F&amp;J 在结账时计算并代收预估税费，但巴西联邦税务局或 ANVISA 可能额外收费。</p>"
+  },
+  {
+    "file": "terms.html",
+    "line": 227,
+    "text": "支付",
+    "snippet": "<h2>6. 支付</h2>"
+  },
+  {
+    "file": "terms.html",
+    "line": 228,
+    "text": "接受 和 巴西 支付在订单确认时处理",
+    "snippet": "<p>接受 Visa、Mastercard、American Express、PayPal 和 PIX（巴西）。支付在订单确认时处理。</p>"
+  },
+  {
+    "file": "terms.html",
+    "line": 230,
+    "text": "配送",
+    "snippet": "<h2>7. 配送</h2>"
+  },
+  {
+    "file": "terms.html",
+    "line": 231,
+    "text": "巴西预计送达时间 个工作日 取决于海关清关 我们对 罢工 海关扣留或不可抗力造成的延误不承担责任",
+    "snippet": "<p>巴西预计送达时间：15-30 个工作日，取决于海关清关。我们对 Correios 罢工、海关扣留或不可抗力造成的延误不承担责任。</p>"
+  },
+  {
+    "file": "terms.html",
+    "line": 233,
+    "text": "退换权",
+    "snippet": "<h2>8. 退换权</h2>"
+  },
+  {
+    "file": "terms.html",
+    "line": 234,
+    "text": "根据巴西 消费者保护法 第 条 您有权在收货后 个日历日内取消订单 详见 退换政策",
+    "snippet": "<p>根据巴西《消费者保护法》第 49 条，您有权在收货后 7 个日历日内取消订单。详见<a href=\"returns.html\">退换政策</a>。</p>"
+  },
+  {
+    "file": "terms.html",
+    "line": 236,
+    "text": "知识产权",
+    "snippet": "<h2>9. 知识产权</h2>"
+  },
+  {
+    "file": "terms.html",
+    "line": 237,
+    "text": "所有网站内容归 或其许可方所有 未经授权禁止复制",
+    "snippet": "<p>所有网站内容归 F&amp;J 或其许可方所有。未经授权禁止复制。</p>"
+  },
+  {
+    "file": "terms.html",
+    "line": 239,
+    "text": "责任限制",
+    "snippet": "<h2>10. 责任限制</h2>"
+  },
+  {
+    "file": "terms.html",
+    "line": 240,
+    "text": "作为中介平台 不对过敏反应 色差或网站临时不可用承担责任",
+    "snippet": "<p>F&amp;J 作为中介平台，不对过敏反应、色差或网站临时不可用承担责任。</p>"
+  },
+  {
+    "file": "terms.html",
+    "line": 242,
+    "text": "争议解决",
+    "snippet": "<h2>11. 争议解决</h2>"
+  },
+  {
+    "file": "terms.html",
+    "line": 243,
+    "text": "双方应友好协商解决争议 巴西消费者 管辖法院为消费者住所地首府法院",
+    "snippet": "<p>双方应友好协商解决争议。巴西消费者：管辖法院为消费者住所地首府法院。</p>"
+  },
+  {
+    "file": "terms.html",
+    "line": 245,
+    "text": "最后更新 年 月 日",
+    "snippet": "<p class=\"last-updated\">最后更新：2026年7月1日</p>"
+  },
+  {
+    "file": "story.html",
+    "line": 281,
+    "text": "粵語",
+    "snippet": "<button class=\"lang-flag-btn\" onclick=\"setLang('zh-HK')\" title=\"粵語 (HK)\">🇭🇰</button>"
+  },
+  {
+    "file": "account.html",
+    "line": 89,
+    "text": "粵語",
+    "snippet": "<button class=\"lang-flag-btn\" onclick=\"setLang('zh-HK')\" title=\"粵語 (HK)\">🇭🇰</button>"
+  },
+  {
+    "file": "account.html",
+    "line": 119,
+    "text": "粵語",
+    "snippet": "<button class=\"lang-flag-btn\" onclick=\"setLang('zh-HK')\" title=\"粵語 (HK)\">🇭🇰</button>"
+  },
+  {
+    "file": "login.html",
+    "line": 59,
+    "text": "粵語",
+    "snippet": "<button class=\"lang-flag-btn\" onclick=\"setLang('zh-HK')\" title=\"粵語 (HK)\">🇭🇰</button>"
+  },
+  {
+    "file": "login.html",
+    "line": 88,
+    "text": "粵語",
+    "snippet": "<button class=\"lang-flag-btn\" onclick=\"setLang('zh-HK')\" title=\"粵語 (HK)\">🇭🇰</button>"
+  },
+  {
+    "file": "register.html",
+    "line": 58,
+    "text": "粵語",
+    "snippet": "<button class=\"lang-flag-btn\" onclick=\"setLang('zh-HK')\" title=\"粵語 (HK)\">🇭🇰</button>"
+  },
+  {
+    "file": "register.html",
+    "line": 87,
+    "text": "粵語",
+    "snippet": "<button class=\"lang-flag-btn\" onclick=\"setLang('zh-HK')\" title=\"粵語 (HK)\">🇭🇰</button>"
+  }
+]

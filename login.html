@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Login — F&J</title>
+  <meta name="description" content="Sign in to your F&J account to track orders and manage your profile.">
+  <meta name="robots" content="noindex, follow">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=3">
+  <script src="js/layout.js?v=2"></script>
+<script src="js/i18n.js"></script>
+  <style>
+    .auth-page { min-height: 80vh; display: flex; align-items: center; justify-content: center; padding: 3rem 1rem; }
+    .auth-card { background: #fff; border-radius: 12px; box-shadow: 0 2px 20px rgba(0,0,0,0.06); padding: 3rem 2.5rem; width: 100%; max-width: 440px; }
+    .auth-card h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 0.25rem; text-align: center; }
+    .auth-card p.sub { text-align: center; color: #999; margin-bottom: 2rem; font-size: 0.9rem; }
+    .auth-card .form-group { margin-bottom: 1.25rem; }
+    .auth-card label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: #333; }
+    .auth-card input { width: 100%; padding: 0.75rem 1rem; border: 1.5px solid #e0e0e0; border-radius: 8px; font-size: 0.95rem; font-family: inherit; transition: border-color 0.2s; box-sizing: border-box; }
+    .auth-card input:focus { outline: none; border-color: #E5342B; }
+    .auth-card .btn-full { width: 100%; padding: 0.85rem; font-size: 1rem; margin-top: 0.5rem; }
+    .auth-card .error-msg { color: #E5342B; font-size: 0.85rem; margin-top: 0.75rem; text-align: center; display: none; }
+    .auth-card .switch-link { text-align: center; margin-top: 1.5rem; font-size: 0.9rem; color: #777; }
+    .auth-card .switch-link a { color: #E5342B; text-decoration: none; font-weight: 600; }
+    .auth-card .switch-link a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div id="header-mount" data-nav=""></div>
+
+  <main class="auth-page">
+    <div class="auth-card">
+      <h1 data-i18n="auth.login.title">Welcome Back</h1>
+      <p class="sub" data-i18n="auth.login.subtitle">Sign in to your F&J account</p>
+      <form id="login-form">
+        <div class="form-group">
+          <label data-i18n="auth.login.email">Email</label>
+          <input type="email" id="login-email" placeholder="you@example.com" required>
+        </div>
+        <div class="form-group">
+          <label data-i18n="auth.login.password">Password</label>
+          <input type="password" id="login-password" required>
+        </div>
+        <div style="text-align:right;margin:-0.5rem 0 1rem;">
+          <a href="forgot-password.html" style="font-size:0.8rem;color:#E5342B;text-decoration:none;" data-i18n="auth.login.forgot">Forgot password?</a>
+        </div>
+        <div class="error-msg" id="login-error"></div>
+        <button type="submit" class="btn btn-primary btn-full" data-i18n="auth.login.btn">Sign In</button>
+      </form>
+      <p class="switch-link"><span data-i18n="auth.login.switch">Don't have an account?</span> <a href="register.html" data-i18n="auth.login.switch_link">Create one</a></p>
+    </div>
+  </main>
+
+  <div id="footer-mount"></div>
+
+  <script src="js/site-config.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+<script src="js/wishlist.js"></script>
+<script src="js/analytics.js"></script>
+<script src="js/whatsapp.js"></script>
+  <script>
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-password').value;
+      const errorEl = document.getElementById('login-error');
+
+      try {
+        errorEl.style.display = 'none';
+        await Auth.login(email, password);
+        window.location.href = 'account.html';
+      } catch (err) {
+        errorEl.textContent = err.message;
+        errorEl.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>

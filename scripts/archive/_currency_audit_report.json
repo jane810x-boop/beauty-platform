@@ -1,0 +1,429 @@
+[
+  {
+    "file": "cart.html",
+    "line": 158,
+    "type": "threshold",
+    "content": "const shipping = subtotal >= 50 ? 0 : 5.99;",
+    "severity": "HIGH"
+  },
+  {
+    "file": "cart.html",
+    "line": 158,
+    "format": "shipping_cost",
+    "content": "const shipping = subtotal >= 50 ? 0 : 5.99;",
+    "severity": "MEDIUM"
+  },
+  {
+    "file": "cart.html",
+    "line": 229,
+    "type": "threshold",
+    "content": "${subtotal >= 50",
+    "severity": "HIGH"
+  },
+  {
+    "file": "checkout.html",
+    "line": 287,
+    "type": "threshold",
+    "content": "currentTotal = subtotal + (subtotal >= 50 ? 0 : 5.99) + subtotal * 0.08;",
+    "severity": "HIGH"
+  },
+  {
+    "file": "checkout.html",
+    "line": 304,
+    "type": "threshold",
+    "content": "const shipping = subtotal >= 50 ? 0 : 5.99;",
+    "severity": "HIGH"
+  },
+  {
+    "file": "checkout.html",
+    "line": 304,
+    "format": "shipping_cost",
+    "content": "const shipping = subtotal >= 50 ? 0 : 5.99;",
+    "severity": "MEDIUM"
+  },
+  {
+    "file": "checkout.html",
+    "line": 412,
+    "type": "hardcoded_dollar",
+    "content": "<div><strong>${t('checkout.free_ship_banner') || 'Free worldwide shipping on orders over $50!'}</strong></div>",
+    "severity": "LOW"
+  },
+  {
+    "file": "checkout.html",
+    "line": 559,
+    "type": "threshold",
+    "content": "const shipping = subtotal >= 50 ? 0 : 5.99;",
+    "severity": "HIGH"
+  },
+  {
+    "file": "checkout.html",
+    "line": 559,
+    "format": "shipping_cost",
+    "content": "const shipping = subtotal >= 50 ? 0 : 5.99;",
+    "severity": "MEDIUM"
+  },
+  {
+    "file": "checkout.html",
+    "line": 575,
+    "type": "hardcoded_dollar",
+    "content": "val = val.replace(/(\\d{3})(\\d)/, '$1.$2');",
+    "severity": "LOW"
+  },
+  {
+    "file": "checkout.html",
+    "line": 576,
+    "type": "hardcoded_dollar",
+    "content": "val = val.replace(/(\\d{3})(\\d)/, '$1.$2');",
+    "severity": "LOW"
+  },
+  {
+    "file": "checkout.html",
+    "line": 577,
+    "type": "hardcoded_dollar",
+    "content": "val = val.replace(/(\\d{3})(\\d{1,2})$/, '$1-$2');",
+    "severity": "LOW"
+  },
+  {
+    "file": "checkout.html",
+    "line": 579,
+    "type": "hardcoded_dollar",
+    "content": "val = val.replace(/^(\\d{2})(\\d)/, '$1.$2');",
+    "severity": "LOW"
+  },
+  {
+    "file": "checkout.html",
+    "line": 580,
+    "type": "hardcoded_dollar",
+    "content": "val = val.replace(/^(\\d{2})\\.(\\d{3})(\\d)/, '$1.$2.$3');",
+    "severity": "LOW"
+  },
+  {
+    "file": "checkout.html",
+    "line": 581,
+    "type": "hardcoded_dollar",
+    "content": "val = val.replace(/\\.(\\d{3})(\\d)/, '.$1/$2');",
+    "severity": "LOW"
+  },
+  {
+    "file": "checkout.html",
+    "line": 582,
+    "type": "hardcoded_dollar",
+    "content": "val = val.replace(/(\\d{4})(\\d)/, '$1-$2');",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 69,
+    "type": "hardcoded_dollar",
+    "content": "'hero4.desc': '전 세계 $50 이상 주문 시 무료 배송. 코드 FJFIRST로 무료 K-뷰티 시트 마스크 세트도 받으세요.',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 73,
+    "type": "hardcoded_dollar",
+    "content": "'trust.shipping': '$50 이상 무료 배송',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 92,
+    "type": "hardcoded_dollar",
+    "content": "'promo.title': '$50 이상 주문 시 무료 배송',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 114,
+    "type": "hardcoded_dollar",
+    "content": "'shop.price_under25': '$25 미만',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 115,
+    "type": "hardcoded_dollar",
+    "content": "'shop.price_25_50': '$25 — $50',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 116,
+    "type": "hardcoded_dollar",
+    "content": "'shop.price_50_100': '$50 — $100',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 117,
+    "type": "hardcoded_dollar",
+    "content": "'shop.price_100plus': '$100 이상',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 140,
+    "type": "hardcoded_dollar",
+    "content": "'product.free_shipping_badge': '🚚 $50 이상 무료 배송',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 149,
+    "type": "hardcoded_dollar",
+    "content": "'product.shipping_free': '$50 이상 주문 시 무료 기본 배송',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 380,
+    "type": "hardcoded_dollar",
+    "content": "'shipping.us_eu_free': '$50(미국) / €50(EU) 이상 주문 시 일반 배송 무료.',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 512,
+    "type": "hardcoded_dollar",
+    "content": "'hero4.line1': '满$50',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 515,
+    "type": "hardcoded_dollar",
+    "content": "'hero4.desc': '全球满 $50 免运费。首次下单使用优惠码 FJFIRST 即赠韩妆面膜套装。',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 519,
+    "type": "hardcoded_dollar",
+    "content": "'trust.shipping': '满 $50 免运费',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 538,
+    "type": "hardcoded_dollar",
+    "content": "'promo.title': '订单满 $50 免运费',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 560,
+    "type": "hardcoded_dollar",
+    "content": "'shop.price_under25': '$25 以下',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 561,
+    "type": "hardcoded_dollar",
+    "content": "'shop.price_25_50': '$25 — $50',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 562,
+    "type": "hardcoded_dollar",
+    "content": "'shop.price_50_100': '$50 — $100',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 563,
+    "type": "hardcoded_dollar",
+    "content": "'shop.price_100plus': '$100 以上',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 586,
+    "type": "hardcoded_dollar",
+    "content": "'product.free_shipping_badge': '满$50免运费',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 595,
+    "type": "hardcoded_dollar",
+    "content": "'product.shipping_free': '满$50即享免费标准配送',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 830,
+    "type": "hardcoded_dollar",
+    "content": "'shipping.us_eu_free': '满 $50（美国）/ €50（欧盟）免标准运费。',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 964,
+    "type": "hardcoded_dollar",
+    "content": "'trust.shipping': '满$50免运费',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 1596,
+    "type": "hardcoded_dollar",
+    "content": "'product.free_shipping_badge': '🚚 Frete Grátis acima de $50',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 1605,
+    "type": "hardcoded_dollar",
+    "content": "'product.shipping_free': 'Frete grátis padrão em pedidos acima de $50.',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 1841,
+    "type": "hardcoded_dollar",
+    "content": "'shipping.us_eu_free': 'Frete padrão grátis em pedidos acima de $50 (EUA) / €50 (UE).',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 1981,
+    "type": "hardcoded_dollar",
+    "content": "'hero4.desc': 'Free worldwide shipping on orders over $50. Plus get a free K-beauty sheet mask set with code FJFIRST.',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 1985,
+    "type": "hardcoded_dollar",
+    "content": "'trust.shipping': 'Free Shipping Over $50',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 2004,
+    "type": "hardcoded_dollar",
+    "content": "'promo.title': 'Free Shipping on Orders Over $50',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 2026,
+    "type": "hardcoded_dollar",
+    "content": "'shop.price_under25': 'Under $25',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 2027,
+    "type": "hardcoded_dollar",
+    "content": "'shop.price_25_50': '$25 — $50',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 2028,
+    "type": "hardcoded_dollar",
+    "content": "'shop.price_50_100': '$50 — $100',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 2029,
+    "type": "hardcoded_dollar",
+    "content": "'shop.price_100plus': '$100+',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 2052,
+    "type": "hardcoded_dollar",
+    "content": "'product.free_shipping_badge': '🚚 Free Shipping over $50',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 2061,
+    "type": "hardcoded_dollar",
+    "content": "'product.shipping_free': 'Free standard shipping on orders over $50.',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 2297,
+    "type": "hardcoded_dollar",
+    "content": "'shipping.us_eu_free': 'Free standard shipping on orders over $50 (US) / €50 (EU).',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 2437,
+    "type": "hardcoded_dollar",
+    "content": "'hero4.desc': 'Envío gratis mundial en pedidos superiores a $50. Recibe un set de mascarillas coreanas con el código FJFIRST.',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 2441,
+    "type": "hardcoded_dollar",
+    "content": "'trust.shipping': 'Envío Gratis +$50',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 2460,
+    "type": "hardcoded_dollar",
+    "content": "'promo.title': 'Envío Gratis en Pedidos +$50',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 2482,
+    "type": "hardcoded_dollar",
+    "content": "'shop.price_under25': 'Menos de $25',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 2483,
+    "type": "hardcoded_dollar",
+    "content": "'shop.price_25_50': '$25 — $50',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 2484,
+    "type": "hardcoded_dollar",
+    "content": "'shop.price_50_100': '$50 — $100',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 2485,
+    "type": "hardcoded_dollar",
+    "content": "'shop.price_100plus': '$100+',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 2508,
+    "type": "hardcoded_dollar",
+    "content": "'product.free_shipping_badge': '🚚 Envío Gratis +$50',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 2517,
+    "type": "hardcoded_dollar",
+    "content": "'product.shipping_free': 'Envío estándar gratuito en pedidos superiores a $50.',",
+    "severity": "LOW"
+  },
+  {
+    "file": "js/i18n.js",
+    "line": 2754,
+    "type": "hardcoded_dollar",
+    "content": "'shipping.us_eu_free': 'Envío estándar gratis en pedidos superiores a $50 (EE.UU.) / €50 (UE).',",
+    "severity": "LOW"
+  }
+]

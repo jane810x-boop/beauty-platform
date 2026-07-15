@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Checkout — F&amp;J</title>
+<meta name="description" content="Complete your purchase securely — PayPal, Credit Card, and PIX available">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=3">
+<script src="js/layout.js?v=2"></script>
+<script src="js/i18n.js"></script>
+<style>
+  .cpf-input { letter-spacing: 1px; }
+  .brazil-tax-breakdown { background: #FFF9F0; border: 1px solid #F5ECD7; border-radius: 8px; padding: 1rem; margin-top: 1rem; font-size: 0.8rem; }
+  .brazil-tax-breakdown .tax-row { display: flex; justify-content: space-between; padding: 0.3rem 0; color: #666; }
+  .tax-warning { background: #FFF5F5; border: 1px solid #FFD5D5; border-radius: 8px; padding: 0.75rem 1rem; font-size: 0.8rem; color: #c62828; margin-top: 0.75rem; }
+  .payment-tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 2px solid #f0f0f0; }
+  .payment-tab { padding: 0.75rem 1.5rem; cursor: pointer; font-weight: 600; color: #999; border: none; background: none; font-family: inherit; font-size: 0.95rem; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all 0.2s; display: flex; align-items: center; gap: 0.5rem; }
+  .payment-tab.active { color: #E5342B; border-bottom-color: #E5342B; }
+  .payment-tab:hover { color: #333; }
+  .payment-panel { display: none; }
+  .payment-panel.active { display: block; }
+  #paypal-button-container { margin-top: 1rem; min-height: 40px; }
+  #stripe-card-element { padding: 1rem; border: 1.5px solid #e0e0e0; border-radius: 8px; background: #fff; margin-bottom: 1rem; }
+  #stripe-card-element.StripeElement--focus { border-color: #E5342B; }
+  .payment-security { display: flex; align-items: center; gap: 1.5rem; margin-top: 1rem; padding: 0.75rem 1rem; background: #f9f9f9; border-radius: 8px; font-size: 0.8rem; color: #777; }
+  .payment-security span { display: flex; align-items: center; gap: 0.3rem; }
+  .demo-notice { background: #FFF8E1; border: 1px solid #FFE082; border-radius: 8px; padding: 0.75rem 1rem; font-size: 0.8rem; color: #F57F17; margin-bottom: 1rem; }
+  .checkout-section { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.04); padding: 1.75rem; margin-bottom: 1.5rem; }
+  .checkout-section h3 { font-size: 1.1rem; margin-bottom: 1.25rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 768px) { .form-row { grid-template-columns: 1fr; } }
+  .form-group { margin-bottom: 1rem; }
+  .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem; color: #333; }
+  .form-group input, .form-group select { width: 100%; padding: 0.75rem 1rem; border: 1.5px solid #e0e0e0; border-radius: 8px; font-size: 0.95rem; font-family: inherit; box-sizing: border-box; transition: border-color 0.2s; }
+  .form-group input:focus, .form-group select:focus { outline: none; border-color: #E5342B; }
+  .checkout-layout { display: grid; grid-template-columns: 1fr 380px; gap: 2rem; align-items: start; }
+  @media (max-width: 900px) { .checkout-layout { grid-template-columns: 1fr; } }
+  .summary-card { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.04); padding: 1.75rem; position: sticky; top: 90px; }
+  .summary-card h3 { font-size: 1.1rem; margin-bottom: 1rem; }
+  .summary-row { display: flex; justify-content: space-between; padding: 0.5rem 0; font-size: 0.9rem; }
+  .summary-row.total { border-top: 2px solid #f0f0f0; padding-top: 0.75rem; margin-top: 0.5rem; font-size: 1.15rem; font-weight: 700; }
+  .summary-row .free { color: #2e7d32; font-weight: 600; }
+  .order-item-mini { display: flex; align-items: center; gap: 0.75rem; padding: 0.5rem 0; border-bottom: 1px solid #f5f5f5; font-size: 0.85rem; }
+  .order-item-mini:last-child { border-bottom: none; }
+  .card-icons { display: flex; gap: 0.5rem; margin-bottom: 0.75rem; }
+  .card-icons span { font-size: 1.5rem; }
+  .toast { position: fixed; top: 1rem; right: 1rem; background: #2e7d32; color: #fff; padding: 1rem 1.5rem; border-radius: 8px; font-weight: 600; z-index: 1000; display: none; box-shadow: 0 4px 20px rgba(0,0,0,0.2); animation: slideIn 0.3s ease; }
+  @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+  .urgent-shipping-banner { background: linear-gradient(135deg, #FFF8E1, #FFF3C4); border: 1px solid #FFE082; border-radius: 8px; padding: 0.85rem 1.25rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; font-size: 0.85rem; color: #5D4037; }
+  .urgent-shipping-banner .urgent-icon { font-size: 1.5rem; }
+  .urgent-shipping-banner strong { color: #BF360C; }
+  .order-confirm-screen { text-align: center; padding: 3rem 1rem; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
+  .order-confirm-screen .confirm-icon { font-size: 4.5rem; margin-bottom: 1rem; }
+  .order-confirm-screen .confirm-order-no { display: inline-block; background: #F8F4F0; border-radius: 8px; padding: 0.75rem 1.5rem; margin-bottom: 1rem; font-weight: 600; }
+  .order-confirm-screen .confirm-total { font-size: 1.6rem; font-weight: 800; margin-bottom: 1.5rem; }
+  .order-confirm-screen .confirm-countdown { color: #999; font-size: 0.85rem; margin-bottom: 1.5rem; }
+</style>
+</head>
+<body>
+
+<div id="header-mount" data-nav=""></div>
+
+<div class="container" style="margin-top:1.5rem;">
+  <div class="breadcrumb">
+    <a href="index.html" data-i18n="nav.home" data-i18n-en="Home">首頁</a> <span>/</span> <a href="cart.html" data-i18n="nav.cart" data-i18n-en="Cart">購物車</a> <span>/</span> <span data-i18n="checkout.breadcrumb" data-i18n-en="Checkout">結賬</span>
+  </div>
+</div>
+
+<section class="checkout-container" style="padding:1.5rem 0 4rem;">
+  <div class="container">
+    <h1 style="margin-bottom:2rem;" data-i18n="checkout.title" data-i18n-en="Checkout">結賬</h1>
+    <div id="checkout-content"></div>
+  </div>
+</section>
+
+<div class="toast" id="toast"></div>
+
+<div id="footer-mount"></div>
+
+<script src="js/products.js"></script>
+<script src="js/api.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+<script src="js/wishlist.js"></script>
+<script src="js/analytics.js"></script>
+  <script src="js/auth.js"></script>
+<script src="js/site-config.js"></script>
+<script src="js/whatsapp.js"></script>
+<script src="js/lgpd-cookie.js"></script>
+
+<!-- Stripe.js (no key needed for library) -->
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+// PayPal SDK — dynamically loaded from FJ_CONFIG
+(function loadPayPalSDK() {
+  var clientId = (window.FJ_CONFIG && window.FJ_CONFIG.payments && window.FJ_CONFIG.payments.paypalClientId) || 'test';
+  var currency = (window.FJ_CONFIG && window.FJ_CONFIG.payments && window.FJ_CONFIG.payments.paypalCurrency) || 'USD';
+  var script = document.createElement('script');
+  script.src = 'https://www.paypal.com/sdk/js?client-id=' + encodeURIComponent(clientId) + '&currency=' + currency + '&intent=capture';
+  script.setAttribute('data-namespace', 'paypal_sdk');
+  script.onload = function() { if (typeof initPayPal === 'function') initPayPal(); };
+  script.onerror = function() { console.warn('PayPal SDK failed to load'); };
+  document.head.appendChild(script);
+})();
+</script>
+
+<script>
+// ========================================
+// Brazil Tax Calculator
+// ========================================
+function calcBrazilTax(subtotalUSD) {
+  const rate = 5.5;
+  const subtotalBRL = subtotalUSD * rate;
+  const ii = subtotalBRL * 0.60;
+  const icmsRate = 0.17;
+  const icmsBase = (subtotalBRL + ii) / (1 - icmsRate);
+  const icms = icmsBase * icmsRate;
+  const pisCofins = (subtotalBRL + icms) * 0.0925;
+  const despacho = 15.00;
+  const totalTaxBRL = ii + icms + pisCofins + despacho;
+  return {
+    rate, subtotalBRL, ii, icms, pisCofins, despacho,
+    totalTaxBRL, totalTaxUSD: totalTaxBRL / rate
+  };
+}
+
+function formatBRL(amount) {
+  return 'R$ ' + amount.toFixed(2).replace('.', ',');
+}
+
+function showToast(msg, isError) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.style.background = isError ? '#c62828' : '#2e7d32';
+  toast.style.display = 'block';
+  setTimeout(() => { toast.style.display = 'none'; }, 4000);
+}
+
+// Global state
+let currentSubtotal = 0;
+let currentTotal = 0;
+let currentCurrency = 'USD';
+let selectedPaymentMethod = 'paypal';
+let stripe, stripeCard;
+
+// ========================================
+// Render Checkout
+// ========================================
+document.addEventListener('DOMContentLoaded', async () => {
+  // 異步初始化產品數據（確保後台新增產品在結算中可找到）
+  if (typeof ProductAPI !== 'undefined') {
+    allProducts = await ProductAPI.getAllProducts();
+  } else {
+    allProducts = PRODUCTS;
+  }
+
+  const cart = getCart();
+  if (cart.length === 0) {
+    document.getElementById('checkout-content').innerHTML = `
+      <div class="cart-empty">
+        <div class="cart-empty-icon">🛒</div>
+        <h2>${t('checkout.empty_cart') || 'Your cart is empty'}</h2>
+        <p>${t('checkout.empty_desc') || 'Add some products before checking out.'}</p>        <a href="shop.html" class="btn btn-primary">${t('account.browse') || 'Browse Products'}</a>
+      </div>`;
+    return;
+  }
+
+  // Analytics: track begin checkout
+  if (window.FJAnalytics) { FJAnalytics.beginCheckout(cartTotal()); }
+
+  const subtotal = cartTotal();
+  currentSubtotal = subtotal;
+  const freeShippingThreshold = getFreeShippingThreshold();
+  const baseShippingCost = getBaseShippingCost();
+  currentTotal = subtotal + (subtotal >= freeShippingThreshold ? 0 : baseShippingCost) + subtotal * 0.08;
+
+  const itemsHTML = cart.map(item => {
+    const product = getProduct(item.productId);
+    if (!product) return '';
+    const brand = getBrand(product.brand);
+    return `
+      <div class="order-item-mini">
+        <div style="width:40px;height:40px;border-radius:6px;background:#f5f5f5;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;overflow:hidden;">${product.image ? `<img src="${product.image}" alt="" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none';this.parentElement.textContent='${brand.emoji}'">` : brand.emoji}</div>
+        <div style="flex:1;">
+          <strong>${product.name}</strong>
+          <div style="color:#999;font-size:0.75rem;">${brand.name} · ${t('checkout.qty_label')} ${item.qty}</div>
+        </div>
+        <div style="font-weight:600;white-space:nowrap;">${formatPrice(product.price * item.qty)}</div>
+      </div>`;
+  }).join('');
+
+  const shipping = subtotal >= freeShippingThreshold ? 0 : baseShippingCost;
+  const tax = subtotal * 0.08;
+  const shippingText = shipping === 0 ? '<span class="free">' + t('checkout.free') + '</span>' : formatPrice(shipping);
+
+  document.getElementById('checkout-content').innerHTML = `
+    <div class="checkout-layout">
+      <div>
+        <!-- Urgent shipping banner -->
+        <div class="urgent-shipping-banner">
+          <span class="urgent-icon">🚚</span>
+          <div><strong>${t('checkout.ship_today') || 'Order before 15:00 (KST) for same-day dispatch!'}</strong></div>
+        </div>
+
+        <!-- Shipping Section -->
+        <div class="checkout-section">
+          <h3>${t('checkout.shipping_address') || '📦 Shipping Address'}</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label>${t('checkout.fullname') || 'Full Name *'}</label>
+              <input type="text" id="fullname" required>
+            </div>
+            <div class="form-group" id="cpf-group" style="display:none;">
+              <label>${t('checkout.cpf') || 'CPF / CNPJ *'} <small style="color:#999;font-weight:400;">${t('checkout.cpf_note') || 'Required for Brazil delivery'}</small></label>
+              <input type="text" id="cpf" class="cpf-input" placeholder="000.000.000-00" maxlength="18">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>${t('checkout.email') || 'Email *'}</label>
+              <input type="email" id="email" placeholder="you@example.com" required>
+            </div>
+            <div class="form-group">
+              <label>${t('checkout.phone') || 'Phone *'}</label>
+              <input type="tel" id="phone" placeholder="+1 234 567 8900" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>${t('checkout.address') || 'Address *'}</label>
+            <input type="text" id="address" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>${t('checkout.city') || 'City *'}</label>
+              <input type="text" id="city" required>
+            </div>
+            <div class="form-group" id="state-group">
+              <label>${t('checkout.state') || 'State / Province *'}</label>
+              <input type="text" id="state" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>${t('checkout.zip') || 'ZIP / Postal Code *'}</label>
+              <input type="text" id="zip" required>
+            </div>
+            <div class="form-group">
+              <label>${t('checkout.country') || 'Country *'}</label>
+              <select id="country" required>
+                <option value="">${t('checkout.select_country') || 'Select country'}</option>
+                <option value="US">🇺🇸 United States</option>
+                <option value="BR">🇧🇷 Brazil</option>
+                <option value="MX">🇲🇽 Mexico</option>
+                <option value="CA">🇨🇦 Canada</option>
+                <option value="GB">🇬🇧 United Kingdom</option>
+                <option value="DE">🇩🇪 Germany</option>
+                <option value="FR">🇫🇷 France</option>
+                <option value="ES">🇪🇸 Spain</option>
+                <option value="IT">🇮🇹 Italy</option>
+                <option value="AU">🇦🇺 Australia</option>
+                <option value="JP">🇯🇵 Japan</option>
+                <option value="KR">🇰🇷 South Korea</option>
+                <option value="SG">🇸🇬 Singapore</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Free shipping banner -->
+        <div class="urgent-shipping-banner">
+          <span class="urgent-icon">⏰</span>
+          <div><strong>${t('checkout.free_ship_banner') || 'Free worldwide shipping on orders over $' + getFreeShippingThreshold() + '!'}</strong></div>
+        </div>
+
+        <!-- Payment Section -->
+        <div class="checkout-section">
+          <h3>${t('checkout.payment_method') || '💳 Payment Method'}</h3>
+          <div class="demo-notice">
+            ${t('checkout.demo_notice') || '⚠️ Demo Mode: Payments are simulated.'}
+          </div>
+
+          <div class="payment-tabs" id="payment-tabs">
+            <button class="payment-tab active" data-method="paypal">${t('checkout.paypal') || '🅿️ PayPal'}</button>
+            <button class="payment-tab" data-method="card">${t('checkout.card') || '💳 Credit / Debit Card'}</button>
+            <button class="payment-tab" data-method="pix" id="tab-pix" style="display:none;">${t('checkout.pix') || '💠 PIX'}</button>
+          </div>
+
+          <!-- PayPal Panel -->
+          <div class="payment-panel active" id="panel-paypal">
+            <p style="font-size:0.9rem;color:#666;margin-bottom:0.5rem;">${t('checkout.paypal_desc') || 'You will be redirected to PayPal to complete payment securely.'}</p>
+            <div id="paypal-button-container"></div>
+          </div>
+
+          <!-- Card Panel (Stripe) -->
+          <div class="payment-panel" id="panel-card">
+            <div class="card-icons">
+              <span>💳</span><span>🔵</span><span>🟠</span><span>🟡</span>
+            </div>
+            <div id="stripe-card-element"></div>
+            <div id="card-errors" style="color:#c62828;font-size:0.85rem;margin-bottom:0.75rem;"></div>
+            <button class="btn btn-primary btn-block" style="padding:0.875rem;" id="stripe-pay-btn" onclick="payWithStripe()">
+              💳 ${t('checkout.pay_amount') || 'Pay'} ${formatPrice(currentTotal)}
+            </button>
+          </div>
+
+          <!-- PIX Panel -->
+          <div class="payment-panel" id="panel-pix">
+            <div style="text-align:center;padding:2rem;">
+              <div style="font-size:4rem;">📱</div>
+              <h4 style="margin:1rem 0 0.5rem;">${t('checkout.pix_title') || 'PIX Payment'}</h4>
+              <p style="color:#666;font-size:0.9rem;">${t('checkout.pix_desc') || 'After confirming, you\'ll receive the PIX QR code by email.'}</p>
+              <button class="btn btn-primary" style="margin-top:1rem;padding:0.875rem 2rem;" onclick="processOrder('pix')">
+                ${t('checkout.pix_pay') || '💠 Pay via PIX'}
+              </button>
+            </div>
+          </div>
+
+          <div class="payment-security">
+            <span>${t('checkout.security_ssl') || '🔒 SSL Encrypted'}</span>
+            <span>${t('checkout.security_pci') || '✅ PCI-DSS Compliant'}</span>
+            <span>${t('checkout.security_secure') || '🛡️ Secure Checkout'}</span>
+          </div>
+        </div>
+
+        <!-- ANVISA Notice (Brazil) -->
+        <div id="anvisa-notice" style="display:none;background:#F8F4F0;border:1px solid #e0d8d0;border-radius:8px;padding:1rem;margin-bottom:1.5rem;font-size:0.8rem;color:#666;line-height:1.6;">
+          ${t('checkout.anvisa') || '⚠️ ANVISA Notice: Cosmetic products sold on this site are imported and comply with ANVISA regulations.'}
+        </div>
+      </div>
+
+      <!-- Order Summary -->
+      <div>
+        <div class="summary-card">
+          <h3>${t('checkout.order_summary') || 'Order Summary'}</h3>
+          <div style="margin-bottom:1rem;">${itemsHTML}</div>
+          <div class="summary-row"><span>${t('checkout.subtotal') || 'Subtotal'}</span><span id="summary-subtotal">${formatPrice(subtotal)}</span></div>
+          <div class="summary-row"><span>${t('checkout.shipping') || 'Shipping'}</span><span id="summary-shipping">${shippingText}</span></div>
+          <div class="summary-row" id="row-tax-us"><span>${t('checkout.tax') || 'Tax (est.)'}</span><span id="summary-tax">${formatPrice(tax)}</span></div>
+          <div id="brazil-tax-section" style="display:none;">
+            <div class="brazil-tax-breakdown">
+              <div style="font-weight:600;margin-bottom:0.5rem;">${t('checkout.brazil_tax_title') || '🇧🇷 Import Tax Estimate'}</div>
+              <div class="tax-row"><span>${t('checkout.brazil_subtotal') || 'Subtotal (BRL)'}</span><span id="tax-subtotal-brl">-</span></div>
+              <div class="tax-row"><span>${t('checkout.brazil_ii') || 'II (60%)'}</span><span id="tax-ii">-</span></div>
+              <div class="tax-row"><span>${t('checkout.brazil_icms') || 'ICMS (~17%)'}</span><span id="tax-icms">-</span></div>
+              <div class="tax-row"><span>${t('checkout.brazil_pis') || 'PIS/COFINS'}</span><span id="tax-pis">-</span></div>
+              <div class="tax-row"><span>${t('checkout.brazil_despacho') || 'Despacho Postal'}</span><span id="tax-despacho">-</span></div>
+              <div class="tax-row" style="border-top:1px solid #ddd;padding-top:0.5rem;font-weight:700;"><span>${t('checkout.brazil_total_tax') || 'Total Tax'}</span><span id="tax-total-brl">-</span></div>
+            </div>
+            <div class="tax-warning">
+              ${t('checkout.brazil_warning') || '⚠️ Values are estimates. Final tax is calculated by customs upon arrival.'}
+            </div>
+          </div>
+          <div class="summary-row total">
+            <span>${t('checkout.total') || 'Total'}</span><span id="summary-total">${formatPrice(currentTotal)}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Init country handlers
+  initCountryHandlers(subtotal);
+  // Init payment tabs
+  initPaymentTabs();
+  // Init Stripe (PayPal is auto-initialized via dynamic SDK loader)
+  initStripe();
+});
+
+// ========================================
+// Country Handlers
+// ========================================
+function initCountryHandlers(subtotal) {
+  const countrySelect = document.getElementById('country');
+  countrySelect.addEventListener('change', updateForCountry);
+
+  // Set initial state
+  updateForCountry();
+
+  function updateForCountry() {
+    const country = countrySelect.value;
+    const isBr = country === 'BR';
+
+    document.getElementById('cpf-group').style.display = isBr ? 'block' : 'none';
+    document.getElementById('tab-pix').style.display = isBr ? 'inline-flex' : 'none';
+
+    if (isBr) {
+      document.getElementById('cpf').setAttribute('required', '');
+      document.getElementById('anvisa-notice').style.display = 'block';
+
+      const brazilTax = calcBrazilTax(subtotal);
+      document.getElementById('row-tax-us').style.display = 'none';
+      document.getElementById('brazil-tax-section').style.display = 'block';
+      document.getElementById('summary-shipping').textContent = (t('checkout.free') || 'FREE');
+      document.getElementById('tax-subtotal-brl').textContent = formatBRL(brazilTax.subtotalBRL);
+      document.getElementById('tax-ii').textContent = formatBRL(brazilTax.ii);
+      document.getElementById('tax-icms').textContent = formatBRL(brazilTax.icms);
+      document.getElementById('tax-pis').textContent = formatBRL(brazilTax.pisCofins);
+      document.getElementById('tax-despacho').textContent = formatBRL(brazilTax.despacho);
+      document.getElementById('tax-total-brl').textContent = formatBRL(brazilTax.totalTaxBRL);
+      currentTotal = subtotal + brazilTax.totalTaxUSD;
+      currentCurrency = 'BRL';
+    } else {
+      document.getElementById('cpf').removeAttribute('required');
+      document.getElementById('anvisa-notice').style.display = 'none';
+      document.getElementById('row-tax-us').style.display = 'flex';
+      document.getElementById('brazil-tax-section').style.display = 'none';
+
+      const shipping = subtotal >= freeShippingThreshold ? 0 : baseShippingCost;
+      const tax = subtotal * 0.08;
+      document.getElementById('summary-shipping').innerHTML = shipping === 0 ? '<span class="free">' + (t('checkout.free') || 'FREE') + '</span>' : formatPrice(shipping);
+      document.getElementById('summary-tax').textContent = formatPrice(tax);
+      currentTotal = subtotal + shipping + tax;
+      currentCurrency = 'USD';
+    }
+
+    document.getElementById('summary-total').textContent = formatPrice(currentTotal);
+  }
+
+  // CPF mask
+  document.getElementById('cpf').addEventListener('input', function(e) {
+    let val = e.target.value.replace(/\D/g, '');
+    if (val.length > 11) val = val.substring(0, 14);
+    if (val.length <= 11) {
+      val = val.replace(/(\d{3})(\d)/, '$1.$2');
+      val = val.replace(/(\d{3})(\d)/, '$1.$2');
+      val = val.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+    } else {
+      val = val.replace(/^(\d{2})(\d)/, '$1.$2');
+      val = val.replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3');
+      val = val.replace(/\.(\d{3})(\d)/, '.$1/$2');
+      val = val.replace(/(\d{4})(\d)/, '$1-$2');
+    }
+    e.target.value = val;
+  });
+}
+
+// ========================================
+// Payment Tabs
+// ========================================
+function initPaymentTabs() {
+  document.getElementById('payment-tabs').addEventListener('click', (e) => {
+    const tab = e.target.closest('.payment-tab');
+    if (!tab) return;
+
+    document.querySelectorAll('#payment-tabs .payment-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    selectedPaymentMethod = tab.dataset.method;
+
+    document.querySelectorAll('.payment-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('panel-' + tab.dataset.method).classList.add('active');
+  });
+}
+
+// ========================================
+// PayPal Integration
+// ========================================
+function initPayPal() {
+  if (typeof paypal_sdk === 'undefined') {
+    document.getElementById('paypal-button-container').innerHTML =
+      '<p style="color:#999;text-align:center;padding:1rem;">' + (t('checkout.payment_loading') || 'Payment SDK loading...') + ' ' + (t('checkout.payment_refresh') || 'Please refresh if this persists.') + '</p>';
+    return;
+  }
+
+  paypal_sdk.Buttons({
+    style: {
+      layout: 'vertical',
+      color: 'blue',
+      shape: 'rect',
+      label: 'paypal'
+    },
+    createOrder: function(data, actions) {
+      return actions.order.create({
+        purchase_units: [{
+          amount: { value: currentTotal.toFixed(2), currency_code: currentCurrency },
+          description: (t('checkout.paypal_order_desc') || 'F&J Beauty Order')
+        }]
+      });
+    },
+    onApprove: function(data, actions) {
+      return actions.order.capture().then(function(details) {
+        processOrder('paypal', data.orderID);
+      });
+    },
+    onError: function(err) {
+      showToast(t('checkout.payment_failed') || 'Payment failed. Please try again.', true);
+    }
+  }).render('#paypal-button-container');
+}
+
+// ========================================
+// Stripe Integration
+// ========================================
+function initStripe() {
+  if (typeof Stripe === 'undefined') {
+    document.getElementById('stripe-card-element').innerHTML =
+      '<p style="color:#999;">' + (t('checkout.payment_loading') || 'Stripe loading...') + ' ' + (t('checkout.payment_refresh') || 'Please refresh.') + '</p>';
+    return;
+  }
+
+  // Stripe key from site config (fallback to test key)
+  var stripeKey = (window.FJ_CONFIG && window.FJ_CONFIG.payments && window.FJ_CONFIG.payments.stripePublishableKey) || 'pk_test_demo_fjbeauty_2026';
+  stripe = Stripe(stripeKey);
+
+  const elements = stripe.elements();
+  stripeCard = elements.create('card', {
+    style: {
+      base: {
+        fontSize: '16px',
+        fontFamily: 'Inter, -apple-system, sans-serif',
+        color: '#333',
+        '::placeholder': { color: '#aaa' }
+      }
+    }
+  });
+  stripeCard.mount('#stripe-card-element');
+  stripeCard.on('change', function(event) {
+    const displayError = document.getElementById('card-errors');
+    displayError.textContent = event.error ? event.error.message : '';
+  });
+}
+
+async function payWithStripe() {
+  const btn = document.getElementById('stripe-pay-btn');
+  btn.disabled = true;
+  btn.textContent = t('checkout.processing') || 'Processing...';
+
+  try {
+    // Step 1: Create PaymentIntent on the server
+    let clientSecret = null;
+    let demoMode = false;
+
+    try {
+      const response = await fetch('/api/orders/create-payment-intent', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ amount: currentTotal, currency: currentCurrency })
+      });
+      const piData = await response.json();
+      if (piData.clientSecret) {
+        clientSecret = piData.clientSecret;
+        demoMode = !!piData.demoMode;
+      }
+    } catch (e) {
+      // Backend unavailable, fall back to demo mode
+      demoMode = true;
+    }
+
+    if (demoMode || !clientSecret || clientSecret.startsWith('pi_demo_')) {
+      // Demo mode: simulate payment without real Stripe backend
+      const { paymentMethod, error } = await stripe.createPaymentMethod({
+        type: 'card',
+        card: stripeCard
+      });
+
+      if (error) {
+        throw new Error(error.message);
+      }
+
+      // Simulate confirmed payment
+      processOrder('stripe', 'pi_demo_' + Date.now());
+      return;
+    }
+
+    // Step 2: Confirm card payment with the client secret
+    const { paymentIntent, error } = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: stripeCard,
+        billing_details: {
+          name: document.getElementById('fullname').value.trim(),
+          email: document.getElementById('email').value.trim(),
+        }
+      }
+    });
+
+    if (error) {
+      throw new Error(error.message);
+    }
+
+    if (paymentIntent.status === 'succeeded') {
+      // Payment confirmed by Stripe, process the order
+      processOrder('stripe', paymentIntent.id);
+    } else {
+      throw new Error('Payment was not completed. Status: ' + paymentIntent.status);
+    }
+  } catch (err) {
+    showToast((t('checkout.payment_failed') || 'Payment failed: ') + err.message, true);
+    btn.disabled = false;
+    btn.textContent = `\u{1F4B3} ${t('checkout.pay_amount') || 'Pay'} ${formatPrice(currentTotal)}`;
+  }
+}
+
+// ========================================
+// Order Processing
+// ========================================
+async function processOrder(paymentMethod, paymentId) {
+  // Validate
+  const fullname = document.getElementById('fullname').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const address = document.getElementById('address').value.trim();
+  const city = document.getElementById('city').value.trim();
+  const country = document.getElementById('country').value;
+
+  if (!fullname || !email || !address || !city || !country) {
+    showToast(t('checkout.fill_required') || 'Please fill in all required shipping fields.', true);
+    return;
+  }
+
+  if (country === 'BR') {
+    const cpf = document.getElementById('cpf').value.replace(/\D/g, '');
+    if (!cpf || cpf.length < 11) {
+      showToast(t('checkout.cpf_required') || 'CPF/CNPJ is required for Brazil deliveries.', true);
+      return;
+    }
+  }
+
+  // Build order items
+  const cart = getCart();
+  const items = cart.map(item => {
+    const product = getProduct(item.productId);
+    const brand = getBrand(product ? product.brand : '');
+    return {
+      product_id: item.productId,
+      product_name: product ? product.name : 'Product',
+      brand_name: brand ? brand.name : '',
+      price: product ? product.price : 0,
+      quantity: item.qty
+    };
+  });
+
+  const subtotal = cartTotal();
+  const orderData = {
+    items,
+    subtotal,
+    total: currentTotal,
+    currency: currentCurrency,
+    payment_method: paymentMethod,
+    payment_id: paymentId || null,
+    shipping_name: fullname,
+    shipping_email: email,
+    shipping_phone: document.getElementById('phone').value.trim(),
+    shipping_address: address,
+    shipping_city: city,
+    shipping_state: document.getElementById('state').value.trim(),
+    shipping_zip: document.getElementById('zip').value.trim(),
+    shipping_country: country
+  };
+
+  try {
+    const result = await Auth.createOrder(orderData);
+
+    // Analytics: track purchase
+    if (window.FJAnalytics) {
+      FJAnalytics.purchase({ order_number: result.order.order_number, total: currentTotal, currency: currentCurrency, items: items });
+    }
+
+    // Show visual confirmation screen
+    const orderNum = result.order.order_number;
+    showConfirmation(orderNum, currentTotal, currentCurrency || 'USD', items);
+  } catch (err) {
+    // If API unavailable (demo mode), simulate success
+    if (err.message.includes('Failed to fetch') || err.message.includes('NetworkError')) {
+
+      // Analytics: track purchase (demo)
+      if (window.FJAnalytics) {
+        FJAnalytics.purchase({ order_number: 'DEMO-' + Date.now(), total: currentTotal, currency: currentCurrency, items: items });
+      }
+
+      // Show visual confirmation screen (demo)
+      showConfirmation('DEMO-' + Date.now(), currentTotal, currentCurrency || 'USD', items, true);
+    } else {
+      showToast((t('checkout.order_failed') || 'Order failed: ') + err.message, true);
+    }
+  }
+}
+
+function showConfirmation(orderNumber, total, currency, items, isDemo) {
+  const cc = document.getElementById('checkout-content');
+  if (!cc) return;
+  const redirectUrl = isDemo ? 'index.html' : 'account.html';
+  cc.innerHTML = `
+    <div class="order-confirm-screen">
+      <div class="confirm-icon">🎉</div>
+      <h2>${t('checkout.order_done_title') || 'Order Confirmed!'}</h2>
+      <p style="color:#666;margin-bottom:1rem;">${t('checkout.order_done_sub') || 'Thank you for your order.'}</p>
+      <div class="confirm-order-no">${t('checkout.order_no') || 'Order #'}${orderNumber}</div>
+      <div class="confirm-total">${formatPrice(total)} <span style="font-size:0.9rem;color:#999;font-weight:500;">${currency}</span></div>
+      <div class="confirm-countdown" id="confirm-countdown">3 <span data-i18n="checkout.countdown_redirect">${t('checkout.countdown_redirect') || 'seconds to redirect...'}</span></div>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="${redirectUrl}" class="btn btn-primary">${t('checkout.view_order') || 'View Order'}</a>
+        <a href="shop.html" class="btn btn-outline">${t('checkout.continue_shop') || 'Continue Shopping'}</a>
+      </div>
+    </div>
+  `;
+  clearCart();
+  let sec = 3;
+  const cdEl = document.getElementById('confirm-countdown');
+  const iv = setInterval(() => {
+    sec--;
+    if (cdEl) cdEl.innerHTML = sec + ' <span data-i18n="checkout.countdown_redirect">' + (t('checkout.countdown_redirect') || 'seconds to redirect...') + '</span>';
+    if (sec <= 0) { clearInterval(iv); window.location.href = redirectUrl; }
+  }, 1000);
+}
+</script>
+</body>
+</html>

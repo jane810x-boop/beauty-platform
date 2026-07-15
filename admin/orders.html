@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-al="Orders">訂單管理 — F&J 后台管理</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="admin-layout">
+  <aside class="admin-sidebar">
+    <a href="index.html" class="sidebar-logo">F<span>&amp;</span>J <span data-al="Admin">管理</span></a>
+    <nav class="sidebar-nav">
+      <a href="index.html"><span class="icon">📊</span> <span data-al="Dashboard">儀表盤</span></a>
+      <a href="products.html"><span class="icon">📦</span> <span data-al="Products">商品管理</span></a>
+      <a href="orders.html" class="active"><span class="icon">📋</span> <span data-al="Orders">訂單管理</span></a>
+      <a href="articles.html"><span class="icon">📝</span> <span data-al="Articles">文章管理</span></a>
+      <a href="../index.html" target="_blank"><span class="icon">🏪</span> <span data-al="View Store →">查看商城 →</span></a>
+    </nav>
+    <button class="lang-toggle" id="lang-toggle" onclick="AdminLang.toggle()">
+      <span class="lang-icon">🌐</span> <span>EN</span>
+    </button>
+    <div class="sidebar-footer">F&J Beauty v1.0</div>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-header">
+      <h1 data-al="Orders">訂單管理</h1>
+      <div style="display:flex;gap:0.5rem;">
+        <select id="status-filter" onchange="loadOrders()" style="padding:0.5rem 0.75rem;border:1.5px solid #E8E8EC;border-radius:6px;font-family:inherit;font-size:0.85rem;">
+          <option value="all" data-al="All Status">全部狀態</option>
+          <option value="paid" data-al="paid">已付款</option>
+          <option value="shipped" data-al="shipped">已發貨</option>
+          <option value="delivered" data-al="delivered">已送達</option>
+          <option value="cancelled" data-al="cancelled">已取消</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <div class="search-bar">
+      <input type="text" id="search" data-al-placeholder="Search by order #, name or email..." placeholder="搜索訂單號、姓名或郵箱..." oninput="filterOrders()">
+    </div>
+
+    <div id="orders-list">
+      <div class="loading" data-al="Loading orders...">正在加載訂單...</div>
+    </div>
+
+    <!-- Order Detail Modal -->
+    <div class="modal-overlay" id="order-modal" style="display:none;">
+      <div class="modal" style="max-width:640px;">
+        <h2 data-al="Order Details">訂單详情</h2>
+        <div id="order-detail"></div>
+        <div class="modal-actions">
+          <button class="btn-sm outline" onclick="document.getElementById('order-modal').style.display='none';" data-al="Close">關閉</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="js/admin-lang.js"></script>
+<script src="js/admin.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  AdminLang.init();
+});
+
+if (!Admin.checkAuth()) throw new Error('Not authenticated');
+
+function _t(key) { return Admin._(key); }
+
+let allOrders = [];
+
+async function loadOrders() {
+  try {
+    const status = document.getElementById('status-filter').value;
+    const search = document.getElementById('search').value;
+    const params = new URLSearchParams();
+    if (status !== 'all') params.set('status', status);
+    if (search) params.set('search', search);
+
+    const data = await Admin.api('GET', '/orders?' + params.toString());
+    allOrders = data.orders;
+    renderOrders(allOrders);
+  } catch (err) {
+    document.getElementById('orders-list').innerHTML = `<div class="loading">${_t('Failed to load:')} ${err.message}</div>`;
+  }
+}
+
+function renderOrders(orders) {
+  if (!orders.length) {
+    document.getElementById('orders-list').innerHTML = `<div class="loading">${_t('No orders found.')}</div>`;
+    return;
+  }
+
+  document.getElementById('orders-list').innerHTML = orders.map(o => `
+    <div style="background:#fff;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.04);margin-bottom:1rem;overflow:hidden;">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem 1.25rem;background:#FAFAFC;border-bottom:1px solid #E8E8EC;flex-wrap:wrap;gap:0.5rem;">
+        <div>
+          <strong style="font-size:1rem;">#${o.order_number}</strong>
+          <span style="margin-left:0.75rem;font-size:0.85rem;color:#888;">${o.shipping_name || _t('N/A')}</span>
+          <span style="margin-left:0.5rem;font-size:0.8rem;color:#aaa;">${new Date(o.created_at).toLocaleString('zh-CN')}</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+          <span class="badge ${o.status}">${Admin.statusLabel(o.status)}</span>
+          <span style="font-weight:700;font-size:1.05rem;">$${o.total.toFixed(2)}</span>
+          ${getStatusActions(o)}
+        </div>
+      </div>
+      <div style="padding:1rem 1.25rem;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;flex-wrap:wrap;gap:0.5rem;">
+          <div style="font-size:0.85rem;color:#666;">
+            ${o.items.map(i => `<span style="margin-right:1rem;">${i.product_name} ×${i.quantity}</span>`).join('')}
+          </div>
+          <button class="btn-sm outline" onclick="viewOrder(${o.id})">${_t('Details')}</button>
+        </div>
+        <div style="font-size:0.8rem;color:#aaa;">
+          📍 ${o.shipping_address}, ${o.shipping_city}, ${o.shipping_country}
+          ${o.payment_method ? ` · 💳 ${o.payment_method.toUpperCase()}` : ''}
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function getStatusActions(order) {
+  if (order.status === 'paid') {
+    return `<button class="btn-sm success" onclick="updateStatus(${order.id}, 'shipped')">${_t('Mark Shipped')}</button>
+            <button class="btn-sm danger" onclick="updateStatus(${order.id}, 'cancelled')">${_t('Cancel')}</button>`;
+  }
+  if (order.status === 'shipped') {
+    return `<button class="btn-sm success" onclick="updateStatus(${order.id}, 'delivered')">${_t('Mark Delivered')}</button>`;
+  }
+  return '';
+}
+
+async function updateStatus(orderId, status) {
+  try {
+    await Admin.api('PUT', '/orders/' + orderId + '/status', { status });
+    Admin.showToast(_t('Order status updated to') + ' ' + Admin.statusLabel(status));
+    loadOrders();
+  } catch (err) {
+    Admin.showToast(err.message, 'error');
+  }
+}
+
+async function viewOrder(orderId) {
+  const order = allOrders.find(o => o.id === orderId);
+  if (!order) return;
+
+  document.getElementById('order-detail').innerHTML = `
+    <div style="margin-bottom:1rem;">
+      <strong>${_t('Order #')}${order.order_number}</strong>
+      <span class="badge ${order.status}" style="margin-left:0.5rem;">${Admin.statusLabel(order.status)}</span>
+      <span style="float:right;color:#888;">${new Date(order.created_at).toLocaleString('zh-CN')}</span>
+    </div>
+    <h4 style="margin-bottom:0.5rem;">${_t('Customer Info')}</h4>
+    <p style="font-size:0.9rem;color:#666;margin-bottom:1rem;">
+      ${order.shipping_name}<br>
+      ${order.shipping_email}<br>
+      ${order.shipping_phone}<br>
+      ${order.shipping_address}<br>
+      ${order.shipping_city}, ${order.shipping_state} ${order.shipping_zip}<br>
+      ${order.shipping_country}
+    </p>
+    <h4 style="margin-bottom:0.5rem;">${_t('Items')}</h4>
+    <table style="width:100%;font-size:0.9rem;margin-bottom:1rem;">
+      <tr><th style="text-align:left;padding:0.3rem 0;">${_t('Product')}</th><th style="text-align:right;padding:0.3rem 0;">${_t('Qty')}</th><th style="text-align:right;padding:0.3rem 0;">${_t('Price')}</th></tr>
+      ${order.items.map(i => `
+        <tr>
+          <td style="padding:0.3rem 0;">${i.product_name} <span style="color:#999;">(${i.brand_name})</span></td>
+          <td style="text-align:right;padding:0.3rem 0;">×${i.quantity}</td>
+          <td style="text-align:right;padding:0.3rem 0;">$${i.price.toFixed(2)}</td>
+        </tr>`).join('')}
+    </table>
+    <div style="text-align:right;font-size:1.1rem;font-weight:700;">
+      ${_t('Total')}: $${order.total.toFixed(2)} ${order.currency !== 'USD' ? '(' + order.currency + ')' : ''}
+    </div>
+    <p style="font-size:0.8rem;color:#888;margin-top:0.5rem;">
+      ${_t('Payment')}: ${order.payment_method || 'N/A'} · ${_t('Payment ID')}: ${order.payment_id || 'N/A'}
+    </p>
+  `;
+
+  document.getElementById('order-modal').style.display = 'flex';
+}
+
+function filterOrders() {
+  const q = document.getElementById('search').value.toLowerCase();
+  if (!q) { loadOrders(); return; }
+  renderOrders(allOrders.filter(o =>
+    o.order_number.toLowerCase().includes(q) ||
+    (o.shipping_name && o.shipping_name.toLowerCase().includes(q)) ||
+    (o.shipping_email && o.shipping_email.toLowerCase().includes(q))
+  ));
+}
+
+// Re-render on language change
+window.addEventListener('admin-lang-changed', () => {
+  loadOrders();
+  // Update status filter options
+  const sel = document.getElementById('status-filter');
+  if (sel) {
+    const opts = sel.querySelectorAll('option');
+    opts.forEach(opt => {
+      const key = opt.getAttribute('data-al');
+      if (key) opt.textContent = _t(key);
+    });
+  }
+});
+
+// Init
+loadOrders();
+</script>
+</body>
+</html>

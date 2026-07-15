@@ -1,0 +1,2082 @@
+[
+  {
+    "key": "nav.home",
+    "zh": "首页",
+    "hk": "首页"
+  },
+  {
+    "key": "nav.shop",
+    "zh": "全部商品",
+    "hk": "全部商品"
+  },
+  {
+    "key": "nav.brands",
+    "zh": "品牌",
+    "hk": "品牌"
+  },
+  {
+    "key": "nav.story",
+    "zh": "品牌故事",
+    "hk": "品牌故事"
+  },
+  {
+    "key": "nav.learn",
+    "zh": "美妆学堂",
+    "hk": "美妝學堂"
+  },
+  {
+    "key": "nav.reviews",
+    "zh": "产品测评",
+    "hk": "產品測評"
+  },
+  {
+    "key": "nav.ingredients",
+    "zh": "成分科普",
+    "hk": "成分科普"
+  },
+  {
+    "key": "nav.routines",
+    "zh": "护肤步骤",
+    "hk": "護膚步驟"
+  },
+  {
+    "key": "nav.about",
+    "zh": "关于我们",
+    "hk": "關於我們"
+  },
+  {
+    "key": "nav.cart",
+    "zh": "购物车",
+    "hk": "購物車"
+  },
+  {
+    "key": "nav.language",
+    "zh": "语言",
+    "hk": "語言"
+  },
+  {
+    "key": "site.title",
+    "zh": "F&J — K-Beauty 亚洲美妆，全球直达",
+    "hk": "F&J — K-Beauty 亚洲美妝，全球直达"
+  },
+  {
+    "key": "site.subtitle",
+    "zh": "精选韩妆及亚洲美妆平台",
+    "hk": "精選韓妝及亚洲美妝平台"
+  },
+  {
+    "key": "footer.tagline",
+    "zh": "以韩妆为核心，把亚洲最好的美妆带给世界。正品保障，精心策展，用心送达。",
+    "hk": "以韓妝为核心，把亚洲最好的美妝带给世界。正品保障，精心策展，用心送达。"
+  },
+  {
+    "key": "footer.shop",
+    "zh": "购物",
+    "hk": "購物"
+  },
+  {
+    "key": "footer.help",
+    "zh": "帮助",
+    "hk": "幫助"
+  },
+  {
+    "key": "footer.legal",
+    "zh": "法律",
+    "hk": "法律"
+  },
+  {
+    "key": "footer.serums",
+    "zh": "精华液",
+    "hk": "精華液"
+  },
+  {
+    "key": "footer.moisturizers",
+    "zh": "面霜",
+    "hk": "面霜"
+  },
+  {
+    "key": "footer.sunscreen",
+    "zh": "防晒",
+    "hk": "防曬"
+  },
+  {
+    "key": "footer.makeup",
+    "zh": "彩妆",
+    "hk": "彩妝"
+  },
+  {
+    "key": "footer.all",
+    "zh": "全部商品",
+    "hk": "全部商品"
+  },
+  {
+    "key": "footer.about",
+    "zh": "关于我们",
+    "hk": "關於我們"
+  },
+  {
+    "key": "footer.story",
+    "zh": "品牌故事",
+    "hk": "品牌故事"
+  },
+  {
+    "key": "footer.learn",
+    "zh": "美妆学堂",
+    "hk": "美妝學堂"
+  },
+  {
+    "key": "footer.shipping",
+    "zh": "配送信息",
+    "hk": "配送資訊"
+  },
+  {
+    "key": "footer.returns",
+    "zh": "退换政策",
+    "hk": "退換政策"
+  },
+  {
+    "key": "footer.faq",
+    "zh": "常见问题",
+    "hk": "常見問題"
+  },
+  {
+    "key": "footer.contact",
+    "zh": "联系我们",
+    "hk": "聯絡我們"
+  },
+  {
+    "key": "footer.privacy",
+    "zh": "隐私政策",
+    "hk": "私隱政策"
+  },
+  {
+    "key": "footer.terms",
+    "zh": "服务条款",
+    "hk": "服務條款"
+  },
+  {
+    "key": "footer.auth",
+    "zh": "正品保证",
+    "hk": "正品保證"
+  },
+  {
+    "key": "footer.copyright",
+    "zh": "© 2026 F&J. 保留所有权利。",
+    "hk": "© 2026 F&J. 保留所有權利。"
+  },
+  {
+    "key": "footer.badge_ssl",
+    "zh": "🔒 SSL/TLS 加密",
+    "hk": "🔒 SSL/TLS 加密"
+  },
+  {
+    "key": "footer.badge_pci",
+    "zh": "💳 PCI-DSS 合规",
+    "hk": "💳 PCI-DSS 合规"
+  },
+  {
+    "key": "footer.badge_gdpr",
+    "zh": "🛡️ LGPD / GDPR",
+    "hk": "🛡️ LGPD / GDPR"
+  },
+  {
+    "key": "footer.badge_tracking",
+    "zh": "📦 全球追踪",
+    "hk": "📦 全球追踪"
+  },
+  {
+    "key": "footer.badge_anvisa",
+    "zh": "🏥 ANVISA 监管",
+    "hk": "🏥 ANVISA 监管"
+  },
+  {
+    "key": "newsletter.consent",
+    "zh": "我同意接收营销邮件，并已阅读<a href=",
+    "hk": "我同意接收營銷邮件，并已閱讀<a href="
+  },
+  {
+    "key": "newsletter.consent_error",
+    "zh": "请同意隐私政策后再订阅。",
+    "hk": "请同意私隱政策后再訂閱。"
+  },
+  {
+    "key": "hero.line1",
+    "zh": "发现",
+    "hk": "發現"
+  },
+  {
+    "key": "hero.line2",
+    "zh": "韩妆之美",
+    "hk": "韓妝之美"
+  },
+  {
+    "key": "hero.line3",
+    "zh": "水光仪式",
+    "hk": "水光儀式"
+  },
+  {
+    "key": "hero.desc",
+    "zh": "以正品韩妆为核心 — 韩国最令人向往的品牌，辅以精选日妆必备，从首尔直送你家。",
+    "hk": "以正品韓妝为核心 — 韩国最令人嚮往的品牌，辅以精選日妆必备，从首尔直送你家。"
+  },
+  {
+    "key": "hero.shop_btn",
+    "zh": "浏览全部商品",
+    "hk": "瀏覽全部商品"
+  },
+  {
+    "key": "hero.brands_btn",
+    "zh": "探索品牌",
+    "hk": "探索品牌"
+  },
+  {
+    "key": "hero2.line1",
+    "zh": "新品",
+    "hk": "新品"
+  },
+  {
+    "key": "hero2.line2",
+    "zh": "上线",
+    "hk": "上線"
+  },
+  {
+    "key": "hero2.line3",
+    "zh": "2026 夏季",
+    "hk": "2026 夏季"
+  },
+  {
+    "key": "hero2.desc",
+    "zh": "韩国最热门品牌的新品上架。抢先体验最新韩妆创新。",
+    "hk": "韩国最熱門品牌的新品上架。抢先體驗最新韓妝創新。"
+  },
+  {
+    "key": "hero2.btn",
+    "zh": "选购新品",
+    "hk": "选购新品"
+  },
+  {
+    "key": "hero3.line1",
+    "zh": "人气",
+    "hk": "人氣"
+  },
+  {
+    "key": "hero3.line2",
+    "zh": "热销",
+    "hk": "熱銷"
+  },
+  {
+    "key": "hero3.line3",
+    "zh": "好评如潮",
+    "hk": "好评如潮"
+  },
+  {
+    "key": "hero3.desc",
+    "zh": "数千条五星好评。看看全球美妆爱好者为什么信赖 F&J 的韩妆精选。",
+    "hk": "数千条五星好评。看看全球美妝爱好者为什么信賴 F&J 的韓妝精選。"
+  },
+  {
+    "key": "hero3.btn",
+    "zh": "查看热销",
+    "hk": "查看熱銷"
+  },
+  {
+    "key": "hero4.line1",
+    "zh": "满$50",
+    "hk": "满$50"
+  },
+  {
+    "key": "hero4.line2",
+    "zh": "免运费",
+    "hk": "免運費"
+  },
+  {
+    "key": "hero4.line3",
+    "zh": "+ 赠品",
+    "hk": "+ 贈品"
+  },
+  {
+    "key": "hero4.desc",
+    "zh": "全球满 $50 免运费。首次下单使用优惠码 FJFIRST 即赠韩妆面膜套装。",
+    "hk": "全球满 $50 免運費。首次下单使用優惠码 FJFIRST 即赠韓妝面膜套装。"
+  },
+  {
+    "key": "hero4.btn",
+    "zh": "马上选购",
+    "hk": "馬上选购"
+  },
+  {
+    "key": "search.placeholder",
+    "zh": "搜索产品...",
+    "hk": "搜尋产品..."
+  },
+  {
+    "key": "trust.secure",
+    "zh": "安全结账",
+    "hk": "安全结账"
+  },
+  {
+    "key": "cat.title",
+    "zh": "按品类选购",
+    "hk": "按品类选购"
+  },
+  {
+    "key": "cat.subtitle",
+    "zh": "找到你肌肤真正需要的",
+    "hk": "找到你肌肤真正需要的"
+  },
+  {
+    "key": "cat.cleansers",
+    "zh": "洁面",
+    "hk": "洁面"
+  },
+  {
+    "key": "cat.toners",
+    "zh": "爽肤水 & 喷雾",
+    "hk": "爽肤水 & 喷雾"
+  },
+  {
+    "key": "cat.serums",
+    "zh": "精华液",
+    "hk": "精華液"
+  },
+  {
+    "key": "cat.moisturizers",
+    "zh": "面霜",
+    "hk": "面霜"
+  },
+  {
+    "key": "cat.sunscreen",
+    "zh": "防晒",
+    "hk": "防曬"
+  },
+  {
+    "key": "cat.masks",
+    "zh": "面膜",
+    "hk": "面膜"
+  },
+  {
+    "key": "cat.makeup",
+    "zh": "彩妆",
+    "hk": "彩妝"
+  },
+  {
+    "key": "cat.body",
+    "zh": "身体护理",
+    "hk": "身体护理"
+  },
+  {
+    "key": "bs.title",
+    "zh": "韩妆热卖",
+    "hk": "韓妝热卖"
+  },
+  {
+    "key": "bs.subtitle",
+    "zh": "风靡全球的韩妆护肤好物",
+    "hk": "风靡全球的韓妝護膚好物"
+  },
+  {
+    "key": "bs.view_all",
+    "zh": "查看全部畅销品 →",
+    "hk": "查看全部暢銷品 →"
+  },
+  {
+    "key": "fb.title",
+    "zh": "精选韩妆品牌",
+    "hk": "精選韓妝品牌"
+  },
+  {
+    "key": "fb.subtitle",
+    "zh": "韩国最具代表性的美妆品牌，一站集齐",
+    "hk": "韩国最具代表性的美妝品牌，一站集齐"
+  },
+  {
+    "key": "fb.view_all",
+    "zh": "探索全部品牌 →",
+    "hk": "探索全部品牌 →"
+  },
+  {
+    "key": "promo.title",
+    "zh": "订单满 $50 免运费",
+    "hk": "訂單满 $50 免運費"
+  },
+  {
+    "key": "promo.desc",
+    "zh": "首次下单赠送面膜套装。优惠码：",
+    "hk": "首次下单赠送面膜套装。優惠码："
+  },
+  {
+    "key": "promo.btn",
+    "zh": "马上选购",
+    "hk": "馬上选购"
+  },
+  {
+    "key": "newsletter.title",
+    "zh": "加入 F&J",
+    "hk": "加入 F&J"
+  },
+  {
+    "key": "newsletter.desc",
+    "zh": "新品上线、美妆技巧、独家优惠 — 直达你的邮箱。",
+    "hk": "新品上線、美妝技巧、獨家優惠 — 直达你的電郵。"
+  },
+  {
+    "key": "newsletter.placeholder",
+    "zh": "输入邮箱地址",
+    "hk": "输入電郵地址"
+  },
+  {
+    "key": "newsletter.btn",
+    "zh": "订阅",
+    "hk": "訂閱"
+  },
+  {
+    "key": "shop.title",
+    "zh": "全部商品",
+    "hk": "全部商品"
+  },
+  {
+    "key": "shop.all_cat",
+    "zh": "全部分类",
+    "hk": "全部分類"
+  },
+  {
+    "key": "shop.all_brands",
+    "zh": "全部品牌",
+    "hk": "全部品牌"
+  },
+  {
+    "key": "shop.sort",
+    "zh": "排序",
+    "hk": "排序"
+  },
+  {
+    "key": "shop.sort_default",
+    "zh": "默认",
+    "hk": "預設"
+  },
+  {
+    "key": "shop.sort_newest",
+    "zh": "最新",
+    "hk": "最新"
+  },
+  {
+    "key": "shop.sort_price_asc",
+    "zh": "价格从低到高",
+    "hk": "價格从低到高"
+  },
+  {
+    "key": "shop.sort_price_desc",
+    "zh": "价格从高到低",
+    "hk": "價格从高到低"
+  },
+  {
+    "key": "shop.sort_bestselling",
+    "zh": "最畅销",
+    "hk": "最暢銷"
+  },
+  {
+    "key": "shop.sort_rating",
+    "zh": "最高评分",
+    "hk": "最高評分"
+  },
+  {
+    "key": "shop.filter",
+    "zh": "筛选",
+    "hk": "篩選"
+  },
+  {
+    "key": "shop.filter_category",
+    "zh": "分类",
+    "hk": "分類"
+  },
+  {
+    "key": "shop.filter_brand",
+    "zh": "品牌",
+    "hk": "品牌"
+  },
+  {
+    "key": "shop.filter_price",
+    "zh": "价格区间",
+    "hk": "價格区间"
+  },
+  {
+    "key": "shop.price_all",
+    "zh": "全部价格",
+    "hk": "全部價格"
+  },
+  {
+    "key": "shop.price_under25",
+    "zh": "$25 以下",
+    "hk": "$25 以下"
+  },
+  {
+    "key": "shop.price_25_50",
+    "zh": "$25 — $50",
+    "hk": "$25 — $50"
+  },
+  {
+    "key": "shop.price_50_100",
+    "zh": "$50 — $100",
+    "hk": "$50 — $100"
+  },
+  {
+    "key": "shop.price_100plus",
+    "zh": "$100 以上",
+    "hk": "$100 以上"
+  },
+  {
+    "key": "shop.results",
+    "zh": "件商品",
+    "hk": "件商品"
+  },
+  {
+    "key": "shop.no_results",
+    "zh": "没有找到匹配的商品",
+    "hk": "没有找到匹配的商品"
+  },
+  {
+    "key": "shop.no_results_text",
+    "zh": "请尝试调整筛选条件或搜索关键词。",
+    "hk": "请尝试调整篩選條件或搜尋关键词。"
+  },
+  {
+    "key": "shop.clear_filters",
+    "zh": "清除筛选",
+    "hk": "清除篩選"
+  },
+  {
+    "key": "brands.title",
+    "zh": "全部品牌",
+    "hk": "全部品牌"
+  },
+  {
+    "key": "brands.subtitle",
+    "zh": "发现来自亚洲各地的美妆品牌",
+    "hk": "發現来自亚洲各地的美妝品牌"
+  },
+  {
+    "key": "brands.products_count",
+    "zh": "件商品",
+    "hk": "件商品"
+  },
+  {
+    "key": "brands.view_products",
+    "zh": "查看商品",
+    "hk": "查看商品"
+  },
+  {
+    "key": "product.add_cart",
+    "zh": "加入购物车",
+    "hk": "加入購物車"
+  },
+  {
+    "key": "product.size",
+    "zh": "规格",
+    "hk": "規格"
+  },
+  {
+    "key": "product.qty",
+    "zh": "数量",
+    "hk": "數量"
+  },
+  {
+    "key": "product.desc",
+    "zh": "商品描述",
+    "hk": "商品描述"
+  },
+  {
+    "key": "product.related",
+    "zh": "相关推荐",
+    "hk": "相关推薦"
+  },
+  {
+    "key": "product.related_sub",
+    "zh": "看看别人还喜欢什么",
+    "hk": "看看别人还喜歡什么"
+  },
+  {
+    "key": "product.reviews",
+    "zh": "条评价",
+    "hk": "条評價"
+  },
+  {
+    "key": "product.original_price",
+    "zh": "原价",
+    "hk": "原价"
+  },
+  {
+    "key": "product.added",
+    "zh": "已加入购物车！",
+    "hk": "已加入購物車！"
+  },
+  {
+    "key": "product.not_found",
+    "zh": "未找到商品",
+    "hk": "未找到商品"
+  },
+  {
+    "key": "product.not_found_desc",
+    "zh": "您要找的商品不存在或已被移除。",
+    "hk": "您要找的商品不存在或已被移除。"
+  },
+  {
+    "key": "product.browse",
+    "zh": "浏览商品",
+    "hk": "瀏覽商品"
+  },
+  {
+    "key": "product.save",
+    "zh": "省",
+    "hk": "省"
+  },
+  {
+    "key": "product.authentic",
+    "zh": "✅ 100% 正品",
+    "hk": "✅ 100% 正品"
+  },
+  {
+    "key": "product.free_shipping_badge",
+    "zh": "🚚 满$50免运费",
+    "hk": "🚚 满$50免運費"
+  },
+  {
+    "key": "product.returns_badge",
+    "zh": "🔄 30天退换",
+    "hk": "🔄 30天退换"
+  },
+  {
+    "key": "product.ingredients",
+    "zh": "核心成分",
+    "hk": "核心成分"
+  },
+  {
+    "key": "product.howto",
+    "zh": "使用方法",
+    "hk": "使用方法"
+  },
+  {
+    "key": "product.shipping_tab",
+    "zh": "配送",
+    "hk": "配送"
+  },
+  {
+    "key": "product.brand_label",
+    "zh": "品牌：",
+    "hk": "品牌："
+  },
+  {
+    "key": "product.available_sizes",
+    "zh": "可选规格：",
+    "hk": "可选規格："
+  },
+  {
+    "key": "product.ingredients_text",
+    "zh": "产品采用亚洲美妆传统中精心挑选的成分配制。完整成分列表请参见产品包装。除非另有说明，所有产品均不含对羟基苯甲酸酯、硫酸盐和邻苯二甲酸酯。",
+    "hk": "产品采用亚洲美妝传统中精心挑选的成分配制。完整成分列表请参见产品包裝。除非另有说明，所有产品均不含对羟基苯甲酸酯、硫酸盐和邻苯二甲酸酯。"
+  },
+  {
+    "key": "product.howto_text",
+    "zh": "取适量涂抹于清洁后的肌肤。为获得最佳效果，请将其作为早晚日常护肤程序的一部分使用。之后使用保湿霜和防晒霜（白天）。",
+    "hk": "取适量涂抹于清洁后的肌肤。为获得最佳效果，请将其作为早晚日常護膚程序的一部分使用。之后使用保湿霜和防曬霜（白天）。"
+  },
+  {
+    "key": "product.shipping_free",
+    "zh": "满$50即享免费标准配送",
+    "hk": "满$50即享免費標準配送"
+  },
+  {
+    "key": "product.shipping_details",
+    "zh": "预计送达：5-10个工作日（美国），7-14个工作日（欧洲）。结账时可选择快递配送。",
+    "hk": "预计送达：5-10个工作日（美国），7-14个工作日（欧洲）。结账时可選擇快遞配送。"
+  },
+  {
+    "key": "product.shipping_brazil",
+    "zh": "🇧🇷 巴西：进口产品符合 ANVISA 规定。预计送达：15-30个工作日（取决于海关放行）。请在结账时查看进口税。",
+    "hk": "🇧🇷 巴西：进口产品符合 ANVISA 规定。预计送达：15-30个工作日（取决于海关放行）。请在结账时查看进口税。"
+  },
+  {
+    "key": "nav.signin",
+    "zh": "登录",
+    "hk": "登入"
+  },
+  {
+    "key": "shop.products_count",
+    "zh": "{count} 件商品",
+    "hk": "{count} 件商品"
+  },
+  {
+    "key": "shop.search_label",
+    "zh": "搜索",
+    "hk": "搜尋"
+  },
+  {
+    "key": "shop.all_products",
+    "zh": "全部商品",
+    "hk": "全部商品"
+  },
+  {
+    "key": "blog.min_read",
+    "zh": "{min} 分钟",
+    "hk": "{min} 分钟"
+  },
+  {
+    "key": "blog.article_not_found",
+    "zh": "文章未找到",
+    "hk": "文章未找到"
+  },
+  {
+    "key": "blog.back_to_blog",
+    "zh": "返回博客",
+    "hk": "返回部落格"
+  },
+  {
+    "key": "cart.added_toast",
+    "zh": "已加入购物车！🛒",
+    "hk": "已加入購物車！🛒"
+  },
+  {
+    "key": "cart.secure_checkout",
+    "zh": "🔒 安全结账 · SSL 加密",
+    "hk": "🔒 安全结账 · SSL 加密"
+  },
+  {
+    "key": "badge.bestseller",
+    "zh": "热卖",
+    "hk": "热卖"
+  },
+  {
+    "key": "badge.sale",
+    "zh": "特价",
+    "hk": "特價"
+  },
+  {
+    "key": "badge.new",
+    "zh": "新品",
+    "hk": "新品"
+  },
+  {
+    "key": "badge.luxury",
+    "zh": "奢品",
+    "hk": "奢品"
+  },
+  {
+    "key": "quick_add",
+    "zh": "快速添加",
+    "hk": "快速新增"
+  },
+  {
+    "key": "wishlist",
+    "zh": "心愿单",
+    "hk": "心愿单"
+  },
+  {
+    "key": "brands.kr_badge",
+    "zh": "韩妆",
+    "hk": "韓妝"
+  },
+  {
+    "key": "shipping.standard_us",
+    "zh": "5-10 个工作日",
+    "hk": "5-10 个工作日"
+  },
+  {
+    "key": "shipping.express_us",
+    "zh": "2-4 个工作日",
+    "hk": "2-4 个工作日"
+  },
+  {
+    "key": "shipping.standard_eu",
+    "zh": "7-12 个工作日",
+    "hk": "7-12 个工作日"
+  },
+  {
+    "key": "shipping.express_eu",
+    "zh": "3-5 个工作日",
+    "hk": "3-5 个工作日"
+  },
+  {
+    "key": "shipping.standard_row",
+    "zh": "7-14 个工作日",
+    "hk": "7-14 个工作日"
+  },
+  {
+    "key": "shipping.express_row",
+    "zh": "3-6 个工作日",
+    "hk": "3-6 个工作日"
+  },
+  {
+    "key": "cart.title",
+    "zh": "购物车",
+    "hk": "購物車"
+  },
+  {
+    "key": "cart.empty",
+    "zh": "购物车是空的",
+    "hk": "購物車是空的"
+  },
+  {
+    "key": "cart.empty_desc",
+    "zh": "快去逛逛我们的精选商品吧！",
+    "hk": "快去逛逛我们的精選商品吧！"
+  },
+  {
+    "key": "cart.continue",
+    "zh": "继续购物",
+    "hk": "继续購物"
+  },
+  {
+    "key": "cart.checkout",
+    "zh": "去结算",
+    "hk": "去結算"
+  },
+  {
+    "key": "cart.subtotal",
+    "zh": "小计",
+    "hk": "小计"
+  },
+  {
+    "key": "cart.shipping",
+    "zh": "运费",
+    "hk": "運費"
+  },
+  {
+    "key": "cart.shipping_free",
+    "zh": "免运费",
+    "hk": "免運費"
+  },
+  {
+    "key": "cart.shipping_remaining",
+    "zh": "还差",
+    "hk": "还差"
+  },
+  {
+    "key": "cart.total",
+    "zh": "合计",
+    "hk": "合计"
+  },
+  {
+    "key": "cart.tax_note",
+    "zh": "税费在结算时计算",
+    "hk": "税费在結算时计算"
+  },
+  {
+    "key": "cart.coupon",
+    "zh": "优惠码",
+    "hk": "優惠码"
+  },
+  {
+    "key": "cart.coupon_placeholder",
+    "zh": "输入优惠码",
+    "hk": "输入優惠码"
+  },
+  {
+    "key": "cart.apply",
+    "zh": "使用",
+    "hk": "使用"
+  },
+  {
+    "key": "cart.coupon_success",
+    "zh": "优惠码已使用！赠送面膜套装",
+    "hk": "優惠码已使用！赠送面膜套装"
+  },
+  {
+    "key": "cart.coupon_invalid",
+    "zh": "无效的优惠码",
+    "hk": "无效的優惠码"
+  },
+  {
+    "key": "cart.remove",
+    "zh": "删除",
+    "hk": "刪除"
+  },
+  {
+    "key": "cart.qty",
+    "zh": "数量",
+    "hk": "數量"
+  },
+  {
+    "key": "about.title",
+    "zh": "关于 F&J",
+    "hk": "关于 F&J"
+  },
+  {
+    "key": "about.subtitle",
+    "zh": "你的韩妆与亚洲美妆策展人",
+    "hk": "你的韓妝与亚洲美妝策展人"
+  },
+  {
+    "key": "about.story_teaser_quote",
+    "zh": "美，在其最真实的形态，是一种爱的行为——而好的皮肤，是它最诚实的签名。",
+    "hk": "美，在其最真实的形态，是一种爱的行为——而好的皮肤，是它最诚实的签名。"
+  },
+  {
+    "key": "about.story_teaser_btn",
+    "zh": "阅读品牌故事",
+    "hk": "閱讀品牌故事"
+  },
+  {
+    "key": "about.story",
+    "zh": "品牌故事",
+    "hk": "品牌故事"
+  },
+  {
+    "key": "about.story_text",
+    "zh": "F&J 是你值得信赖的韩妆与亚洲美妆多品牌平台 — 从风靡全球的韩妆经典到传奇的日本护肤线。我们相信每个人都应该用上真正有效的产品，无论身处何地。",
+    "hk": "F&J 是你值得信賴的韓妝与亚洲美妝多品牌平台 — 从风靡全球的韓妝經典到傳奇的日本護膚线。我们相信每个人都应该用上真正有效的产品，无论身处何地。"
+  },
+  {
+    "key": "about.mission",
+    "zh": "我们的使命",
+    "hk": "我们的使命"
+  },
+  {
+    "key": "about.mission_text",
+    "zh": "我们亲自甄选每一个品牌和产品，确保它们是正品、高效且符合道德标准。我们以韩妆的精致护肤哲学为核心，策展经得起时间考验的护肤方案。",
+    "hk": "我们亲自甄选每一个品牌和产品，确保它们是正品、高效且符合道德標準。我们以韓妝的精致護膚哲學为核心，策展经得起時間考验的護膚方案。"
+  },
+  {
+    "key": "about.values",
+    "zh": "核心价值",
+    "hk": "核心價值"
+  },
+  {
+    "key": "about.values_1_title",
+    "zh": "正品保障",
+    "hk": "正品保障"
+  },
+  {
+    "key": "about.values_1_text",
+    "zh": "每一个产品都直接从品牌方或授权分销商采购。绝不妥协。",
+    "hk": "每一个产品都直接从品牌方或授權分銷商採購。绝不妥协。"
+  },
+  {
+    "key": "about.values_2_title",
+    "zh": "全球可及",
+    "hk": "全球可及"
+  },
+  {
+    "key": "about.values_2_text",
+    "zh": "高效配送美区与欧洲，让亚洲美妆触手可及。",
+    "hk": "高效配送美区与欧洲，让亚洲美妝触手可及。"
+  },
+  {
+    "key": "about.values_3_title",
+    "zh": "社区优先",
+    "hk": "社群优先"
+  },
+  {
+    "key": "about.values_3_text",
+    "zh": "我们倾听你的需求，为你量身推荐真正适合你肌肤的产品。",
+    "hk": "我们倾听你的需求，为你量身推薦真正适合你肌肤的产品。"
+  },
+  {
+    "key": "about.brand_pitch",
+    "zh": "品牌合作",
+    "hk": "品牌合作"
+  },
+  {
+    "key": "about.brand_pitch_title",
+    "zh": "想把你的韩妆或亚洲美妆品牌带入西方市场？",
+    "hk": "想把你的韓妝或亚洲美妝品牌带入西方市场？"
+  },
+  {
+    "key": "about.brand_pitch_text",
+    "zh": "F&J 为品牌方提供无缝入驻平台，向日益壮大的美妆爱好者社群展示你的产品。我们负责物流、营销和客户体验 — 你专注于你最擅长的事。",
+    "hk": "F&J 为品牌方提供无缝入驻平台，向日益壯大的美妝爱好者社群展示你的产品。我们負責物流、營銷和客戶體驗 — 你专注于你最擅长的事。"
+  },
+  {
+    "key": "about.contact_us",
+    "zh": "联系我们",
+    "hk": "聯絡我們"
+  },
+  {
+    "key": "about.promise_title",
+    "zh": "我们的承诺",
+    "hk": "我们的承諾"
+  },
+  {
+    "key": "about.promise_text",
+    "zh": "从世界的另一端在线订购美妆产品，有时会让人感到不安。这就是为什么我们为你经手的每一件产品保驾护航：",
+    "hk": "从世界的另一端線上訂購美妝产品，有时会让人感到不安。这就是为什么我们为你经手的每一件产品保驾护航："
+  },
+  {
+    "key": "about.promise_1_title",
+    "zh": "🔄 30天无忧退货",
+    "hk": "🔄 30天無憂退貨"
+  },
+  {
+    "key": "about.promise_1_text",
+    "zh": "不合适？随时退回来。无需解释。",
+    "hk": "不合适？随时退回来。无需解释。"
+  },
+  {
+    "key": "about.promise_2_title",
+    "zh": "🔒 安全购物",
+    "hk": "🔒 安全購物"
+  },
+  {
+    "key": "about.promise_2_text",
+    "zh": "SSL 加密结账。你的数据只属于你。",
+    "hk": "SSL 加密结账。你的數據只属于你。"
+  },
+  {
+    "key": "about.promise_3_title",
+    "zh": "📦 全程追踪",
+    "hk": "📦 全程追踪"
+  },
+  {
+    "key": "about.promise_3_text",
+    "zh": "每笔订单均可追踪。精确掌握你的美丽何时到达。",
+    "hk": "每笔訂單均可追踪。精确掌握你的美麗何时到达。"
+  },
+  {
+    "key": "about.promise_4_title",
+    "zh": "💬 真人客服",
+    "hk": "💬 真人客服"
+  },
+  {
+    "key": "about.promise_4_text",
+    "zh": "随时给我们发邮件。真人客服 24 小时内回复。",
+    "hk": "随时给我们发邮件。真人客服 24 小时内回覆。"
+  },
+  {
+    "key": "about.address_title",
+    "zh": "我们的地址",
+    "hk": "我们的地址"
+  },
+  {
+    "key": "ui.loading",
+    "zh": "加载中...",
+    "hk": "加载中..."
+  },
+  {
+    "key": "ui.error",
+    "zh": "出错了，请稍后再试",
+    "hk": "出错了，请稍后再试"
+  },
+  {
+    "key": "ui.close",
+    "zh": "关闭",
+    "hk": "关闭"
+  },
+  {
+    "key": "ui.menu",
+    "zh": "菜单",
+    "hk": "菜单"
+  },
+  {
+    "key": "ui.search",
+    "zh": "搜索",
+    "hk": "搜尋"
+  },
+  {
+    "key": "lang.switch",
+    "zh": "EN",
+    "hk": "EN"
+  },
+  {
+    "key": "toast.added",
+    "zh": "已加入购物车 ✨",
+    "hk": "已加入購物車 ✨"
+  },
+  {
+    "key": "toast.subscribed",
+    "zh": "订阅成功 ✨",
+    "hk": "訂閱成功 ✨"
+  },
+  {
+    "key": "story.page_title",
+    "zh": "F&J 的品牌故事 — 一封写给肌肤的情书",
+    "hk": "F&J 的品牌故事 — 一封写给肌肤的情书"
+  },
+  {
+    "key": "story.page_desc",
+    "zh": "两个字母。一份爱。你的肌肤。F&J 的品牌故事 — 一个为爱而建的美妆平台，为世界各地的每一寸好肌肤。",
+    "hk": "两个字母。一份爱。你的肌肤。F&J 的品牌故事 — 一个为爱而建的美妝平台，为世界各地的每一寸好肌肤。"
+  },
+  {
+    "key": "story.kicker",
+    "zh": "品牌故事",
+    "hk": "品牌故事"
+  },
+  {
+    "key": "story.h1",
+    "zh": "两个字母。一份爱。<br><em>你的肌肤。</em>",
+    "hk": "两个字母。一份爱。<br><em>你的肌肤。</em>"
+  },
+  {
+    "key": "story.sub",
+    "zh": "不是产品，是平台。不是柜台，是一封情书。",
+    "hk": "不是产品，是平台。不是柜台，是一封情书。"
+  },
+  {
+    "key": "story.scroll",
+    "zh": "向下翻阅",
+    "hk": "向下翻阅"
+  },
+  {
+    "key": "story.lede",
+    "zh": "F 和 J 是两个名字。两位创始人。一个简单到不容忽视的信念：<span class=",
+    "hk": "F 和 J 是两个名字。两位創始人。一个簡單到不容忽视的信念：<span class="
+  },
+  {
+    "key": "story.p1",
+    "zh": "他们的起点不是产品，而是一个问题。为什么我们看到的美丽，和我们真实生活的皮肤之间，相距如此遥远？在首尔的光泽实验室里，在东京安静的本草铺里，在东方仪式与现代科学交汇的那些地方，他们找到了一个西方世界只听到一半的答案：",
+    "hk": "他们的起点不是产品，而是一个問題。为什么我们看到的美麗，和我们真实生活的皮肤之间，相距如此遥远？在首尔的光泽實驗室里，在东京安静的本草铺里，在东方儀式与现代科学交汇的那些地方，他们找到了一个西方世界只听到一半的答案："
+  },
+  {
+    "key": "story.p2",
+    "zh": "<strong>皮肤不是需要纠正的表面，而是需要呵护的生命。</strong>而好皮肤，和所有值得拥有的事物一样，是一点一滴、日复一日用心养出来的。",
+    "hk": "<strong>皮肤不是需要纠正的表面，而是需要呵护的生命。</strong>而好皮肤，和所有值得拥有的事物一样，是一点一滴、日复一日用心养出来的。"
+  },
+  {
+    "key": "story.p3",
+    "zh": "韩国教会了他们语法：叠加的艺术、通透的光泽、日复一日的仪式终将成为可见的结果。更广阔的东方赋予它语境——一个延续数百年的信念：美不是装饰，而是虔诚。",
+    "hk": "韩国教会了他们语法：叠加的艺术、通透的光泽、日复一日的儀式终将成为可见的结果。更广阔的东方赋予它语境——一个延续数百年的信念：美不是装饰，而是虔诚。"
+  },
+  {
+    "key": "story.pull",
+    "zh": "他们不想再造一款产品。<br>他们想许下一个承诺。",
+    "hk": "他们不想再造一款产品。<br>他们想许下一个承諾。"
+  },
+  {
+    "key": "story.p4",
+    "zh": "于是 <span class=",
+    "hk": "于是 <span class="
+  },
+  {
+    "key": "story.p5",
+    "zh": "我们称之为 <strong>精选亚洲美妆。</strong>",
+    "hk": "我们称之为 <strong>精選亚洲美妝。</strong>"
+  },
+  {
+    "key": "story.turn_tk",
+    "zh": "故事从这里开始，属于你",
+    "hk": "故事从这里開始，属于你"
+  },
+  {
+    "key": "story.turn_h2",
+    "zh": "这个平台由两个人创立。<br>但它属于每一个曾站在镜子前，渴望感受——<em>不是被改造，而是被呵护</em>——的人。",
+    "hk": "这个平台由两个人创立。<br>但它属于每一个曾站在镜子前，渴望感受——<em>不是被改造，而是被呵护</em>——的人。"
+  },
+  {
+    "key": "story.turn_p",
+    "zh": "F&amp;J 是我们的名字。好肌肤是你的。流淌在二者之间的那份心意——从我们的甄选，到你的使用——就是全部的意义。",
+    "hk": "F&amp;J 是我们的名字。好肌肤是你的。流淌在二者之间的那份心意——从我们的甄选，到你的使用——就是全部的意義。"
+  },
+  {
+    "key": "story.closing",
+    "zh": "这里不是美妆专柜。<br>这是一封信，用配方写成，<em>寄给你的肌肤。</em>",
+    "hk": "这里不是美妝專櫃。<br>这是一封信，用配方写成，<em>寄给你的肌肤。</em>"
+  },
+  {
+    "key": "story.slogan",
+    "zh": "精选亚洲美妆",
+    "hk": "精選亚洲美妝"
+  },
+  {
+    "key": "story.btn",
+    "zh": "开启你的护肤仪式",
+    "hk": "开启你的護膚儀式"
+  },
+  {
+    "key": "intro.kicker",
+    "zh": "品牌故事",
+    "hk": "品牌故事"
+  },
+  {
+    "key": "intro.tagline",
+    "zh": "<span class=",
+    "hk": "<span class="
+  },
+  {
+    "key": "intro.skin",
+    "zh": "你的肌肤。",
+    "hk": "你的肌肤。"
+  },
+  {
+    "key": "intro.enter",
+    "zh": "进入",
+    "hk": "进入"
+  },
+  {
+    "key": "intro.story_link",
+    "zh": "阅读完整故事 →",
+    "hk": "閱讀完整故事 →"
+  },
+  {
+    "key": "auth.login.title",
+    "zh": "欢迎回来",
+    "hk": "欢迎回来"
+  },
+  {
+    "key": "auth.login.subtitle",
+    "zh": "登录你的 F&J 账户",
+    "hk": "登入你的 F&J 帳戶"
+  },
+  {
+    "key": "auth.login.email",
+    "zh": "邮箱",
+    "hk": "電郵"
+  },
+  {
+    "key": "auth.login.password",
+    "zh": "密码",
+    "hk": "密码"
+  },
+  {
+    "key": "auth.login.btn",
+    "zh": "登录",
+    "hk": "登入"
+  },
+  {
+    "key": "auth.login.switch",
+    "zh": "还没有账户？",
+    "hk": "还没有帳戶？"
+  },
+  {
+    "key": "auth.login.switch_link",
+    "zh": "注册一个",
+    "hk": "註冊一个"
+  },
+  {
+    "key": "auth.login.invalid",
+    "zh": "邮箱或密码错误",
+    "hk": "電郵或密码錯誤"
+  },
+  {
+    "key": "auth.register.title",
+    "zh": "创建账户",
+    "hk": "创建帳戶"
+  },
+  {
+    "key": "auth.register.subtitle",
+    "zh": "加入 F&J，发现正品韩妆",
+    "hk": "加入 F&J，發現正品韓妝"
+  },
+  {
+    "key": "auth.register.name",
+    "zh": "姓名",
+    "hk": "姓名"
+  },
+  {
+    "key": "auth.register.email",
+    "zh": "邮箱",
+    "hk": "電郵"
+  },
+  {
+    "key": "auth.register.password",
+    "zh": "密码",
+    "hk": "密码"
+  },
+  {
+    "key": "auth.register.country",
+    "zh": "国家",
+    "hk": "國家"
+  },
+  {
+    "key": "auth.register.btn",
+    "zh": "创建账户",
+    "hk": "创建帳戶"
+  },
+  {
+    "key": "auth.register.switch",
+    "zh": "已有账户？",
+    "hk": "已有帳戶？"
+  },
+  {
+    "key": "auth.register.switch_link",
+    "zh": "登录",
+    "hk": "登入"
+  },
+  {
+    "key": "auth.register.exists",
+    "zh": "该邮箱已注册，请直接登录",
+    "hk": "该電郵已註冊，请直接登入"
+  },
+  {
+    "key": "account.title",
+    "zh": "我的账户",
+    "hk": "我的帳戶"
+  },
+  {
+    "key": "account.tab.orders",
+    "zh": "订单记录",
+    "hk": "訂單記錄"
+  },
+  {
+    "key": "account.tab.profile",
+    "zh": "个人资料",
+    "hk": "个人資料"
+  },
+  {
+    "key": "account.loading",
+    "zh": "加载订单中...",
+    "hk": "加载訂單中..."
+  },
+  {
+    "key": "account.no_orders",
+    "zh": "还没有订单。开始购物吧！",
+    "hk": "还没有訂單。開始購物吧！"
+  },
+  {
+    "key": "account.browse",
+    "zh": "浏览商品",
+    "hk": "瀏覽商品"
+  },
+  {
+    "key": "account.name",
+    "zh": "姓名",
+    "hk": "姓名"
+  },
+  {
+    "key": "account.email",
+    "zh": "邮箱",
+    "hk": "電郵"
+  },
+  {
+    "key": "account.phone",
+    "zh": "电话",
+    "hk": "電話"
+  },
+  {
+    "key": "account.country",
+    "zh": "国家",
+    "hk": "國家"
+  },
+  {
+    "key": "account.save",
+    "zh": "保存修改",
+    "hk": "儲存修改"
+  },
+  {
+    "key": "account.success",
+    "zh": "个人资料已更新成功！",
+    "hk": "个人資料已更新成功！"
+  },
+  {
+    "key": "account.logout",
+    "zh": "退出登录",
+    "hk": "登出登入"
+  },
+  {
+    "key": "account.status.pending",
+    "zh": "待处理",
+    "hk": "待处理"
+  },
+  {
+    "key": "account.status.paid",
+    "zh": "已付款",
+    "hk": "已付款"
+  },
+  {
+    "key": "account.status.shipped",
+    "zh": "已发货",
+    "hk": "已發貨"
+  },
+  {
+    "key": "account.status.delivered",
+    "zh": "已送达",
+    "hk": "已送达"
+  },
+  {
+    "key": "account.status.cancelled",
+    "zh": "已取消",
+    "hk": "已取消"
+  },
+  {
+    "key": "account.load_failed",
+    "zh": "订单加载失败。",
+    "hk": "訂單加载失敗。"
+  },
+  {
+    "key": "checkout.empty_cart",
+    "zh": "购物车是空的",
+    "hk": "購物車是空的"
+  },
+  {
+    "key": "checkout.empty_desc",
+    "zh": "请先添加商品再结算。",
+    "hk": "请先新增商品再結算。"
+  },
+  {
+    "key": "checkout.breadcrumb",
+    "zh": "结账",
+    "hk": "结账"
+  },
+  {
+    "key": "checkout.title",
+    "zh": "结账",
+    "hk": "结账"
+  },
+  {
+    "key": "checkout.cpf",
+    "zh": "CPF / CNPJ *",
+    "hk": "CPF / CNPJ *"
+  },
+  {
+    "key": "checkout.cpf_note",
+    "zh": "巴西配送必填",
+    "hk": "巴西配送必填"
+  },
+  {
+    "key": "checkout.demo_notice",
+    "zh": "⚠️ 演示模式：支付为模拟操作。Stripe 测试卡号 4242 4242 4242 4242，或使用 PayPal 沙盒。不会产生真实扣款。",
+    "hk": "⚠️ 演示模式：支付为模拟操作。Stripe 測試卡号 4242 4242 4242 4242，或使用 PayPal 沙盒。不会产生真实扣款。"
+  },
+  {
+    "key": "checkout.demo_notice_short",
+    "zh": "演示模式",
+    "hk": "演示模式"
+  },
+  {
+    "key": "checkout.paypal_desc",
+    "zh": "你将被重定向到 PayPal 安全完成支付。",
+    "hk": "你将被重定向到 PayPal 安全完成支付。"
+  },
+  {
+    "key": "checkout.pix_title",
+    "zh": "PIX 支付",
+    "hk": "PIX 支付"
+  },
+  {
+    "key": "checkout.pix_desc",
+    "zh": "确认后，你将通过邮件收到 PIX 二维码。即时到账。",
+    "hk": "確認后，你将通過邮件收到 PIX 二维码。即时到账。"
+  },
+  {
+    "key": "checkout.pix_pay",
+    "zh": "💠 通过 PIX 支付",
+    "hk": "💠 通過 PIX 支付"
+  },
+  {
+    "key": "checkout.security_ssl",
+    "zh": "🔒 SSL 加密",
+    "hk": "🔒 SSL 加密"
+  },
+  {
+    "key": "checkout.security_pci",
+    "zh": "✅ PCI-DSS 合规",
+    "hk": "✅ PCI-DSS 合规"
+  },
+  {
+    "key": "checkout.security_secure",
+    "zh": "🛡️ 安全结账",
+    "hk": "🛡️ 安全结账"
+  },
+  {
+    "key": "checkout.order_summary",
+    "zh": "订单摘要",
+    "hk": "訂單摘要"
+  },
+  {
+    "key": "checkout.subtotal",
+    "zh": "小计",
+    "hk": "小计"
+  },
+  {
+    "key": "checkout.shipping",
+    "zh": "运费",
+    "hk": "運費"
+  },
+  {
+    "key": "checkout.tax",
+    "zh": "税费（估）",
+    "hk": "税费（估）"
+  },
+  {
+    "key": "checkout.total",
+    "zh": "合计",
+    "hk": "合计"
+  },
+  {
+    "key": "checkout.free",
+    "zh": "免运费",
+    "hk": "免運費"
+  },
+  {
+    "key": "checkout.brazil_tax_title",
+    "zh": "🇧🇷 进口税估算",
+    "hk": "🇧🇷 进口税估算"
+  },
+  {
+    "key": "checkout.brazil_subtotal",
+    "zh": "小计 (BRL)",
+    "hk": "小计 (BRL)"
+  },
+  {
+    "key": "checkout.brazil_ii",
+    "zh": "II (60%)",
+    "hk": "II (60%)"
+  },
+  {
+    "key": "checkout.brazil_icms",
+    "zh": "ICMS (~17%)",
+    "hk": "ICMS (~17%)"
+  },
+  {
+    "key": "checkout.brazil_pis",
+    "zh": "PIS/COFINS",
+    "hk": "PIS/COFINS"
+  },
+  {
+    "key": "checkout.brazil_despacho",
+    "zh": "邮政清关费",
+    "hk": "邮政清关费"
+  },
+  {
+    "key": "checkout.brazil_total_tax",
+    "zh": "税费合计",
+    "hk": "税费合计"
+  },
+  {
+    "key": "checkout.brazil_warning",
+    "zh": "⚠️ 以上为估算值。最终税费由海关到货时核定。买家为法定进口人。",
+    "hk": "⚠️ 以上为估算值。最终税费由海关到货时核定。買家为法定进口人。"
+  },
+  {
+    "key": "checkout.anvisa",
+    "zh": "⚠️ ANVISA 公告：本站销售的化妆品均为进口产品，符合 ANVISA 规定。如需了解特定产品注册信息，请查看包装或联系客服。如有不良反应，请停止使用并咨询皮肤科医生。",
+    "hk": "⚠️ ANVISA 公告：本站銷售的化妆品均为进口产品，符合 ANVISA 规定。如需了解特定产品註冊資訊，请查看包裝或联系客服。如有不良反应，请停止使用并諮詢皮肤科医生。"
+  },
+  {
+    "key": "checkout.qty",
+    "zh": "数量",
+    "hk": "數量"
+  },
+  {
+    "key": "checkout.cpf_required",
+    "zh": "巴西配送需要 CPF/CNPJ。",
+    "hk": "巴西配送需要 CPF/CNPJ。"
+  },
+  {
+    "key": "checkout.order_confirmed",
+    "zh": "订单确认！🎉 订单号 #",
+    "hk": "訂單確認！🎉 訂單号 #"
+  },
+  {
+    "key": "checkout.order_demo",
+    "zh": "订单提交成功（演示模式）！🎉 感谢购买。",
+    "hk": "訂單提交成功（演示模式）！🎉 感謝购买。"
+  },
+  {
+    "key": "checkout.qty_label",
+    "zh": "数量：",
+    "hk": "數量："
+  },
+  {
+    "key": "checkout.paypal_order_desc",
+    "zh": "F&J 美妆订单",
+    "hk": "F&J 美妝訂單"
+  },
+  {
+    "key": "checkout.payment_loading",
+    "zh": "支付 SDK 加载中...",
+    "hk": "支付 SDK 加载中..."
+  },
+  {
+    "key": "checkout.payment_refresh",
+    "zh": "如持续出现此问题请刷新页面。",
+    "hk": "如持续出现此問題请刷新頁面。"
+  },
+  {
+    "key": "shipping.title",
+    "zh": "配送信息",
+    "hk": "配送資訊"
+  },
+  {
+    "key": "shipping.breadcrumb",
+    "zh": "配送信息",
+    "hk": "配送資訊"
+  },
+  {
+    "key": "shipping.brazil_title",
+    "zh": "🇧🇷 巴西配送",
+    "hk": "🇧🇷 巴西配送"
+  },
+  {
+    "key": "shipping.brazil_desc",
+    "zh": "所有产品从亚洲（新加坡/韩国/日本）直接发往巴西，通过 Correios（EMS/PAC）或快递（DHL/FedEx）配送。",
+    "hk": "所有产品从亚洲（新加坡/韩国/日本）直接发往巴西，通過 Correios（EMS/PAC）或快遞（DHL/FedEx）配送。"
+  },
+  {
+    "key": "shipping.table_method",
+    "zh": "配送方式",
+    "hk": "配送方式"
+  },
+  {
+    "key": "shipping.table_time",
+    "zh": "预计时效",
+    "hk": "预计时效"
+  },
+  {
+    "key": "shipping.table_cost",
+    "zh": "费用",
+    "hk": "費用"
+  },
+  {
+    "key": "shipping.pac",
+    "zh": "PAC（经济）",
+    "hk": "PAC（经济）"
+  },
+  {
+    "key": "shipping.pac_time",
+    "zh": "20-30 个工作日",
+    "hk": "20-30 个工作日"
+  },
+  {
+    "key": "shipping.pac_cost",
+    "zh": "满 R$250 免运费",
+    "hk": "满 R$250 免運費"
+  },
+  {
+    "key": "shipping.ems",
+    "zh": "EMS（快递）",
+    "hk": "EMS（快遞）"
+  },
+  {
+    "key": "shipping.ems_time",
+    "zh": "10-15 个工作日",
+    "hk": "10-15 个工作日"
+  },
+  {
+    "key": "shipping.ems_cost",
+    "zh": "R$49,90（满 R$500 免费）",
+    "hk": "R$49,90（满 R$500 免費）"
+  },
+  {
+    "key": "shipping.dhl",
+    "zh": "DHL/FedEx",
+    "hk": "DHL/FedEx"
+  },
+  {
+    "key": "shipping.dhl_time",
+    "zh": "5-8 个工作日",
+    "hk": "5-8 个工作日"
+  },
+  {
+    "key": "shipping.dhl_cost",
+    "zh": "咨询客服",
+    "hk": "諮詢客服"
+  },
+  {
+    "key": "shipping.customs_title",
+    "zh": "海关清关",
+    "hk": "海关清关"
+  },
+  {
+    "key": "shipping.customs_p1",
+    "zh": "所有产品均为进口商品，需经巴西联邦税务局和 ANVISA 检查。进口税费（II、ICMS、PIS/COFINS）在购买时计算并代收（简化进口制度）。",
+    "hk": "所有产品均为进口商品，需经巴西联邦税务局和 ANVISA 檢查。进口税费（II、ICMS、PIS/COFINS）在购买时计算并代收（简化进口制度）。"
+  },
+  {
+    "key": "shipping.customs_p2",
+    "zh": "海关放行时间可能为 2-15 天，取决于 Correios 的包裹量。F&J 不对 Correios 罢工、海关扣留或不可抗力造成的延误负责。",
+    "hk": "海关放行時間可能为 2-15 天，取决于 Correios 的包裹量。F&J 不对 Correios 罢工、海关扣留或不可抗力造成的延误負責。"
+  },
+  {
+    "key": "shipping.tracking_title",
+    "zh": "物流追踪",
+    "hk": "物流追踪"
+  },
+  {
+    "key": "shipping.tracking_desc",
+    "zh": "所有订单均含追踪号码。订单发货后，你将通过邮件收到追踪号码。可在 Correios 官网查询。",
+    "hk": "所有訂單均含追踪号码。訂單發貨后，你将通過邮件收到追踪号码。可在 Correios 官网查询。"
+  },
+  {
+    "key": "shipping.us_eu_title",
+    "zh": "🇺🇸 美国与欧洲",
+    "hk": "🇺🇸 美国与欧洲"
+  },
+  {
+    "key": "shipping.us_eu_table_region",
+    "zh": "地区",
+    "hk": "地区"
+  },
+  {
+    "key": "shipping.us_eu_table_standard",
+    "zh": "标准",
+    "hk": "標準"
+  },
+  {
+    "key": "shipping.us_eu_table_express",
+    "zh": "快递",
+    "hk": "快遞"
+  },
+  {
+    "key": "shipping.us_eu_us",
+    "zh": "美国",
+    "hk": "美国"
+  },
+  {
+    "key": "shipping.us_eu_uk",
+    "zh": "英国",
+    "hk": "英国"
+  },
+  {
+    "key": "shipping.us_eu_eu",
+    "zh": "欧盟（德/法/意/西/荷）",
+    "hk": "欧盟（德/法/意/西/荷）"
+  },
+  {
+    "key": "shipping.us_eu_free",
+    "zh": "满 $50（美国）/ €50（欧盟）免标准运费。",
+    "hk": "满 $50（美国）/ €50（欧盟）免標準運費。"
+  },
+  {
+    "key": "shipping.other_title",
+    "zh": "其他国家",
+    "hk": "其他國家"
+  },
+  {
+    "key": "shipping.other_desc",
+    "zh": "我们向 40+ 个国家配送。请在结账页输入地址后查看具体时效和费用。",
+    "hk": "我们向 40+ 个國家配送。请在结账页输入地址后查看具体时效和費用。"
+  },
+  {
+    "key": "learn.title",
+    "zh": "美妆学堂",
+    "hk": "美妝學堂"
+  },
+  {
+    "key": "learn.subtitle",
+    "zh": "产品测评、成分科普与护肤步骤全攻略",
+    "hk": "產品測評、成分科普与護膚步驟全攻略"
+  },
+  {
+    "key": "blog.search",
+    "zh": "搜索文章...",
+    "hk": "搜尋文章..."
+  },
+  {
+    "key": "blog.cat.all",
+    "zh": "全部",
+    "hk": "全部"
+  },
+  {
+    "key": "blog.cat.reviews",
+    "zh": "产品测评",
+    "hk": "產品測評"
+  },
+  {
+    "key": "blog.cat.ingredients",
+    "zh": "成分科普",
+    "hk": "成分科普"
+  },
+  {
+    "key": "blog.cat.routines",
+    "zh": "护肤步骤",
+    "hk": "護膚步驟"
+  },
+  {
+    "key": "blog.no_results",
+    "zh": "没有找到相关文章",
+    "hk": "没有找到相关文章"
+  },
+  {
+    "key": "blog.no_results_desc",
+    "zh": "试试其他关键词或分类",
+    "hk": "试试其他关键词或分類"
+  },
+  {
+    "key": "blog.read_more",
+    "zh": "阅读全文 →",
+    "hk": "閱讀全文 →"
+  },
+  {
+    "key": "article.breadcrumb",
+    "zh": "美妆学堂",
+    "hk": "美妝學堂"
+  },
+  {
+    "key": "article.by",
+    "zh": "作者",
+    "hk": "作者"
+  },
+  {
+    "key": "article.min_read",
+    "zh": "分钟阅读",
+    "hk": "分钟閱讀"
+  },
+  {
+    "key": "article.faq_title",
+    "zh": "常见问题",
+    "hk": "常見問題"
+  },
+  {
+    "key": "article.related_products",
+    "zh": "文章中提到的产品",
+    "hk": "文章中提到的产品"
+  },
+  {
+    "key": "article.related_articles",
+    "zh": "你可能会喜欢",
+    "hk": "你可能会喜歡"
+  },
+  {
+    "key": "article.tags",
+    "zh": "标签",
+    "hk": "標籤"
+  },
+  {
+    "key": "article.share",
+    "zh": "分享",
+    "hk": "分享"
+  },
+  {
+    "key": "article.back",
+    "zh": "← 返回美妆学堂",
+    "hk": "← 返回美妝學堂"
+  },
+  {
+    "key": "faq.title",
+    "zh": "常见问题 — F&J",
+    "hk": "常見問題 — F&J"
+  },
+  {
+    "key": "faq.heading",
+    "zh": "常见问题",
+    "hk": "常見問題"
+  },
+  {
+    "key": "faq.orders",
+    "zh": "订单与支付",
+    "hk": "訂單与支付"
+  },
+  {
+    "key": "faq.shipping",
+    "zh": "配送与物流",
+    "hk": "配送与物流"
+  },
+  {
+    "key": "faq.returns",
+    "zh": "退换与退款",
+    "hk": "退换与退款"
+  },
+  {
+    "key": "faq.products",
+    "zh": "产品与正品",
+    "hk": "产品与正品"
+  },
+  {
+    "key": "faq.q1",
+    "zh": "如何下单？",
+    "hk": "如何下单？"
+  },
+  {
+    "key": "faq.a1",
+    "zh": "浏览商品并加入购物车，填写配送信息并选择支付方式即可。下单后您会立即收到确认邮件。",
+    "hk": "瀏覽商品并加入購物車，填写配送資訊并選擇支付方式即可。下单后您会立即收到確認邮件。"
+  },
+  {
+    "key": "faq.q2",
+    "zh": "支持哪些支付方式？",
+    "hk": "支援哪些支付方式？"
+  },
+  {
+    "key": "faq.a2",
+    "zh": "支持信用卡/借记卡（Visa、Mastercard）、PayPal 和 PIX（巴西）。所有支付均通过 Stripe 安全处理。",
+    "hk": "支援信用卡/借记卡（Visa、Mastercard）、PayPal 和 PIX（巴西）。所有支付均通過 Stripe 安全处理。"
+  },
+  {
+    "key": "faq.q3",
+    "zh": "可以取消或修改订单吗？",
+    "hk": "可以取消或修改訂單吗？"
+  },
+  {
+    "key": "faq.a3",
+    "zh": "下单后 2 小时内可联系客服取消或修改。请通过 WhatsApp 或邮件 brands@fjbeauty.com 联系我们并提供订单号。",
+    "hk": "下单后 2 小时内可联系客服取消或修改。请通過 WhatsApp 或邮件 brands@fjbeauty.com 聯絡我們并提供訂單号。"
+  },
+  {
+    "key": "faq.q4",
+    "zh": "配送到哪些国家？",
+    "hk": "配送到哪些國家？"
+  },
+  {
+    "key": "faq.a4",
+    "zh": "目前配送到美国、加拿大、英国、欧盟国家和巴西。更多地区即将开放。详见配送信息页面。",
+    "hk": "目前配送到美国、加拿大、英国、欧盟國家和巴西。更多地区即将開放。详见配送資訊頁面。"
+  },
+  {
+    "key": "faq.q5",
+    "zh": "配送需要多长时间？",
+    "hk": "配送需要多长時間？"
+  },
+  {
+    "key": "faq.a5",
+    "zh": "标准国际配送 7-14 个工作日，快递 3-5 个工作日。订单处理需要 1-2 个工作日。",
+    "hk": "標準国际配送 7-14 个工作日，快遞 3-5 个工作日。訂單处理需要 1-2 个工作日。"
+  },
+  {
+    "key": "faq.q6",
+    "zh": "有关税吗？",
+    "hk": "有关税吗？"
+  },
+  {
+    "key": "faq.a6",
+    "zh": "根据您所在国家/地区的规定，可能产生进口关税，由买家承担。我们依法在商业发票上申报完整价值。",
+    "hk": "根据您所在國家/地区的规定，可能产生进口关税，由買家承担。我们依法在商业發票上申报完整價值。"
+  },
+  {
+    "key": "faq.q7",
+    "zh": "退换政策是什么？",
+    "hk": "退換政策是什么？"
+  },
+  {
+    "key": "faq.a7",
+    "zh": "您有 7 个日历日的反悔权（巴西 CDC 法），可无条件取消并获得全额退款。我们也对缺陷或损坏产品提供 30 天退换。详见退换政策页面。",
+    "hk": "您有 7 个日历日的反悔权（巴西 CDC 法），可无條件取消并获得全额退款。我们也对缺陷或损坏产品提供 30 天退换。详见退換政策頁面。"
+  },
+  {
+    "key": "faq.q8",
+    "zh": "如何申请退货？",
+    "hk": "如何申請退貨？"
+  },
+  {
+    "key": "faq.a8",
+    "zh": "请在 30 天内联系我们 returns@fjbeauty.com，提供订单号和退换原因。我们会在 48 小时内发送退货授权和配送说明。",
+    "hk": "请在 30 天内聯絡我們 returns@fjbeauty.com，提供訂單号和退换原因。我们会在 48 小时内發送退貨授權和配送说明。"
+  },
+  {
+    "key": "faq.q9",
+    "zh": "退款需要多久？",
+    "hk": "退款需要多久？"
+  },
+  {
+    "key": "faq.a9",
+    "zh": "收到退货并检查无误后，退款 10 个工作日内处理。PIX：5 天内。信用卡：最多 2 个账单周期。",
+    "hk": "收到退貨并檢查无误后，退款 10 个工作日内处理。PIX：5 天内。信用卡：最多 2 个账单周期。"
+  },
+  {
+    "key": "faq.q10",
+    "zh": "产品都是正品吗？",
+    "hk": "产品都是正品吗？"
+  },
+  {
+    "key": "faq.a10",
+    "zh": "是的，所有产品 100% 正品，直接来自亚洲品牌官方经销商。我们为每一件售出的产品负责。",
+    "hk": "是的，所有产品 100% 正品，直接来自亚洲品牌官方經銷商。我们为每一件售出的产品負責。"
+  },
+  {
+    "key": "faq.q11",
+    "zh": "如何选择适合我肤质的产品？",
+    "hk": "如何選擇适合我肤质的产品？"
+  },
+  {
+    "key": "faq.a11",
+    "zh": "请查看我们的美妆学堂，了解各肤质的成分指南和护肤方案。也可以联系客服获取个性化推荐。",
+    "hk": "请查看我们的美妝學堂，了解各肤质的成分指南和護膚方案。也可以联系客服获取個性化推薦。"
+  },
+  {
+    "key": "faq.q12",
+    "zh": "提供小样或试用装吗？",
+    "hk": "提供小样或試用装吗？"
+  },
+  {
+    "key": "faq.a12",
+    "zh": "我们会不定期随订单附赠免费小样（数量有限）。部分商品页面提供旅行装/迷你款选项。",
+    "hk": "我们会不定期随訂單附赠免費小样（數量有限）。部分商品頁面提供旅行装/迷你款选项。"
+  },
+  {
+    "key": "returns.page_title",
+    "zh": "退换政策 — F&J",
+    "hk": "退換政策 — F&J"
+  },
+  {
+    "key": "returns.page_desc",
+    "zh": "F&J 退换货政策 — 了解如何退换产品、退款流程和相关条件。",
+    "hk": "F&J 退換貨政策 — 了解如何退换产品、退款流程和相关條件。"
+  },
+  {
+    "key": "returns.breadcrumb",
+    "zh": "退换政策",
+    "hk": "退換政策"
+  },
+  {
+    "key": "returns.heading",
+    "zh": "退换货政策",
+    "hk": "退換貨政策"
+  },
+  {
+    "key": "privacy.page_title",
+    "zh": "隐私政策 — F&J",
+    "hk": "私隱政策 — F&J"
+  },
+  {
+    "key": "privacy.page_desc",
+    "zh": "F&J 隐私政策 — 了解我们如何收集、使用和保护您的个人信息。",
+    "hk": "F&J 私隱政策 — 了解我们如何收集、使用和保護您的个人資訊。"
+  },
+  {
+    "key": "privacy.breadcrumb",
+    "zh": "隐私政策",
+    "hk": "私隱政策"
+  },
+  {
+    "key": "privacy.heading",
+    "zh": "隐私政策",
+    "hk": "私隱政策"
+  },
+  {
+    "key": "terms.page_title",
+    "zh": "服务条款 — F&J",
+    "hk": "服務條款 — F&J"
+  },
+  {
+    "key": "terms.page_desc",
+    "zh": "F&J 服务条款 — 使用本网站即表示您同意以下条款和条件。",
+    "hk": "F&J 服務條款 — 使用本網站即表示您同意以下條款和條件。"
+  },
+  {
+    "key": "terms.breadcrumb",
+    "zh": "服务条款",
+    "hk": "服務條款"
+  },
+  {
+    "key": "terms.heading",
+    "zh": "服务条款",
+    "hk": "服務條款"
+  },
+  {
+    "key": "age.title",
+    "zh": "年龄验证",
+    "hk": "年齡驗證"
+  },
+  {
+    "key": "age.body",
+    "zh": "您必须年满<strong>18周岁</strong>才能访问本商店。确认即声明您已成年。",
+    "hk": "您必须年满<strong>18周岁</strong>才能访问本商店。確認即聲明您已成年。"
+  },
+  {
+    "key": "age.confirm",
+    "zh": "是的，我已年满18周岁",
+    "hk": "是的，我已年满18周岁"
+  },
+  {
+    "key": "age.deny",
+    "zh": "我未满18周岁",
+    "hk": "我未满18周岁"
+  },
+  {
+    "key": "age.terms",
+    "zh": "点击",
+    "hk": "点击"
+  },
+  {
+    "key": "age.restricted_title",
+    "zh": "访问受限",
+    "hk": "访问受限"
+  },
+  {
+    "key": "age.restricted_body",
+    "zh": "抱歉，您必须年满18周岁才能访问我们的化妆品商店。",
+    "hk": "抱歉，您必须年满18周岁才能访问我们的化妆品商店。"
+  },
+  {
+    "key": "age.redirect",
+    "zh": "您将在<span id=",
+    "hk": "您将在<span id="
+  }
+]

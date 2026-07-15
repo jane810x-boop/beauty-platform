@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Product — F&amp;J</title>
+<meta name="description" content="Product detail page">
+<link rel="canonical" href="https://fjbeauty.com/product.html">
+<meta property="og:type" content="product">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=3">
+  <script src="js/layout.js?v=2"></script>
+<script src="js/i18n.js"></script>
+</head>
+<body>
+
+<div id="header-mount" data-nav="shop"></div>
+
+<div class="container">
+  <div class="breadcrumb" id="breadcrumb"></div>
+</div>
+
+<section class="section" style="padding-top:1rem">
+  <div class="container">
+    <div id="product-container">
+      <div style="text-align:center;padding:6rem 2rem;">
+        <div style="font-size:4rem;margin-bottom:1rem;">🔍</div>
+        <h3 data-i18n="product.not_found" data-i18n-en="Product Not Found">未找到商品</h3>
+        <p style="color:var(--text-light);margin-bottom:2rem;" data-i18n="product.not_found_desc" data-i18n-en="The product you're looking for doesn't exist or has been removed.">您要找的商品不存在或已被移除。</p>
+        <a href="shop.html" class="btn btn-primary" data-i18n="product.browse" data-i18n-en="Browse Products">瀏覽商品</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- You May Also Like -->
+<section class="section section-light">
+  <div class="container">
+    <h2 class="section-title" data-i18n="product.related" data-i18n-en="You May Also Like">相關推薦</h2>
+    <p class="section-subtitle" data-i18n="product.related_sub" data-i18n-en="Other customers also loved these">看看別人還喜歡什麼</p>
+    <div class="product-grid" id="related-grid"></div>
+  </div>
+</section>
+
+<!-- Reviews Section -->
+<section class="section" id="reviews-section">
+  <div class="container">
+    <h2 class="section-title" data-i18n="reviews.title" data-i18n-en="Customer Reviews">用戶評價</h2>
+    <p class="section-subtitle" data-i18n="reviews.subtitle" data-i18n-en="Real reviews from real customers">來自真實用戶的評價</p>
+    <div class="reviews-layout">
+      <div id="reviews-list" class="reviews-list-container"></div>
+      <div id="review-form-container" class="review-form-sidebar"></div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-mount"></div>
+
+<script src="js/products.js"></script>
+<script src="js/api.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/wishlist.js"></script>
+<script src="js/analytics.js"></script>
+<script src="js/reviews.js"></script>
+<script src="js/main.js"></script>
+<script src="js/site-config.js"></script>
+<script src="js/whatsapp.js"></script>
+<script src="js/age-verify.js"></script>
+<script src="js/lgpd-cookie.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  const params = new URLSearchParams(window.location.search);
+  const productId = params.get('id');
+
+  // 優先從 API 加載（支持數據庫新增的產品）
+  let product = null;
+  let apiData = null;
+
+  // 先從合並數據中查找
+  if (typeof ProductAPI !== 'undefined') {
+    allProducts = await ProductAPI.getAllProducts();
+    product = allProducts.find(p => p.id === productId);
+    // 如果在合並數據中找到且來自API，直接用
+    if (product && product._source === 'api') {
+      apiData = product;
+    } else if (product) {
+      // 靜態數據的產品，嘗試獲取增強信息
+      try {
+        const result = await ProductAPI.getBySlug(productId);
+        if (result && result.product) {
+          apiData = result.product;
+          // 合並API增強字段到靜態產品
+          product = { ...product, ...apiData };
+        }
+      } catch (e) { /* use static data as-is */ }
+    }
+  }
+
+  // 降級：從靜態 PRODUCTS 中找
+  if (!product) {
+    product = getProduct(productId);
+  }
+
+  if (!product) {
+    document.getElementById('product-container').innerHTML = '<p style="text-align:center;padding:4rem;">Product not found</p>';
+    return;
+  }
+
+  // Analytics: track product view
+  if (window.FJAnalytics) {
+    FJAnalytics.viewItem({ id: product.id, name: product.name, brand: product.brand, category: product.category, price: product.price });
+  }
+
+  const brand = getBrand(product.brand);
+  const cat = getCategory(product.category);
+  const isZh = typeof getLang === 'function' && getLang() === 'zhHK';
+  const productName = isZh && product.nameZh ? product.nameZh : product.name;
+  const productDesc = isZh && product.descZh ? product.descZh : product.desc;
+
+  // Merge API data with static data (API takes priority for new fields)
+  const mainImage = (apiData && apiData.image) || product.image || '';
+  const galleryImages = (apiData && apiData.images && apiData.images.length > 0) ? apiData.images : (mainImage ? [mainImage] : []);
+  const ingredientsText = (apiData && apiData.ingredients) || '';
+  const howToUseText = (apiData && apiData.how_to_use) || '';
+  const shippingInfoText = (apiData && apiData.shipping_info) || '';
+  const detailHtml = (apiData && apiData.detail_html) || '';
+
+  document.title = productName + ' — F&amp;J';
+
+  // --- Dynamic SEO: update meta tags, OG tags, canonical, and JSON-LD ---
+  (function updateSEO() {
+    // Meta description
+    var metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', productDesc.substring(0, 160));
+    }
+
+    // Canonical URL
+    var canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) {
+      canonical.setAttribute('href', window.location.origin + window.location.pathname + '?id=' + encodeURIComponent(product.id));
+    }
+
+    // Open Graph tags
+    var ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.setAttribute('content', productName + ' — F&J Beauty');
+    else {
+      ogTitle = document.createElement('meta');
+      ogTitle.setAttribute('property', 'og:title');
+      ogTitle.setAttribute('content', productName + ' — F&J Beauty');
+      document.head.appendChild(ogTitle);
+    }
+
+    var ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc) {
+      ogDesc.setAttribute('content', productDesc.substring(0, 160));
+    } else {
+      ogDesc = document.createElement('meta');
+      ogDesc.setAttribute('property', 'og:description');
+      ogDesc.setAttribute('content', productDesc.substring(0, 160));
+      document.head.appendChild(ogDesc);
+    }
+
+    var ogImage = document.querySelector('meta[property="og:image"]');
+    if (!ogImage && mainImage) {
+      ogImage = document.createElement('meta');
+      ogImage.setAttribute('property', 'og:image');
+      ogImage.setAttribute('content', new URL(mainImage, window.location.origin).href);
+      document.head.appendChild(ogImage);
+    }
+
+    var ogUrl = document.querySelector('meta[property="og:url"]');
+    if (!ogUrl) {
+      ogUrl = document.createElement('meta');
+      ogUrl.setAttribute('property', 'og:url');
+      ogUrl.setAttribute('content', window.location.href);
+      document.head.appendChild(ogUrl);
+    } else {
+      ogUrl.setAttribute('content', window.location.href);
+    }
+
+    // Twitter Card
+    var twTitle = document.querySelector('meta[name="twitter:title"]');
+    if (!twTitle) {
+      twTitle = document.createElement('meta');
+      twTitle.setAttribute('name', 'twitter:title');
+      document.head.appendChild(twTitle);
+    }
+    twTitle.setAttribute('content', productName + ' — F&J Beauty');
+
+    var twDesc = document.querySelector('meta[name="twitter:description"]');
+    if (!twDesc) {
+      twDesc = document.createElement('meta');
+      twDesc.setAttribute('name', 'twitter:description');
+      document.head.appendChild(twDesc);
+    }
+    twDesc.setAttribute('content', productDesc.substring(0, 160));
+
+    // Product JSON-LD structured data
+    var existingLd = document.getElementById('product-jsonld');
+    if (existingLd) existingLd.remove();
+
+    var jsonLd = document.createElement('script');
+    jsonLd.id = 'product-jsonld';
+    jsonLd.type = 'application/ld+json';
+    jsonLd.textContent = JSON.stringify({
+      '@context': 'https://schema.org/',
+      '@type': 'Product',
+      'name': productName,
+      'description': productDesc.substring(0, 300),
+      'brand': {
+        '@type': 'Brand',
+        'name': brand.name
+      },
+      'category': cat.name,
+      'image': mainImage ? [new URL(mainImage, window.location.origin).href] : undefined,
+      'offers': {
+        '@type': 'Offer',
+        'price': product.price,
+        'priceCurrency': 'USD',
+        'availability': product.originalPrice ? 'https://schema.org/InStock' : 'https://schema.org/InStock',
+        'url': window.location.href
+      },
+      'aggregateRating': {
+        '@type': 'AggregateRating',
+        'ratingValue': product.rating,
+        'reviewCount': product.reviews
+      }
+    });
+    document.head.appendChild(jsonLd);
+  })();
+  document.getElementById('breadcrumb').innerHTML =
+    `<a href="index.html" data-i18n="nav.home" data-i18n-en="Home">首頁</a> <span>/</span> <a href="shop.html?cat=${product.category}">${cat.name}</a> <span>/</span> ${productName}`;
+
+  const priceHTML = product.originalPrice
+    ? `<span class="price-current">${formatPrice(product.price)}</span>
+       <span class="price-original">${formatPrice(product.originalPrice)}</span>
+       <span class="price-discount">${t('product.save')} ${formatPrice(product.originalPrice - product.price)}</span>`
+    : `<span class="price-current">${formatPrice(product.price)}</span>`;
+
+  const sizesHTML = product.sizes.map((s, i) =>
+    `<button class="option-btn ${i === 0 ? 'selected' : ''}" data-size="${s}">${s}</button>`
+  ).join('');
+
+  const stars = renderStars(product.rating);
+
+  // Build gallery HTML
+  let galleryMainHTML = '';
+  let galleryThumbsHTML = '';
+  if (galleryImages.length > 0) {
+    galleryMainHTML = `<img src="${galleryImages[0]}" alt="${productName}" class="gallery-main-img" onerror="this.style.display='none';this.parentElement.querySelector('.gallery-main-placeholder').style.display='flex'">`;
+    galleryThumbsHTML = galleryImages.map((img, i) =>
+      `<div class="gallery-thumb ${i === 0 ? 'active' : ''}" data-img="${img}"><div class="gallery-thumb-placeholder"><img src="${img}" alt="" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.parentElement.style.display='none'"></div></div>`
+    ).join('');
+  } else {
+    galleryMainHTML = '';
+    galleryThumbsHTML = '';
+  }
+
+  // Build detail tab content
+  let detailTabsHTML;
+  if (detailHtml) {
+    // Custom HTML overrides all tabs
+    detailTabsHTML = `
+      <div class="detail-tabs">
+        <div class="tab-nav">
+          <button class="tab-btn active" onclick="switchTab('desc')" data-i18n="product.desc" data-i18n-en="Description">商品描述</button>
+        </div>
+        <div class="tab-content">
+          <div class="tab-panel active" data-tab="desc">${detailHtml}</div>
+        </div>
+      </div>`;
+  } else {
+    const ingredientsPanel = ingredientsText
+      ? `<p style="white-space:pre-line;">${ingredientsText}</p>`
+      : `<p>${t('product.ingredients_text')}</p>`;
+    const howToPanel = howToUseText
+      ? `<p style="white-space:pre-line;">${howToUseText}</p>`
+      : `<p>${t('product.howto_text')}</p>`;
+    const shippingPanel = shippingInfoText
+      ? `<p style="white-space:pre-line;">${shippingInfoText}</p>`
+      : `<p><strong>${t('product.shipping_free')}</strong></p><p style="margin-top:0.5rem;">${t('product.shipping_details')}</p><p style="margin-top:0.5rem;font-size:0.8rem;color:var(--text-muted);">${t('product.shipping_brazil')}</p>`;
+
+    detailTabsHTML = `
+      <div class="detail-tabs">
+        <div class="tab-nav">
+          <button class="tab-btn active" onclick="switchTab('desc')" data-i18n="product.desc" data-i18n-en="Description">商品描述</button>
+          <button class="tab-btn" onclick="switchTab('ingredients')">${t('product.ingredients')}</button>
+          <button class="tab-btn" onclick="switchTab('howto')">${t('product.howto')}</button>
+          <button class="tab-btn" onclick="switchTab('shipping')">${t('product.shipping_tab')}</button>
+        </div>
+        <div class="tab-content">
+          <div class="tab-panel active" data-tab="desc">
+            <p>${productDesc}</p>
+            <p style="margin-top:1rem;">${t('product.brand_label')} <strong><a href="shop.html?brand=${product.brand}">${brand.name}</a></strong> (${brand.origin})</p>
+            <p>${t('product.available_sizes')} ${product.sizes.join(', ')}</p>
+          </div>
+          <div class="tab-panel" data-tab="ingredients">${ingredientsPanel}</div>
+          <div class="tab-panel" data-tab="howto">${howToPanel}</div>
+          <div class="tab-panel" data-tab="shipping">${shippingPanel}</div>
+        </div>
+      </div>`;
+  }
+
+  const container = document.getElementById('product-container');
+  container.innerHTML = `
+    <div class="product-detail">
+      <div class="product-gallery">
+        <div class="gallery-main">
+          ${galleryMainHTML}
+          <div class="gallery-main-placeholder" style="${galleryImages.length > 0 ? 'display:none' : ''}">${brand.emoji}</div>
+        </div>
+        <div class="gallery-thumbs">${galleryThumbsHTML}</div>
+      </div>
+      <div class="product-detail-info">
+        <div class="product-detail-brand">
+          <a href="shop.html?brand=${product.brand}">${brand.name}</a> · ${brand.origin}
+        </div>
+        <h1>${productName}</h1>
+        <div class="detail-rating">
+          <span class="stars">★ ${product.rating}</span>
+          <span style="color:var(--text-muted)">${product.reviews} ${t('product.reviews')}</span>
+        </div>
+        <div class="detail-price">${priceHTML}</div>
+        <p class="detail-desc">${productDesc}</p>
+        <div class="detail-options">
+          <div class="option-label" data-i18n="product.size" data-i18n-en="Size">規格</div>
+          <div class="option-btns" id="size-options">${sizesHTML}</div>
+        </div>
+        <div class="detail-qty">
+          <span class="option-label" data-i18n="product.qty" data-i18n-en="Quantity">數量</span>
+          <div class="qty-controls">
+            <button class="qty-btn" onclick="changeQty(-1)">−</button>
+            <input type="number" class="qty-input" id="qty-input" value="1" min="1" max="10">
+            <button class="qty-btn" onclick="changeQty(1)">+</button>
+          </div>
+        </div>
+        <button class="add-to-cart-btn" onclick="addToCartHandler()"><span data-i18n="product.add_cart" data-i18n-en="Add to Cart">加入購物車</span> — ${formatPrice(product.price)}</button>
+        <button class="wishlist-detail-btn" id="detail-wishlist-btn" onclick="toggleWishlist('${product.id}')">${isWishlisted(product.id) ? '♥' : '♡'} <span data-i18n="product.wishlist" data-i18n-en="Wishlist">收藏</span></button>
+        <div style="display:flex;gap:2rem;margin-top:1.5rem;font-size:0.85rem;color:var(--text-muted);">
+          <span>${t('product.authentic')}</span>
+          <span>${t('product.free_shipping_badge')}</span>
+          <span>${t('product.returns_badge')}</span>
+        </div>
+        ${detailTabsHTML}
+      </div>
+    </div>
+  `;
+
+  // Size selection
+  document.getElementById('size-options').addEventListener('click', (e) => {
+    if (e.target.classList.contains('option-btn')) {
+      document.querySelectorAll('#size-options .option-btn').forEach(b => b.classList.remove('selected'));
+      e.target.classList.add('selected');
+    }
+  });
+
+  // Gallery thumb switching — update main image
+  const thumbsContainer = document.querySelector('.gallery-thumbs');
+  if (thumbsContainer) {
+    thumbsContainer.addEventListener('click', (e) => {
+      const thumb = e.target.closest('.gallery-thumb');
+      if (thumb) {
+        document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
+        thumb.classList.add('active');
+        const imgSrc = thumb.dataset.img;
+        if (imgSrc) {
+          const mainImg = document.querySelector('.gallery-main-img');
+          const placeholder = document.querySelector('.gallery-main-placeholder');
+          if (mainImg) {
+            mainImg.src = imgSrc;
+            mainImg.style.display = '';
+            if (placeholder) placeholder.style.display = 'none';
+          }
+        }
+      }
+    });
+  }
+
+  // Related products: same category, excluding current
+  const related = (allProducts || PRODUCTS).filter(p => p.category === product.category && p.id !== product.id).slice(0, 4);
+  if (related.length > 0) {
+    document.getElementById('related-grid').innerHTML = related.map(renderProductCard).join('');
+    if (typeof updateWishlistUI === 'function') updateWishlistUI();
+  } else {
+    document.querySelector('.section-light').style.display = 'none';
+  }
+
+  // Initialize reviews
+  if (typeof initReviews === 'function') {
+    initReviews(product.id);
+  }
+});
+
+function changeQty(delta) {
+  const input = document.getElementById('qty-input');
+  let val = parseInt(input.value) + delta;
+  if (val < 1) val = 1;
+  if (val > 10) val = 10;
+  input.value = val;
+}
+
+function addToCartHandler() {
+  const params = new URLSearchParams(window.location.search);
+  const productId = params.get('id');
+  const sizeBtn = document.querySelector('#size-options .option-btn.selected');
+  const size = sizeBtn ? sizeBtn.dataset.size : null;
+  const qty = parseInt(document.getElementById('qty-input').value);
+  addToCart(productId, size, qty);
+}
+
+function switchTab(tabName) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelector(`.tab-btn[onclick*="${tabName}"]`).classList.add('active');
+  document.querySelector(`.tab-panel[data-tab="${tabName}"]`).classList.add('active');
+}
+</script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
